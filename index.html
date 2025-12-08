@@ -516,6 +516,128 @@
       margin-left: 0.5rem;
     }
 
+    /* Careers & Billing */
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: 1.6rem;
+      align-items: start;
+    }
+
+    .card {
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1rem;
+      background: rgba(8, 12, 31, 0.95);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.35rem;
+    }
+
+    .card p {
+      margin-top: 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.5rem 0 0.85rem;
+    }
+
+    .pill-row .chip {
+      border-color: rgba(94, 242, 255, 0.28);
+      color: var(--text-main);
+      background: rgba(94, 242, 255, 0.05);
+    }
+
+    .list {
+      margin: 0.4rem 0 0;
+      padding-left: 1.1rem;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.82rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .highlight {
+      color: var(--accent);
+    }
+
+    .billing-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 0.8rem 0 1rem;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.9rem;
+    }
+
+    .status-tile {
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      padding: 0.75rem 0.8rem;
+      background: rgba(5, 8, 22, 0.9);
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .status-tile strong {
+      display: block;
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline {
+      margin: 0.8rem 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.65rem;
+      font-size: 0.88rem;
+    }
+
+    .timeline li {
+      position: relative;
+      padding-left: 1.4rem;
+      color: var(--text-muted);
+    }
+
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.45rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(94, 242, 255, 0.55);
+    }
+
     /* Contact */
 
     .contact-grid {
@@ -606,6 +728,7 @@
       .hero,
       .contact-grid,
       .initiative,
+      .info-grid,
       .solutions-grid {
         grid-template-columns: minmax(0, 1fr);
       }
@@ -660,6 +783,8 @@
           <a href="#solutions">Solutions</a>
           <a href="#initiative">2030 Data Centers</a>
           <a href="#automation">Robotics & Automation</a>
+          <a href="#careers">Careers</a>
+          <a href="#billing">Billing</a>
           <a href="#contact">Contact</a>
         </div>
         <a href="#contact" class="btn btn-primary nav-cta">Request a Quote</a>
@@ -897,6 +1022,180 @@
                 Schedule a discovery call
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Careers -->
+      <section class="section" id="careers">
+        <div class="section-heading">
+          <div>
+            <h2>Apply to work with our build & operations teams.</h2>
+          </div>
+          <p>
+            Field construction, project management, and automation specialists can
+            submit their details here. We respond with role matches and next steps
+            in the same week.
+          </p>
+        </div>
+
+        <div class="info-grid">
+          <div class="card">
+            <div class="badge">Now accepting 2024 applicants</div>
+            <h3>Share your profile</h3>
+            <p>
+              Tell us how you’d like to work with us. Provide your availability
+              and the type of projects you prefer so we can slot you into the
+              right crew.
+            </p>
+            <form>
+              <div class="field">
+                <label for="app-name">Full name*</label>
+                <input id="app-name" name="app-name" type="text" placeholder="Taylor Smith" required />
+              </div>
+              <div class="field">
+                <label for="app-email">Email & phone*</label>
+                <input id="app-email" name="app-email" type="text" placeholder="taylor@example.com / (555) 123‑4567" required />
+              </div>
+              <div class="field">
+                <label for="app-role">Role interest*</label>
+                <select id="app-role" name="app-role" required>
+                  <option value="">Select a track</option>
+                  <option>Field construction & install crews</option>
+                  <option>Project management / supervision</option>
+                  <option>Automation & controls technicians</option>
+                  <option>Commissioning & QA</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="app-availability">Availability & region</label>
+                <input
+                  id="app-availability"
+                  name="app-availability"
+                  type="text"
+                  placeholder="e.g., Available June 15 • TX / NM / Remote"
+                />
+              </div>
+              <div class="field">
+                <label for="app-resume">Resume or project list</label>
+                <input id="app-resume" name="app-resume" type="file" />
+              </div>
+              <div class="field">
+                <label for="app-notes">Notes</label>
+                <textarea
+                  id="app-notes"
+                  name="app-notes"
+                  placeholder="Preferred sites, crew size, certifications (OSHA, NABCEP, PLC experience), travel limits."
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit application</button>
+              <div class="form-footnote">We review weekly and respond with next steps.</div>
+            </form>
+          </div>
+
+          <div class="card">
+            <h3>Where you can plug in</h3>
+            <p>Priority requests for upcoming utility & commercial projects:</p>
+            <div class="pill-row">
+              <span class="chip">Solar & BESS electricians</span>
+              <span class="chip">Site supervisors</span>
+              <span class="chip">Automation techs</span>
+              <span class="chip">Safety leads</span>
+            </div>
+            <ul class="list">
+              <li><strong class="highlight">Utility solar builds:</strong> tracker assembly, MV terminations, commissioning support.</li>
+              <li><strong class="highlight">Commercial & home installs:</strong> rooftops, carports, ground‑mount, storage tie‑ins.</li>
+              <li><strong class="highlight">Automation & controls:</strong> PLC panel wiring, robotics O&M, SCADA device bring‑up.</li>
+              <li>Flexible engagement: direct hire, contract crews, or project‑by‑project.</li>
+            </ul>
+            <div class="status-grid">
+              <div class="status-tile">
+                <strong>Response time</strong>
+                Within 3 business days for new applicants.
+              </div>
+              <div class="status-tile">
+                <strong>Clear onboarding</strong>
+                Badging, site safety, and schedule provided before mobilization.
+              </div>
+              <div class="status-tile">
+                <strong>Project cadence</strong>
+                Utility builds (multi‑month) and rapid C&I / residential slots.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Billing -->
+      <section class="section" id="billing">
+        <div class="section-heading">
+          <div>
+            <h2>Billing center: upload or download your files.</h2>
+          </div>
+          <p>
+            Whether you’re a business client or a homeowner, use this portal to
+            upload invoices and timesheets or download the latest statements and
+            billing packages.
+          </p>
+        </div>
+
+        <div class="info-grid">
+          <div class="card">
+            <h3>Upload your billing</h3>
+            <p>Send in invoices, timesheets, or support docs.</p>
+            <form>
+              <div class="field">
+                <label for="bill-name">Account name*</label>
+                <input id="bill-name" name="bill-name" type="text" placeholder="Acme Logistics / Jane Homeowner" required />
+              </div>
+              <div class="field">
+                <label for="bill-type">Account type*</label>
+                <select id="bill-type" name="bill-type" required>
+                  <option value="">Choose one</option>
+                  <option>Business install / service</option>
+                  <option>Home solar / storage</option>
+                  <option>Operations & maintenance</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="bill-file">Upload billing file*</label>
+                <input id="bill-file" name="bill-file" type="file" required />
+              </div>
+              <div class="field">
+                <label for="bill-notes">Notes</label>
+                <textarea
+                  id="bill-notes"
+                  name="bill-notes"
+                  placeholder="Include PO, service window, or site name so we can match it quickly."
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Upload billing file</button>
+              <div class="form-footnote">You’ll get a confirmation email once processed.</div>
+            </form>
+          </div>
+
+          <div class="card">
+            <h3>Download statements</h3>
+            <p>Track when new packages are ready for business or home accounts.</p>
+            <div class="billing-cta">
+              <a class="btn btn-primary" href="#">Download latest statement</a>
+              <a class="btn btn-ghost" href="#">Request prior invoices</a>
+            </div>
+            <div class="status-grid">
+              <div class="status-tile">
+                <strong>Business installs</strong>
+                Statements posted every Friday by 6pm. Next drop: <span class="highlight">May 16</span>.
+              </div>
+              <div class="status-tile">
+                <strong>Home solar & storage</strong>
+                Statements released on the 1st and 15th. Next: <span class="highlight">May 15</span>.
+              </div>
+            </div>
+            <ul class="timeline">
+              <li><strong>Upload window:</strong> Mon–Thu 7am–7pm for fastest turnaround.</li>
+              <li><strong>Confirmation:</strong> Email with ticket ID within 24 hours of upload.</li>
+              <li><strong>Download notice:</strong> You’ll receive a link when new statements are posted.</li>
+            </ul>
           </div>
         </div>
       </section>
