@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Company Name | Clean Energy & Automation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #0b1020;
+      --card-bg: #101629;
+      --accent: #35d49f;
+      --accent-soft: rgba(53, 212, 159, 0.18);
+      --text-main: #f7f7ff;
+      --text-muted: #a7b0c8;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --danger: #ff6b6b;
+      --max-width: 1120px;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+      --transition-fast: 0.18s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #141b38 0, #050816 55%, #02030a 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 8, 22, 0.88),
+        rgba(5, 8, 22, 0.72),
+        transparent
+      );
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.86rem;
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 20%, #7fffd4, #0abf88 40%, #050816);
+      box-shadow: 0 0 24px rgba(53, 212, 159, 0.7);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), #5ef2ff);
+      border-radius: 999px;
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2.6rem 1.25rem;
+    }
+
+    /* Hero */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      align-items: center;
+      gap: 2.5rem;
+      padding-top: 3rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(9, 242, 156, 0.06);
+      border: 1px solid rgba(9, 242, 156, 0.35);
+      color: var(--accent);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.9rem;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(53, 212, 159, 0.9);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 3.5vw + 1rem, 3.4rem);
+      line-height: 1.05;
+      margin: 0 0 1rem;
+    }
+
+    .hero h1 span.accent {
+      background: linear-gradient(120deg, #7fffd4, #5ef2ff, #e2ffe9);
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 34px rgba(94, 242, 255, 0.25);
+    }
+
+    .hero-sub {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .pill {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(9, 11, 28, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .pill strong {
+      color: var(--text-main);
+      font-weight: 550;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.3rem;
+      font-size: 0.9rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: none;
+      color: inherit;
+      transition: background var(--transition-fast), transform var(--transition-fast),
+        box-shadow var(--transition-fast), border-color var(--transition-fast);
+      text-decoration: none;
+      gap: 0.4rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, #0abf88, #35d49f, #5ef2ff);
+      color: #050816;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(10, 191, 136, 0.55);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(10, 191, 136, 0.7);
+    }
+
+    .btn-ghost {
+      border-color: var(--border-subtle);
+      background: rgba(5, 8, 22, 0.7);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(14, 19, 46, 0.9);
+      border-color: rgba(94, 242, 255, 0.45);
+      color: var(--text-main);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-panel {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at top, #20284a, #050816);
+      padding: 1.2rem 1.25rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      font-size: 0.82rem;
+    }
+
+    .hero-card {
+      border-radius: 14px;
+      padding: 0.8rem 0.85rem;
+      background: rgba(4, 7, 24, 0.96);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(94, 242, 255, 0.2), transparent 55%);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+      pointer-events: none;
+    }
+
+    .hero-card:hover::before {
+      opacity: 1;
+    }
+
+    .hero-card-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .hero-card-title {
+      font-weight: 600;
+    }
+
+    .hero-card-tag {
+      margin-top: 0.15rem;
+      font-size: 0.72rem;
+      color: var(--accent);
+    }
+
+    .hero-card-metric {
+      margin-top: 0.25rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-ribbon {
+      margin-top: 0.75rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-ribbon span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(9, 242, 156, 0.08);
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    /* Solutions Section */
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .section-heading p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 28rem;
+    }
+
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    .solution-card {
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      background: rgba(8, 12, 31, 0.95);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        border-color var(--transition-fast);
+    }
+
+    .solution-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(94, 242, 255, 0.35);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.6);
+    }
+
+    .solution-icon {
+      font-size: 1.5rem;
+    }
+
+    .solution-title {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .solution-body {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      flex: 1;
+      line-height: 1.5;
+    }
+
+    .solution-meta {
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-top: 0.2rem;
+    }
+
+    .solution-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.7rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .chip {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* 2030 Initiative */
+
+    .initiative {
+      margin-top: 1.5rem;
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1.15rem;
+      background: radial-gradient(circle at top left, #182b46, #050816);
+      border: 1px solid var(--border-subtle);
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    .initiative-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    .initiative h3 {
+      margin: 0.7rem 0 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .initiative p {
+      margin: 0 0 0.8rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .initiative-list {
+      margin: 0;
+      padding-left: 1rem;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .initiative-list li + li {
+      margin-top: 0.25rem;
+    }
+
+    .initiative-metric {
+      font-size: 0.86rem;
+      color: var(--accent);
+      margin-top: 0.5rem;
+    }
+
+    .initiative-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .initiative-tagline {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .initiative-stat {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .initiative-stat span {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-left: 0.5rem;
+    }
+
+    /* Contact */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.8rem;
+    }
+
+    .contact-copy p {
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 26rem;
+    }
+
+    form {
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1rem;
+      background: rgba(8, 12, 31, 0.95);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.25rem;
+      font-size: 0.82rem;
+    }
+
+    label {
+      color: var(--text-muted);
+    }
+
+    input,
+    select,
+    textarea {
+      font: inherit;
+      padding: 0.5rem 0.6rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(5, 8, 22, 0.95);
+      color: var(--text-main);
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast),
+        background var(--transition-fast);
+      resize: vertical;
+      min-height: 38px;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(94, 242, 255, 0.6);
+      box-shadow: 0 0 0 1px rgba(94, 242, 255, 0.35);
+      background: rgba(5, 8, 22, 1);
+    }
+
+    textarea {
+      min-height: 80px;
+    }
+
+    .form-footnote {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 1.1rem 1.25rem 1.8rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .hero,
+      .contact-grid,
+      .initiative,
+      .solutions-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 2.4rem;
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .section {
+        padding-inline: 1rem;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        display: inline-flex;
+      }
+
+      .section {
+        padding-block: 2.2rem;
+      }
+
+      .solutions-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Top Nav -->
+    <header>
+      <nav class="nav">
+        <a href="#" class="nav-brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <span>Your Company Name</span>
+        </a>
+        <div class="nav-links">
+          <a href="#solutions">Solutions</a>
+          <a href="#initiative">2030 Data Centers</a>
+          <a href="#automation">Robotics & Automation</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <a href="#contact" class="btn btn-primary nav-cta">Request a Quote</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="section hero" id="top">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Integrated Energy & Automation
+          </div>
+          <h1>
+            Utility‑Scale <span class="accent">Solar, Storage</span> & Automation
+            for 2030 and Beyond.
+          </h1>
+          <p class="hero-sub">
+            We design, build, and integrate utility‑grade solar, commercial solar,
+            advanced battery systems, and automated data center infrastructure—
+            engineered to meet your 2030 decarbonization and growth targets.
+          </p>
+          <div class="hero-meta">
+            <div class="pill">
+              <strong>Utility & Commercial</strong>
+              <span>solar, storage, robotics</span>
+            </div>
+            <div class="pill">
+              <strong>Turnkey Delivery</strong>
+              <span>design → commissioning</span>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">
+              Talk to our team →
+            </a>
+            <a href="#solutions" class="btn btn-ghost">
+              View all solutions
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-panel">
+            <div class="hero-grid">
+              <div class="hero-card">
+                <div class="hero-card-label">Utility‑Grade Solar</div>
+                <div class="hero-card-title">Grid‑scale PV & hybrid plants</div>
+                <div class="hero-card-tag">>50&nbsp;MW deployments</div>
+                <div class="hero-card-metric">Fixed‑tilt & tracking, SCADA‑ready.</div>
+              </div>
+              <div class="hero-card">
+                <div class="hero-card-label">Energy Storage</div>
+                <div class="hero-card-title">Utility‑grade battery systems</div>
+                <div class="hero-card-tag">BESS / microgrids / peak‑shaving</div>
+                <div class="hero-card-metric">
+                  Containerized & building‑integrated architectures.
+                </div>
+              </div>
+              <div class="hero-card">
+                <div class="hero-card-label">Data Centers</div>
+                <div class="hero-card-title">2030 clean‑power roadmap</div>
+                <div class="hero-card-tag">On‑site solar + storage</div>
+                <div class="hero-card-metric">Resilient, low‑carbon infrastructure.</div>
+              </div>
+              <div class="hero-card">
+                <div class="hero-card-label">Robotics & Automation</div>
+                <div class="hero-card-title">Industrial automation</div>
+                <div class="hero-card-tag">PV O&M • logistics • plants</div>
+                <div class="hero-card-metric">
+                  Robotics, PLCs, and control systems integration.
+                </div>
+              </div>
+            </div>
+            <div class="hero-ribbon">
+              <span>✓</span>
+              End‑to‑end engineering, procurement, construction, and automation
+              integration.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Solutions -->
+      <section class="section" id="solutions">
+        <div class="section-heading">
+          <div>
+            <h2>Solutions across your entire energy & automation stack.</h2>
+          </div>
+          <p>
+            One partner to deliver solar, storage, data center power, and industrial
+            automation—designed to interoperate from day one.
+          </p>
+        </div>
+
+        <div class="solutions-grid">
+          <!-- Utility Solar -->
+          <article class="solution-card">
+            <div class="solution-icon">⚡</div>
+            <div class="solution-title">Utility‑Grade Solar</div>
+            <div class="solution-body">
+              Design and deployment of utility‑scale PV plants, from early‑stage
+              feasibility and interconnection studies to EPC and O&M.
+            </div>
+            <div class="solution-meta">
+              Fixed‑tilt & tracker • grid integration • SCADA & monitoring.
+            </div>
+            <div class="solution-foot">
+              <span class="chip">Utility & IPP customers</span>
+              <span>Typical: 20–300&nbsp;MW</span>
+            </div>
+          </article>
+
+          <!-- Commercial Solar -->
+          <article class="solution-card">
+            <div class="solution-icon">🏢</div>
+            <div class="solution-title">Commercial & Industrial Solar</div>
+            <div class="solution-body">
+              Rooftop, carport, and ground‑mount systems optimized for commercial
+              facilities, manufacturing, logistics campuses, and campuses.
+            </div>
+            <div class="solution-meta">
+              Tariff analysis • load profiling • turnkey deployment.
+            </div>
+            <div class="solution-foot">
+              <span class="chip">C&I portfolios</span>
+              <span>100&nbsp;kW – 20&nbsp;MW</span>
+            </div>
+          </article>
+
+          <!-- Batteries -->
+          <article class="solution-card">
+            <div class="solution-icon">🔋</div>
+            <div class="solution-title">Utility‑Grade Batteries & Storage</div>
+            <div class="solution-body">
+              Battery energy storage systems (BESS) engineered for peak‑shaving,
+              backup power, frequency response, and solar‑plus‑storage plants.
+            </div>
+            <div class="solution-meta">
+              Containerized systems • layered safety • controls integration.
+            </div>
+            <div class="solution-foot">
+              <span class="chip">Lithium‑ion & hybrid</span>
+              <span>1–200&nbsp;MWh+ systems</span>
+            </div>
+          </article>
+
+          <!-- Data Centers -->
+          <article class="solution-card">
+            <div class="solution-icon">🖥️</div>
+            <div class="solution-title">Data Centers: 2030 Target</div>
+            <div class="solution-body">
+              Clean‑power roadmaps for new and existing data centers, aligning
+              on‑site solar, storage, and automation with 2030 sustainability and
+              uptime targets.
+            </div>
+            <div class="solution-meta">
+              Power architecture • resiliency planning • PPA / onsite blends.
+            </div>
+            <div class="solution-foot">
+              <span class="chip">Hyperscale & edge</span>
+              <span>2030‑aligned pathways</span>
+            </div>
+          </article>
+
+          <!-- Robotics -->
+          <article class="solution-card" id="automation">
+            <div class="solution-icon">🤖</div>
+            <div class="solution-title">Robotics & Industrial Automation</div>
+            <div class="solution-body">
+              Robotics and controls for solar O&M, warehouses, manufacturing lines,
+              and energy assets—integrated with your existing OT / IT stack.
+            </div>
+            <div class="solution-meta">
+              PLCs • SCADA • robotic cells • autonomous inspection.
+            </div>
+            <div class="solution-foot">
+              <span class="chip">Automation engineering</span>
+              <span>From pilot → scale</span>
+            </div>
+          </article>
+
+          <!-- Integration -->
+          <article class="solution-card">
+            <div class="solution-icon">✨</div>
+            <div class="solution-title">Full‑Stack Integration & EPC</div>
+            <div class="solution-body">
+              Bring all of the above together: one team to engineer, procure,
+              construct, and automate your entire energy and infrastructure stack.
+            </div>
+            <div class="solution-meta">
+              Single‑throat‑to‑choke delivery with clear performance KPIs.
+            </div>
+            <div class="solution-foot">
+              <span class="chip">EPC + integration</span>
+              <span>Design → commissioning</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- 2030 Initiative -->
+        <div class="initiative" id="initiative">
+          <div>
+            <div class="initiative-badge">
+              2030 Data Center Initiative
+            </div>
+            <h3>Clean‑powered data centers, engineered for 2030 targets.</h3>
+            <p>
+              We help operators transition to high‑availability, low‑carbon
+              infrastructure—combining on‑site solar, storage, and automation with
+              grid and PPA strategies.
+            </p>
+            <ul class="initiative-list">
+              <li>Power roadmapping and master planning.</li>
+              <li>On‑site utility‑grade solar and battery integration.</li>
+              <li>Tier‑aligned redundancy, backup, and automation design.</li>
+              <li>Phased retrofit plans for existing data centers.</li>
+            </ul>
+            <div class="initiative-metric">
+              Align uptime SLAs with aggressive emissions reductions by 2030.
+            </div>
+          </div>
+          <div class="initiative-right">
+            <div class="initiative-tagline">
+              Start with a discovery session to map your current data center
+              footprint, load profile, and 2030 objectives.
+            </div>
+            <div>
+              <div class="initiative-stat">
+                2030
+                <span>net‑zero & growth‑ready infrastructure planning</span>
+              </div>
+              <a href="#contact" class="btn btn-primary" style="margin-top: 0.9rem;">
+                Schedule a discovery call
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="section" id="contact">
+        <div class="contact-grid">
+          <div class="contact-copy">
+            <h2>Tell us about your project.</h2>
+            <p>
+              Share a bit about your site, timeline, and priorities—whether it’s
+              utility‑grade solar, commercial solar, storage, data centers, or
+              robotics and automation. Our team will respond with next steps.
+            </p>
+            <div style="margin-top: 0.8rem; font-size: 0.86rem; color: var(--text-muted);">
+              Typical customers:
+              <br />
+              utilities, IPPs, C&I portfolios, data center operators, industrial &
+              logistics leaders.
+            </div>
+          </div>
+          <form>
+            <div class="field">
+              <label for="name">Name*</label>
+              <input id="name" name="name" type="text" placeholder="Jane Doe" required />
+            </div>
+            <div class="field">
+              <label for="company">Company*</label>
+              <input
+                id="company"
+                name="company"
+                type="text"
+                placeholder="Your company"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="email">Work email*</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@company.com"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="solution">Primary interest*</label>
+              <select id="solution" name="solution" required>
+                <option value="">Select an option</option>
+                <option>Utility‑grade solar</option>
+                <option>Commercial & industrial solar</option>
+                <option>Utility‑grade batteries / storage</option>
+                <option>Data centers (2030 roadmap)</option>
+                <option>Robotics & automation</option>
+                <option>Multiple / full‑stack integration</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Project details</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Site location(s), approximate size (MW), target go‑live date, and any key constraints."
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Submit inquiry
+            </button>
+            <div class="form-footnote">
+              By submitting, you agree to be contacted about your project. You can
+              update your preferences at any time.
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> Your Company Name. All rights reserved.</div>
+        <div>Solar • Storage • Data Centers • Robotics & Automation</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Simple script to keep the copyright year current
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
