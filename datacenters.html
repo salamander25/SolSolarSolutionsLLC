@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Data Centers & AI | Solar + Storage Uptime</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Data centers and AI sites: solar + storage for kW control, cooling stability, and uptime. Modeled savings, incentive stack, and resilient designs." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+    :root {
+      --bg: #050611;
+      --bg-soft: #0b1024;
+      --panel: #0f1632;
+      --card-bg: #0a0f24;
+      --accent: #26f1c3;
+      --accent-amber: #f6c27a;
+      --accent-royal: #6da8ff;
+      --text-main: #f7f9ff;
+      --text-muted: #aab7d6;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.16);
+      --max-width: 1200px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.6);
+      --transition-fast: 0.18s ease-out;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(38, 241, 195, 0.14), transparent 32%),
+        radial-gradient(circle at 80% 12%, rgba(109, 168, 255, 0.18), transparent 30%),
+        linear-gradient(135deg, #04060f 0%, #050611 45%, #04060f 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: 0.01em;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
+
+    header { position: sticky; top: 0; z-index: 40; backdrop-filter: blur(16px); background: linear-gradient(to bottom, rgba(5, 8, 22, 0.9), rgba(5, 8, 22, 0.7), transparent); border-bottom: 1px solid var(--border-subtle); }
+
+    .nav { max-width: var(--max-width); margin: 0 auto; padding: 1rem 1.4rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .nav-brand { display: flex; align-items: center; gap: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.95rem; }
+    .brand-mark { width: 32px; height: 32px; border-radius: 12px; background: linear-gradient(135deg, #26f1c3, #6da8ff); box-shadow: 0 0 28px rgba(38, 241, 195, 0.6); }
+    .nav-links { display: flex; gap: 1.1rem; font-size: 0.93rem; color: var(--text-muted); flex-wrap: wrap; }
+    .nav-links a { position: relative; padding-bottom: 0.15rem; }
+    .nav-links a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-royal)); border-radius: 999px; transition: width var(--transition-fast); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta { display: none; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem 1.45rem; font-size: 0.94rem; border-radius: 999px; border: 1px solid transparent; cursor: pointer; background: none; color: inherit; transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast); text-decoration: none; gap: 0.45rem; font-weight: 700; letter-spacing: 0.01em; }
+    .btn-primary { background: linear-gradient(120deg, #1ce9b4, #6da8ff); color: #050816; box-shadow: 0 14px 34px rgba(109, 168, 255, 0.45); border-color: transparent; }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 18px 46px rgba(109, 168, 255, 0.6); }
+    .btn-ghost { border-color: rgba(255,255,255,0.14); background: rgba(8, 12, 31, 0.7); color: var(--text-main); }
+    .btn-ghost:hover { border-color: rgba(109, 168, 255, 0.4); color: #fff; box-shadow: 0 10px 26px rgba(0,0,0,0.35); }
+
+    main { flex: 1; }
+    .section { max-width: var(--max-width); margin: 0 auto; padding: 3.4rem 1.4rem; position: relative; }
+    .section:not(.hero)::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(38,241,195,0.05));
+      border: 1px solid rgba(255,255,255,0.05);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); align-items: center; gap: 2.8rem; padding-top: 3.6rem; padding-bottom: 2rem; position: relative; overflow: hidden; border-radius: var(--radius-lg); }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: -10% -18% auto auto;
+      height: 420px;
+      width: 420px;
+      background: radial-gradient(circle, rgba(109, 168, 255, 0.18), transparent 60%);
+      filter: blur(10px);
+      pointer-events: none;
+    }
+    .orb { position: absolute; border-radius: 50%; filter: blur(12px); opacity: 0.65; pointer-events: none; }
+    .orb-1 { width: 260px; height: 260px; background: radial-gradient(circle, rgba(38, 241, 195, 0.2), transparent 60%); inset: -6% auto auto 6%; }
+    .orb-2 { width: 180px; height: 180px; background: radial-gradient(circle, rgba(246, 194, 122, 0.2), transparent 60%); inset: auto 10% -8% auto; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.28rem 0.8rem; border-radius: 999px; background: rgba(38, 241, 195, 0.12); border: 1px solid rgba(38, 241, 195, 0.35); color: var(--accent); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 1.1rem; }
+    .eyebrow-dot { width: 7px; height: 7px; border-radius: 999px; background: var(--accent); box-shadow: 0 0 14px rgba(14, 208, 163, 0.9); }
+    .hero h1 { font-family: "Playfair Display", "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif; font-size: clamp(2.7rem, 3.9vw + 1rem, 3.6rem); line-height: 1.02; margin: 0 0 1rem; letter-spacing: -0.02em; }
+    .hero-sub { font-size: 1.05rem; color: var(--text-muted); max-width: 38rem; line-height: 1.75; margin-bottom: 1.2rem; }
+
+    .stat-strip { display: flex; flex-wrap: wrap; gap: 0.7rem; margin: 1.1rem 0 1.8rem; }
+    .stat-pill { background: linear-gradient(140deg, rgba(38, 241, 195, 0.2), rgba(13, 20, 44, 0.92)); border: 1px solid rgba(38, 241, 195, 0.4); border-radius: 14px; padding: 0.7rem 1rem; font-size: 0.92rem; display: inline-flex; align-items: center; gap: 0.55rem; color: var(--text-main); box-shadow: 0 12px 32px rgba(0,0,0,0.28); }
+    .stat-pill strong { color: var(--text-main); font-weight: 700; }
+
+    .hero-panel { border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,0.08); background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(13, 20, 44, 0.92)), rgba(5, 8, 20, 0.94); padding: 1.3rem 1.35rem; box-shadow: var(--shadow-soft); position: relative; overflow: hidden; backdrop-filter: blur(10px); }
+    .hero-panel::after {
+      content:"";
+      position:absolute;
+      inset:-20% auto auto 40%;
+      width:220px;height:220px;
+      background: radial-gradient(circle, rgba(245,192,107,0.12), transparent 60%);
+      filter: blur(6px);
+      pointer-events:none;
+    }
+    .hero-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.85rem; font-size: 0.85rem; }
+    .hero-card { border-radius: 14px; padding: 0.95rem 1rem; background: rgba(8, 12, 30, 0.94); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 0.35rem; position: relative; overflow: hidden; box-shadow: 0 10px 26px rgba(0,0,0,0.35); }
+    .hero-card-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+    .hero-card-title { font-weight: 700; }
+    .hero-card-tag { margin-top: 0.1rem; font-size: 0.78rem; color: var(--accent); }
+    .hero-card-metric { margin-top: 0.2rem; font-size: 0.8rem; color: var(--text-muted); }
+
+    .section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; margin-bottom: 1.6rem; }
+    .section-heading h2 { margin: 0; font-size: 1.5rem; font-family: "Playfair Display", "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif; letter-spacing: -0.01em; position: relative; padding-bottom: 0.4rem; }
+    .section-heading h2::after { content: ""; display: block; width: 56px; height: 3px; margin-top: 0.45rem; background: linear-gradient(120deg, #1ce9b4, #6da8ff); border-radius: 999px; }
+    .section-heading p { margin: 0; font-size: 0.95rem; color: var(--text-muted); max-width: 32rem; line-height: 1.55; }
+
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.1rem; }
+    .card { border-radius: var(--radius-md); padding: 1.05rem 1.1rem; background: radial-gradient(circle at 18% 20%, rgba(38,241,195,0.08), transparent 50%), rgba(8, 12, 31, 0.94); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 16px 36px rgba(0,0,0,0.42); display: flex; flex-direction: column; gap: 0.5rem; position: relative; overflow: hidden; }
+    .card::after { content: ""; position: absolute; inset: auto 12% -30% auto; width: 120px; height: 120px; background: radial-gradient(circle, rgba(109,168,255,0.18), transparent 60%); filter: blur(8px); pointer-events: none; }
+    .card-title { font-weight: 700; }
+    .card-body { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+    .chip { padding: 0.32rem 0.7rem; border-radius: 999px; background: linear-gradient(120deg, rgba(38,241,195,0.18), rgba(109,168,255,0.12)); border: 1px solid rgba(255,255,255,0.18); font-size: 0.82rem; color: var(--text-main); box-shadow: 0 10px 22px rgba(0,0,0,0.25); }
+
+    .process { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.9rem; margin-top: 1rem; }
+    .process-card { border-radius: var(--radius-md); padding: 0.95rem; border: 1px solid rgba(255,255,255,0.08); background: rgba(5, 8, 22, 0.92); box-shadow: 0 10px 26px rgba(0,0,0,0.34); }
+    .process-step { font-weight: 700; color: var(--accent); margin-bottom: 0.35rem; }
+    .process-body { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+
+    form { border-radius: var(--radius-md); padding: 1.2rem 1.05rem; background: rgba(8, 12, 31, 0.94); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 16px 36px rgba(0, 0, 0, 0.48); display: grid; gap: 0.75rem; backdrop-filter: blur(6px); }
+    .field { display: grid; gap: 0.28rem; font-size: 0.84rem; }
+    label { color: var(--text-muted); }
+    input, select, textarea { font: inherit; padding: 0.55rem 0.65rem; border-radius: 10px; border: 1px solid var(--border-subtle); background: rgba(5, 8, 22, 0.95); color: var(--text-main); outline: none; transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast); resize: vertical; min-height: 38px; }
+    input:focus, select:focus, textarea:focus { border-color: rgba(94, 242, 255, 0.6); box-shadow: 0 0 0 1px rgba(94, 242, 255, 0.35); background: rgba(5, 8, 22, 1); }
+    textarea { min-height: 120px; }
+    .form-footnote { font-size: 0.76rem; color: var(--text-muted); line-height: 1.5; }
+
+    .cta-bar { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1rem; }
+
+    .floating-cta { position: fixed; right: 1rem; bottom: 1rem; z-index: 60; }
+
+    footer { border-top: 1px solid var(--border-subtle); padding: 1.1rem 1.25rem 1.9rem; font-size: 0.8rem; color: var(--text-muted); }
+    .footer-inner { max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .footer-social { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+    .social-btn { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.7rem; border-radius: 999px; border: 1px solid var(--border-subtle); background: rgba(8, 12, 31, 0.6); color: var(--text-main); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.01em; transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast); }
+    .social-btn:hover { background: rgba(14, 19, 46, 0.9); border-color: rgba(14, 208, 163, 0.35); color: #ffffff; }
+    .social-icon { width: 20px; height: 20px; border-radius: 6px; background: rgba(255, 255, 255, 0.08); display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.7rem; }
+
+    @media (max-width: 900px) {
+      .hero, .cards-grid, .process { grid-template-columns: minmax(0,1fr); }
+      .section { padding-inline: 1rem; }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .nav-cta { display: inline-flex; }
+      .section { padding-block: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <nav class="nav">
+        <a href="index.html#top" class="nav-brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <span>Sol Solar Solutions LLC</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html#sectors">Commercial solar</a>
+          <a href="datacenters.html">Data centers</a>
+          <a href="robotics.html">Robotics</a>
+          <a href="residential.html">Residential</a>
+          <a href="media.html">Media</a>
+          <a href="Apply.html">Apply</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <a href="#contact" class="btn btn-primary nav-cta">Request a briefing</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section hero" id="top">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Data centers & AI
+          </div>
+          <h1>Uptime-first solar + storage for data/AI sites.</h1>
+          <p class="hero-sub">
+            Control kW peaks, stabilize cooling, and add resilient solar + storage for data centers, edge sites, and AI rooms. Modeled savings with ITC + bonus + MACRS and UPS-friendly designs.
+          </p>
+          <div class="stat-strip">
+            <div class="stat-pill"><strong>Uptime</strong> controlled switchover</div>
+            <div class="stat-pill"><strong>kW shaving</strong> peak control</div>
+            <div class="stat-pill"><strong>Incentives</strong> ITC + bonus + MACRS</div>
+            <div class="stat-pill"><strong>48h</strong> proposal after walk</div>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/19495915731?text=I%20need%20a%20data%20center%20solar%20%2B%20storage%20proposal" target="_blank" rel="noopener">Open savings chat</a>
+            <a class="btn btn-ghost" href="#contact">Request briefing</a>
+            <a class="btn btn-ghost" href="media.html">See videos</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:0.7rem;flex-wrap:wrap;margin-bottom:0.6rem;">
+            <div class="chip">Uptime plan</div>
+            <div class="chip">Chat → Walk → Proposal</div>
+          </div>
+          <div class="hero-grid">
+            <div class="hero-card">
+              <div class="hero-card-label">UPS + storage</div>
+              <div class="hero-card-title">Layered resilience</div>
+              <div class="hero-card-tag">Smooth switchover</div>
+              <div class="hero-card-metric">Solar + storage that respects UPS and genset transfer.</div>
+            </div>
+            <div class="hero-card">
+              <div class="hero-card-label">Cooling aware</div>
+              <div class="hero-card-title">Thermal + fans</div>
+              <div class="hero-card-tag">Cooling protected</div>
+              <div class="hero-card-metric">Keep CRAC/CRAH loads and fans online.</div>
+            </div>
+            <div class="hero-card">
+              <div class="hero-card-label">Demand</div>
+              <div class="hero-card-title">kW peak control</div>
+              <div class="hero-card-tag">Solar + storage</div>
+              <div class="hero-card-metric">Flatten peaks to cut tariffs and smooth AI spikes.</div>
+            </div>
+            <div class="hero-card">
+              <div class="hero-card-label">Finance</div>
+              <div class="hero-card-title">Cash / PPA / lease</div>
+              <div class="hero-card-tag">Good / Better / Best</div>
+              <div class="hero-card-metric">Pick day-one savings or fastest payback.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="fits">
+        <div class="section-heading">
+          <div><h2>Where solar + storage hits hardest.</h2></div>
+          <p>For data centers, edge, AI rooms, and robotics-heavy facilities with constant cooling and uptime requirements.</p>
+        </div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-title">Data centers</div>
+            <div class="card-body">Solar + storage aligned to cooling and UPS; controlled switchover.</div>
+            <div class="chip">Uptime-first</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Edge / AI rooms</div>
+            <div class="card-body">Stabilize kW spikes from inference/training bursts.</div>
+            <div class="chip">kW smoothing</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Robotics & automation</div>
+            <div class="card-body">Power AS/RS, conveyors, and controls with low-cost, stable energy.</div>
+            <div class="chip">Peak control</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Cold chain + data</div>
+            <div class="card-body">Blend refrigeration and server loads; protect both during outages.</div>
+            <div class="chip">Dual-critical</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="architectures">
+        <div class="section-heading">
+          <div><h2>Architectures we deliver.</h2></div>
+          <p>Rooftop, canopy, and ground-mount solar paired with storage, controls, and monitoring.</p>
+        </div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-title">Rooftop & carports</div>
+            <div class="card-body">Rooftop arrays plus carports for parking and e-fleet charging.</div>
+            <div class="chip">Shade + power</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Ground-mount</div>
+            <div class="card-body">Fixed-tilt or trackers sized for megawatt-scale production.</div>
+            <div class="chip">Land-ready</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Storage + controls</div>
+            <div class="card-body">Storage with EMS that respects UPS, genset logic, and ATS priorities.</div>
+            <div class="chip">Layered resilience</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Monitoring + QA</div>
+            <div class="card-body">Performance guardrails, alarms, and reporting tuned for ops teams.</div>
+            <div class="chip">Visibility</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="finance">
+        <div class="section-heading">
+          <div><h2>Finance options that protect uptime and cash.</h2></div>
+          <p>Pick day-one savings or fastest payback. We show monthly, payback, and incentive stack side by side.</p>
+        </div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-title">Cash</div>
+            <div class="card-body">Apply ITC, bonus, MACRS, and rebates. Own the asset and the upside.</div>
+            <div class="chip">Fastest payback</div>
+          </div>
+          <div class="card">
+            <div class="card-title">$0 CapEx PPA</div>
+            <div class="card-body">Day-one savings; off-balance-sheet with fixed or capped escalators.</div>
+            <div class="chip">Ops-friendly</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Lease / CPACE</div>
+            <div class="card-body">Long-term fixed payments; sized under current utility spend when possible.</div>
+            <div class="chip">Cash-flow positive</div>
+          </div>
+        </div>
+        <div class="cta-bar">
+          <a class="btn btn-primary" href="https://wa.me/19495915731?text=I%20need%20a%20data%20center%20solar%20%2B%20storage%20proposal" target="_blank" rel="noopener">Open savings chat</a>
+          <a class="btn btn-ghost" href="#contact">Request a proposal</a>
+        </div>
+      </section>
+
+      <section class="section" id="process">
+        <div class="section-heading">
+          <div><h2>Process built for uptime.</h2></div>
+          <p>Fast numbers, careful site validation, then a build path that respects your critical loads.</p>
+        </div>
+        <div class="process">
+          <div class="process-card">
+            <div class="process-step">01 - Model savings</div>
+            <div class="process-body">Share address, bill, demand charges, UPS/genset notes; we model kW/kWh savings with incentives.</div>
+          </div>
+          <div class="process-card">
+            <div class="process-step">02 - Site walk</div>
+            <div class="process-body">Verify roof/ground/carport options, electrical, cooling, and ATS/UPS coordination.</div>
+          </div>
+          <div class="process-card">
+            <div class="process-step">03 - Proposal</div>
+            <div class="process-body">48h proposal with cash/PPA/lease, Good/Better/Best equipment, and schedule.</div>
+          </div>
+          <div class="process-card">
+            <div class="process-step">04 - Build & monitor</div>
+            <div class="process-body">Permits, interconnection, install, commissioning, and performance guardrails.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="videos">
+        <div class="section-heading">
+          <div><h2>Watch the approach.</h2></div>
+          <p>Quick clips on savings, storage, and resilient builds.</p>
+        </div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-title">Media gallery</div>
+            <div class="card-body">Project clips and walkthroughs.</div>
+            <div class="cta-bar">
+              <a class="btn btn-primary" href="media.html">Open media page</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">YouTube</div>
+            <div class="card-body">Commercial, storage, and data/AI content.</div>
+            <div class="cta-bar">
+              <a class="btn btn-primary" href="https://www.youtube.com/@SolSolarSolutionsLLC" target="_blank" rel="noopener">Watch on YouTube</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Intro video</div>
+            <div class="card-body">How we make solar + storage pay for data/AI sites.</div>
+            <div class="cta-bar">
+              <a class="btn btn-ghost" href="video-intro.mp4">Play intro</a>
+              <a class="btn btn-ghost" href="video-experience.mp4">Project walkthrough</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="section-heading">
+          <div><h2>Request your data center solar + storage proposal.</h2></div>
+          <p>Share a bill, demand charges, cooling and UPS/genset notes. We respond with modeled savings and a site-walk schedule.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr); gap: 1.5rem; align-items: start;">
+          <form>
+            <div class="field">
+              <label for="name">Name*</label>
+              <input id="name" name="name" type="text" placeholder="Jane Doe" required />
+            </div>
+            <div class="field">
+              <label for="company">Company*</label>
+              <input id="company" name="company" type="text" placeholder="Your company" required />
+            </div>
+            <div class="field">
+              <label for="email">Work email*</label>
+              <input id="email" name="email" type="email" placeholder="you@company.com" required />
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="+1 555 123 4567" />
+            </div>
+            <div class="field">
+              <label for="solution">Primary interest*</label>
+              <select id="solution" name="solution" required>
+                <option value="">Select an option</option>
+                <option>Data center solar + storage</option>
+                <option>Edge / AI room solar + storage</option>
+                <option>Robotics / automation facility</option>
+                <option>Cooling + UPS resilience</option>
+                <option>Solar carport / canopy</option>
+                <option>Bill and tariff analysis only</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="details">Site notes</label>
+              <textarea id="details" name="details" placeholder="Service address, demand charges, cooling load, UPS/genset notes, timeline."></textarea>
+            </div>
+            <div class="field">
+              <label for="bill">Recent electric bill (PDF/JPG/PNG, optional)</label>
+              <input id="bill" name="bill" type="file" accept=".pdf,.png,.jpg,.jpeg" />
+              <div class="form-footnote">Upload a bill for faster sizing. If upload is unavailable, email it to solsolarsolutions@icloud.com or WhatsApp it to us.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Send request</button>
+            <div class="form-footnote">By submitting, you agree to be contacted about your project. You can update your preferences at any time.</div>
+          </form>
+          <div>
+            <div class="card" style="gap: 0.6rem;">
+              <div class="card-title">Need quick numbers?</div>
+              <div class="card-body">Message us with address, bill, demand charges, cooling tonnage, and UPS/genset notes.</div>
+              <div class="cta-bar">
+                <a class="btn btn-primary" href="https://wa.me/19495915731?text=I%20need%20a%20data%20center%20solar%20%2B%20storage%20proposal" target="_blank" rel="noopener">WhatsApp now</a>
+                <a class="btn btn-ghost" href="mailto:solsolarsolutions@icloud.com">Email materials</a>
+              </div>
+            </div>
+            <div class="card" style="margin-top: 1rem; gap: 0.6rem;">
+              <div class="card-title">What we include</div>
+              <div class="card-body">Design, incentives, permits, interconnection, install, commissioning, monitoring, and performance guardrails aligned to uptime.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>c <span id="year"></span> Sol Solar Solutions LLC. All rights reserved.</div>
+        <div class="footer-social">
+          <a class="social-btn" href="https://www.linkedin.com/in/solsolarsolutionsllc" target="_blank" rel="noopener"><span class="social-icon">in</span> LinkedIn</a>
+          <a class="social-btn" href="https://www.youtube.com/@SolSolarSolutionsLLC" target="_blank" rel="noopener"><span class="social-icon">YT</span> YouTube</a>
+          <a class="social-btn" href="https://www.facebook.com/salvador.castillo" target="_blank" rel="noopener"><span class="social-icon">f</span> Facebook</a>
+          <a class="social-btn" href="https://www.instagram.com/solsolarsolutions21" target="_blank" rel="noopener"><span class="social-icon">ig</span> Instagram</a>
+          <a class="social-btn" href="mailto:solsolarsolutions@icloud.com"><span class="social-icon">@</span> Email</a>
+          <a class="social-btn" href="https://wa.me/19495915731?text=Hi%20Sol%20Solar%20Solutions%2C%20let%27s%20connect" target="_blank" rel="noopener"><span class="social-icon">WA</span> WhatsApp</a>
+        </div>
+        <div>Solar | Storage | Data Centers | Robotics & Automation</div>
+      </div>
+    </footer>
+    <div class="floating-cta">
+      <a class="btn btn-primary" href="https://wa.me/19495915731?text=I%20need%20a%20data%20center%20solar%20%2B%20storage%20proposal" target="_blank" rel="noopener">
+        Open savings chat
+      </a>
+    </div>
+  </div>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

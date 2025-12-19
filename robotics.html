@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Robotics & Automation ROI | Sol Solar Solutions LLC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Robotics and automation for solar O&M, logistics, and industrial sites. ROI-driven deployments with Pudu and controls integration." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
+    :root {
+      --bg: #04060f;
+      --bg-soft: #0a1020;
+      --panel: #111a32;
+      --card-bg: #10182f;
+      --accent: #0ed0a3;
+      --accent-amber: #f5c06b;
+      --text-main: #f6f8ff;
+      --text-muted: #a5b2c9;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --max-width: 1140px;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+      --transition-fast: 0.18s ease-out;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 18% 10%, #0f1e38 0, #05070f 45%, #02030a 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: 0.01em;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
+
+    header { position: sticky; top: 0; z-index: 40; backdrop-filter: blur(16px); background: linear-gradient(to bottom, rgba(5, 8, 22, 0.9), rgba(5, 8, 22, 0.72), transparent); border-bottom: 1px solid var(--border-subtle); }
+
+    .nav { max-width: var(--max-width); margin: 0 auto; padding: 0.9rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .nav-brand { display: flex; align-items: center; gap: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.9rem; }
+    .brand-mark { width: 30px; height: 30px; border-radius: 999px; background: radial-gradient(circle at 30% 30%, #f5c06b, #0ed0a3 55%, #050816 92%); box-shadow: 0 0 28px rgba(14, 208, 163, 0.7); }
+    .nav-links { display: flex; gap: 1.4rem; font-size: 0.92rem; color: var(--text-muted); }
+    .nav-links a { position: relative; padding-bottom: 0.15rem; }
+    .nav-links a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-amber)); border-radius: 999px; transition: width var(--transition-fast); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta { display: none; }
+
+    main { flex: 1; }
+    .section { max-width: var(--max-width); margin: 0 auto; padding: 2.8rem 1.25rem; }
+
+    .hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: center; gap: 2.4rem; padding-top: 3rem; padding-bottom: 1.6rem; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.22rem 0.7rem; border-radius: 999px; background: rgba(14, 208, 163, 0.08); border: 1px solid rgba(14, 208, 163, 0.35); color: var(--accent); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 1rem; }
+    .eyebrow-dot { width: 7px; height: 7px; border-radius: 999px; background: var(--accent); box-shadow: 0 0 14px rgba(14, 208, 163, 0.9); }
+    .hero h1 { font-size: clamp(2.4rem, 3.4vw + 1rem, 3.2rem); line-height: 1.06; margin: 0 0 1rem; letter-spacing: -0.015em; }
+    .hero-sub { font-size: 1rem; color: var(--text-muted); max-width: 34rem; line-height: 1.6; margin-bottom: 1.9rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.35rem; font-size: 0.92rem; border-radius: 999px; border: 1px solid transparent; cursor: pointer; background: none; color: inherit; transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast); text-decoration: none; gap: 0.45rem; font-weight: 600; letter-spacing: 0.01em; }
+    .btn-primary { background: linear-gradient(120deg, #0aa67e, var(--accent), var(--accent-amber)); color: #050816; box-shadow: 0 12px 32px rgba(10, 166, 126, 0.55); border-color: transparent; }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 16px 42px rgba(10, 166, 126, 0.7); }
+    .btn-ghost { border-color: var(--border-subtle); background: rgba(5, 8, 22, 0.75); color: var(--text-muted); }
+    .btn-ghost:hover { background: rgba(14, 19, 46, 0.9); border-color: rgba(94, 242, 255, 0.35); color: var(--text-main); }
+
+    .hero-panel { border-radius: var(--radius-lg); border: 1px solid var(--border-subtle); background: radial-gradient(circle at 20% 0%, rgba(14, 208, 163, 0.12), transparent 42%), linear-gradient(145deg, #0c1224, #0b1424 40%, #070d1a); padding: 1.2rem 1.25rem; box-shadow: var(--shadow-soft); }
+    .hero-panel .card { border-radius: var(--radius-md); padding: 0.9rem; background: rgba(8, 12, 31, 0.95); border: 1px solid var(--border-subtle); box-shadow: 0 10px 26px rgba(0,0,0,0.35); display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.9rem; }
+    .card-title { font-weight: 700; }
+    .card-body { color: var(--text-muted); line-height: 1.55; }
+
+    .section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; margin-bottom: 1.6rem; }
+    .section-heading h2 { margin: 0; font-size: 1.4rem; }
+    .section-heading p { margin: 0; font-size: 0.95rem; color: var(--text-muted); max-width: 30rem; line-height: 1.55; }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; }
+    .stat-card { border-radius: var(--radius-md); padding: 1rem; background: rgba(8, 12, 31, 0.95); border: 1px solid var(--border-subtle); box-shadow: 0 10px 26px rgba(0,0,0,0.35); }
+    .stat-number { font-size: 1.6rem; font-weight: 800; }
+    .stat-caption { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+
+    form { border-radius: var(--radius-md); padding: 1.1rem 1rem; background: rgba(8, 12, 31, 0.95); border: 1px solid var(--border-subtle); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45); display: grid; gap: 0.75rem; }
+    .field { display: grid; gap: 0.28rem; font-size: 0.84rem; }
+    label { color: var(--text-muted); }
+    input, select, textarea { font: inherit; padding: 0.55rem 0.65rem; border-radius: 10px; border: 1px solid var(--border-subtle); background: rgba(5, 8, 22, 0.95); color: var(--text-main); outline: none; transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast); resize: vertical; min-height: 38px; }
+    input:focus, select:focus, textarea:focus { border-color: rgba(94, 242, 255, 0.6); box-shadow: 0 0 0 1px rgba(94, 242, 255, 0.35); background: rgba(5, 8, 22, 1); }
+    textarea { min-height: 120px; }
+    .form-footnote { font-size: 0.76rem; color: var(--text-muted); line-height: 1.5; }
+
+    .cta-bar { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1rem; }
+
+    footer { border-top: 1px solid var(--border-subtle); padding: 1.1rem 1.25rem 1.9rem; font-size: 0.8rem; color: var(--text-muted); }
+    .footer-inner { max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .footer-social { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+    .social-btn { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.7rem; border-radius: 999px; border: 1px solid var(--border-subtle); background: rgba(8, 12, 31, 0.6); color: var(--text-main); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.01em; transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast); }
+    .social-btn:hover { background: rgba(14, 19, 46, 0.9); border-color: rgba(14, 208, 163, 0.35); color: #ffffff; }
+    .social-icon { width: 20px; height: 20px; border-radius: 6px; background: rgba(255, 255, 255, 0.08); display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.7rem; }
+
+    @media (max-width: 900px) {
+      .hero, .grid-3, .grid-2 { grid-template-columns: minmax(0,1fr); }
+      .section { padding-inline: 1rem; }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .nav-cta { display: inline-flex; }
+      .section { padding-block: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <nav class="nav">
+        <a href="index.html#top" class="nav-brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <span>Sol Solar Solutions LLC</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html#sectors">Commercial solar</a>
+          <a href="datacenters.html">Data centers</a>
+          <a href="robotics.html">Robotics</a>
+          <a href="residential.html">Residential</a>
+          <a href="media.html">Media</a>
+          <a href="Apply.html">Apply</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+        <a href="index.html#contact" class="btn btn-primary nav-cta">Request a briefing</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section hero" id="top">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span>Robotics & automation</div>
+          <h1>Deploy robotics with clear ROI and integration into your OT/IT stack.</h1>
+          <p class="hero-sub">We deliver robotics and automation (including Pudu) for solar O&M, logistics, and industrial sites. Get rapid payback with governed delivery and controls integration.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#roi">See ROI gains</a>
+            <a class="btn btn-ghost" href="#quote">Request robotics plan</a>
+            <a class="btn btn-ghost" href="https://wa.me/19495915731?text=Hi%20Sol%20Solar%20Solutions%2C%20share%20your%20robotics%20offer" target="_blank" rel="noopener">WhatsApp now</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="card">
+            <div class="card-title">Where we deploy</div>
+            <div class="card-body">Solar O&M, warehouses, logistics hubs, industrial floors, and hospitality/service environments using Pudu robotics and custom integration.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Integration first</div>
+            <div class="card-body">OT/IT alignment, PLC/SCADA hooks, network and safety review, and field commissioning.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="roi">
+        <div class="section-heading">
+          <div><h2>ROI highlights</h2></div>
+          <p>We model payback and integration impacts upfront so you know the returns before rollout.</p>
+        </div>
+        <div class="grid-3">
+          <div class="stat-card">
+            <div class="stat-number">3-12 mo</div>
+            <div class="stat-caption">Typical payback depending on workload and shift coverage.</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">30-60%</div>
+            <div class="stat-caption">Labor offset on repetitive tasks, with consistent quality.</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">24/7</div>
+            <div class="stat-caption">Continuous operation with monitoring and alerting.</div>
+          </div>
+        </div>
+        <div class="grid-2" style="margin-top: 1.2rem;">
+          <div class="stat-card">
+            <div class="stat-number">+OT/IT</div>
+            <div class="stat-caption">Controls integration, network, and safety governance included.</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">$200+</div>
+            <div class="stat-caption">Referral bonus per robotics sale (more for volume orders).</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="use-cases">
+        <div class="section-heading">
+          <div><h2>Use cases</h2></div>
+          <p>Pick the path that fits your site. We tailor fleet sizing, mapping, and controls integration.</p>
+        </div>
+        <div class="grid-3">
+          <div class="stat-card">
+            <div class="card-title">Solar O&M</div>
+            <div class="card-body">Autonomous patrols, inspection, and repeatable tasks to reduce truck rolls and daytime labor.</div>
+          </div>
+          <div class="stat-card">
+            <div class="card-title">Warehousing & logistics</div>
+            <div class="card-body">Material movement, aisle patrol, and task automation to stabilize throughput.</div>
+          </div>
+          <div class="stat-card">
+            <div class="card-title">Hospitality & service</div>
+            <div class="card-body">Pudu service and cleaning robots to relieve staff and improve guest throughput.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="quote">
+        <div class="section-heading">
+          <div><h2>Request a robotics ROI plan</h2></div>
+          <p>Tell us your site type and workload. We’ll size the fleet, estimate payback, and outline integration.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr); gap: 1.5rem; align-items: start;">
+          <form>
+            <div class="field">
+              <label for="name">Full name*</label>
+              <input id="name" name="name" type="text" placeholder="Jane Doe" required />
+            </div>
+            <div class="field">
+              <label for="email">Email*</label>
+              <input id="email" name="email" type="email" placeholder="you@domain.com" required />
+            </div>
+            <div class="field">
+              <label for="phone">Phone*</label>
+              <input id="phone" name="phone" type="tel" placeholder="+1 555 123 4567" required />
+            </div>
+            <div class="field">
+              <label for="site">Site type*</label>
+              <select id="site" name="site" required>
+                <option value="">Select an option</option>
+                <option>Solar O&M</option>
+                <option>Warehouse / logistics</option>
+                <option>Industrial / plant</option>
+                <option>Hospitality / service</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="tasks">Primary tasks</label>
+              <textarea id="tasks" name="tasks" placeholder="Material movement, patrol, cleaning, inspection, etc."></textarea>
+            </div>
+            <div class="field">
+              <label for="referral">Referral (if any)</label>
+              <input id="referral" name="referral" type="text" placeholder="Name or code" />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit request</button>
+            <div class="form-footnote">By submitting, you agree to be contacted about your project. You can update your preferences at any time.</div>
+          </form>
+          <div>
+            <div class="stat-card" style="gap: 0.6rem;">
+              <div class="card-title">Need to move fast?</div>
+              <div class="card-body">Use WhatsApp for instant coordination. We can start with a quick ROI screen.</div>
+              <div class="cta-bar">
+                <a class="btn btn-primary" href="https://wa.me/19495915731?text=Hi%20Sol%20Solar%20Solutions%2C%20I%20need%20a%20robotics%20ROI%20plan" target="_blank" rel="noopener">WhatsApp now</a>
+                <a class="btn btn-ghost" href="mailto:solsolarsolutions@icloud.com">Email us</a>
+              </div>
+            </div>
+            <div class="stat-card" style="margin-top: 1rem; gap: 0.4rem;">
+              <div class="card-title">Referral program</div>
+              <div class="card-body">$200 per robotics sale; higher for larger orders. Paid after deployment is confirmed.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> Sol Solar Solutions LLC. All rights reserved.</div>
+        <div class="footer-social">
+          <a class="social-btn" href="https://www.linkedin.com/in/solsolarsolutionsllc" target="_blank" rel="noopener"><span class="social-icon">in</span> LinkedIn</a>
+          <a class="social-btn" href="https://www.youtube.com/@SolSolarSolutionsLLC" target="_blank" rel="noopener"><span class="social-icon">YT</span> YouTube</a>
+          <a class="social-btn" href="https://www.facebook.com/salvador.castillo" target="_blank" rel="noopener"><span class="social-icon">f</span> Facebook</a>
+          <a class="social-btn" href="https://www.instagram.com/solsolarsolutions21" target="_blank" rel="noopener"><span class="social-icon">ig</span> Instagram</a>
+          <a class="social-btn" href="mailto:solsolarsolutions@icloud.com"><span class="social-icon">@</span> Email</a>
+          <a class="social-btn" href="https://wa.me/19495915731?text=Hi%20Sol%20Solar%20Solutions%2C%20let%27s%20connect" target="_blank" rel="noopener"><span class="social-icon">WA</span> WhatsApp</a>
+        </div>
+        <div>Solar | Storage | Data Centers | Automation & Controls</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

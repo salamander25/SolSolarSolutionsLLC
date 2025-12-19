@@ -64,6 +64,10 @@
     .pill strong { color: var(--text-main); font-weight: 600; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
 
+    .stat-strip { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 1.4rem; }
+    .stat-pill { background: rgba(15, 23, 42, 0.9); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 0.55rem 0.85rem; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-muted); }
+    .stat-pill strong { color: var(--text-main); font-weight: 700; }
+
     .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.35rem; font-size: 0.92rem; border-radius: 999px; border: 1px solid transparent; cursor: pointer; background: none; color: inherit; transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast); text-decoration: none; gap: 0.45rem; font-weight: 600; letter-spacing: 0.01em; }
     .btn-primary { background: linear-gradient(120deg, #0aa67e, var(--accent), var(--accent-amber)); color: #050816; box-shadow: 0 12px 32px rgba(10, 166, 126, 0.55); border-color: transparent; }
     .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 16px 42px rgba(10, 166, 126, 0.7); }
@@ -112,6 +116,8 @@
     .social-btn:hover { background: rgba(14, 19, 46, 0.9); border-color: rgba(14, 208, 163, 0.35); color: #ffffff; }
     .social-icon { width: 20px; height: 20px; border-radius: 6px; background: rgba(255, 255, 255, 0.08); display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.7rem; }
 
+    .floating-cta { position: fixed; right: 1rem; bottom: 1rem; z-index: 60; }
+
     @media (max-width: 900px) {
       .hero, .cards-grid, .process { grid-template-columns: minmax(0,1fr); }
       .section { padding-inline: 1rem; }
@@ -133,15 +139,17 @@
           <span>Sol Solar Solutions LLC</span>
         </a>
         <div class="nav-links">
-          <a href="index.html#solutions">Solutions</a>
-          <a href="index.html#initiative">Data Centers</a>
-          <a href="index.html#automation">Automation</a>
-          <a href="residential.html">Residential</a>
+          <a href="#offers">Home options</a>
+          <a href="#batteries">Batteries</a>
+          <a href="robotics.html">Robotics</a>
+          <a href="datacenters.html">Data centers</a>
+          <a href="#videos">Videos</a>
+          <a href="index.html#top">Commercial solar</a>
           <a href="media.html">Media</a>
-          <a href="careers.html">Careers</a>
-          <a href="index.html#contact">Contact</a>
+          <a href="Apply.html">Apply</a>
+          <a href="#quote">Quote</a>
         </div>
-        <a href="index.html#contact" class="btn btn-primary nav-cta">Request a briefing</a>
+        <a href="#quote" class="btn btn-primary nav-cta">Request a briefing</a>
       </nav>
     </header>
 
@@ -156,6 +164,11 @@
           <p class="hero-sub">
             We design, permit, and install rooftop solar with battery backup and EV charging. Upload your bill, get a remote design, and schedule an installation with utility-grade standards.
           </p>
+          <div class="stat-strip">
+            <div class="stat-pill"><strong>Lower bills</strong> right-sized solar</div>
+            <div class="stat-pill"><strong>Backup</strong> batteries + critical loads</div>
+            <div class="stat-pill"><strong>EV ready</strong> panel + charging plan</div>
+          </div>
           <div class="hero-meta">
             <div class="pill"><strong>Homes</strong><span>5 - 20 kW + storage</span></div>
             <div class="pill"><strong>Quality</strong><span>UL/ETL components, OSHA safety</span></div>
@@ -164,7 +177,7 @@
           <div class="hero-actions">
             <a href="#quote" class="btn btn-primary">Request home quote</a>
             <a class="btn btn-ghost" href="https://wa.me/19495915731?text=Hi%20Sol%20Solar%20Solutions%2C%20I%20need%20a%20home%20solar%20quote" target="_blank" rel="noopener">WhatsApp now</a>
-            <a class="btn btn-ghost" href="index.html#solutions">Commercial & utility</a>
+            <a class="btn btn-ghost" href="datacenters.html">Data centers & commercial</a>
           </div>
         </div>
         <div class="hero-panel">
@@ -221,6 +234,30 @@
         </div>
       </section>
 
+      <section class="section" id="batteries">
+        <div class="section-heading">
+          <div><h2>Battery-first resilience for your home.</h2></div>
+          <p>Pick the backup profile you need: keep the whole house online or focus on critical loads, with EV readiness baked in.</p>
+        </div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-title">Whole-home backup</div>
+            <div class="card-body">Sized for entire-home loads with smooth switchover and monitoring.</div>
+            <div class="chip">Peak shaving + outages</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Critical loads panel</div>
+            <div class="card-body">Keep refrigeration, lights, Wi‑Fi, medical devices, and office gear online.</div>
+            <div class="chip">Right-sized storage</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Battery + EV ready</div>
+            <div class="card-body">Plan for current and future EVs with panel upgrades and managed charging.</div>
+            <div class="chip">Solar + battery + EV</div>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="process">
         <div class="section-heading">
           <div><h2>How it works</h2></div>
@@ -238,6 +275,88 @@
           <div class="process-card">
             <div class="process-step">03 — Install & support</div>
             <div class="process-body">Permits, utility interconnection, install, inspection, and monitoring. We keep you online.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="robotics">
+        <div class="section-heading">
+          <div><h2>Robotics, automation, and smart homes.</h2></div>
+          <p>For homes with automation hubs, workshops, and robotics gear, we size solar + batteries to support constant loads.</p>
+        </div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-title">Automation-ready power</div>
+            <div class="card-body">Smooth power for hubs, servers, and controllers with clean backup.</div>
+            <div class="chip">Stable voltage & uptime</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Workshops & labs</div>
+            <div class="card-body">Support CNC, printers, and robotics benches without tripping breakers.</div>
+            <div class="chip">Load planning</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Controls + monitoring</div>
+            <div class="card-body">Tie in monitoring so you see production, storage, and load behavior at a glance.</div>
+            <div class="chip">Data-driven</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="datacenters">
+        <div class="section-heading">
+          <div><h2>Data centers and high-uptime rooms.</h2></div>
+          <p>For server rooms and data/AI clusters, we pair residential-scale solar with storage and controlled switchover.</p>
+        </div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-title">Solar + storage + UPS</div>
+            <div class="card-body">Layer storage with UPS gear for seamless transitions during outages.</div>
+            <div class="chip">Uptime focused</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Thermal + cooling aware</div>
+            <div class="card-body">We account for cooling loads and keep critical fans and AC online.</div>
+            <div class="chip">Cooling protected</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Need a larger build?</div>
+            <div class="card-body">Tap our commercial solar team for MW-scale data center sites.</div>
+            <div class="cta-bar">
+              <a class="btn btn-primary" href="index.html#sectors">Commercial solar landing</a>
+              <a class="btn btn-ghost" href="index.html#contact">Book a data center briefing</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="videos">
+        <div class="section-heading">
+          <div><h2>Videos and walk-throughs.</h2></div>
+          <p>Watch quick explainers on savings, batteries, and commercial/data-center builds.</p>
+        </div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-title">Media gallery</div>
+            <div class="card-body">See our media page for project clips and walkthroughs.</div>
+            <div class="cta-bar">
+              <a class="btn btn-primary" href="media.html">Open media page</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">YouTube channel</div>
+            <div class="card-body">Watch savings, battery, and commercial solar content on YouTube.</div>
+            <div class="cta-bar">
+              <a class="btn btn-primary" href="https://www.youtube.com/@SolSolarSolutionsLLC" target="_blank" rel="noopener">Watch on YouTube</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Intro video</div>
+            <div class="card-body">Quick overview of how we approach solar, storage, and data/AI sites.</div>
+            <div class="cta-bar">
+              <a class="btn btn-ghost" href="video-intro.mp4">Play intro</a>
+              <a class="btn btn-ghost" href="video-experience.mp4">Project walkthrough</a>
+            </div>
           </div>
         </div>
       </section>
@@ -332,6 +451,11 @@
         <div>Solar | Storage | Data Centers | Automation & Controls</div>
       </div>
     </footer>
+    <div class="floating-cta">
+      <a class="btn btn-primary" href="https://wa.me/19495915731?text=Hi%20Sol%20Solar%20Solutions%2C%20I%20need%20a%20home%20solar%20quote" target="_blank" rel="noopener">
+        Open savings chat
+      </a>
+    </div>
   </div>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>

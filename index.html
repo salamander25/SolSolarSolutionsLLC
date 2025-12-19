@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sol Solar Solutions LLC | Utility-Scale Solar, Storage & Smart Integration</title>
+  <title>Sol Solar Solutions | Profit-First Commercial Solar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Sol Solar Solutions LLC delivers utility-scale solar, battery storage, and automation with turnkey EPC and controls integration for utilities, IPPs, data centers, and industrial operators." />
+  <meta name="description" content="Profit-first commercial solar for cold storage, automotive, grocery, manufacturing, and data sites. Slash demand charges, stack ITC/bonus/MACRS, and compare cash, PPA, and lease options fast." />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
 
@@ -209,6 +209,108 @@
     .pill strong {
       color: var(--text-main);
       font-weight: 600;
+    }
+
+    .stat-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1.1rem 0 1.6rem;
+    }
+
+    .stat-pill {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 0.55rem 0.85rem;
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .stat-pill strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .trust-chip {
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 0.7rem 0.8rem;
+      background: rgba(8, 12, 30, 0.92);
+    }
+
+    .proof-band {
+      margin: 2.2rem 0 1.2rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 1.4rem;
+      align-items: center;
+    }
+
+    .proof-card {
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      background: rgba(7, 11, 24, 0.92);
+      padding: 1rem 1.1rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    .steps {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.92rem;
+    }
+
+    .step .chip {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .mini-form {
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      background: rgba(8, 12, 31, 0.92);
+      padding: 1rem;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .mini-form .row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.6rem;
+    }
+
+    .floating-cta {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 60;
+    }
+
+    .floating-cta .btn-primary {
+      padding-inline: 1.1rem;
     }
 
     .hero-actions {
@@ -671,6 +773,128 @@
       align-items: center;
     }
 
+    .referral-band {
+      position: sticky;
+      bottom: 0;
+      z-index: 30;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      padding: 0.4rem 0.6rem;
+    }
+
+    .referral-inner {
+      width: min(900px, calc(100% - 1.6rem));
+      margin: 0 auto;
+      padding: 0.7rem 1rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(90deg, rgba(14, 208, 163, 0.14), rgba(94, 242, 255, 0.18)), rgba(8, 12, 31, 0.96);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.32);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    .referral-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      font-size: 0.9rem;
+    }
+
+    .referral-text strong {
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+
+    .referral-form {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .referral-form input {
+      padding: 0.55rem 0.65rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(5, 8, 22, 0.95);
+      color: var(--text-main);
+      min-width: 180px;
+      font: inherit;
+    }
+
+    .referral-form button {
+      padding: 0.65rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: linear-gradient(120deg, #0aa67e, var(--accent), var(--accent-amber));
+      color: #050816;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 26px rgba(10, 166, 126, 0.45);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .referral-form button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 34px rgba(10, 166, 126, 0.6);
+    }
+
+    .referral-cta-btn {
+      animation: flashAccent 1.4s ease-in-out infinite;
+    }
+
+    .referral-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(14, 208, 163, 0.4);
+      background: rgba(14, 208, 163, 0.14);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.82rem;
+      animation: flashText 1.6s ease-in-out infinite;
+    }
+
+    .reward-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(94, 242, 255, 0.5);
+      background: rgba(94, 242, 255, 0.16);
+      color: #e7fbff;
+      font-weight: 700;
+      font-size: 0.86rem;
+      box-shadow: 0 4px 16px rgba(94, 242, 255, 0.35);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(14, 208, 163, 0.35); }
+      50% { box-shadow: 0 0 0 10px rgba(14, 208, 163, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(14, 208, 163, 0); }
+    }
+
+    @keyframes flashAccent {
+      0% { box-shadow: 0 0 0 0 rgba(94, 242, 255, 0.6); transform: translateY(0); }
+      50% { box-shadow: 0 0 0 10px rgba(14, 208, 163, 0); transform: translateY(-1px); }
+      100% { box-shadow: 0 0 0 0 rgba(94, 242, 255, 0.6); transform: translateY(0); }
+    }
+
+    @keyframes flashText {
+      0% { color: var(--accent); }
+      50% { color: #6fe9ff; }
+      100% { color: var(--accent); }
+    }
+
     .social-btn {
       display: inline-flex;
       align-items: center;
@@ -758,15 +982,25 @@
           <span>Sol Solar Solutions LLC</span>
         </a>
         <div class="nav-links">
-          <a href="#solutions">Solutions</a>
-          <a href="#initiative">Data Centers</a>
-          <a href="#automation">Automation</a>
-          <a href="residential.html">Residential</a>
+          <a href="#sectors">Best fits</a>
+          <a href="#money-map">Money map</a>
+          <a href="#finance">Financing</a>
+          <a href="#delivery">Delivery</a>
+          <a href="datacenters.html">Data centers</a>
+          <a href="robotics.html">Robotics</a>
+          <a href="#apply">Apply</a>
           <a href="media.html">Media</a>
-          <a href="careers.html">Careers</a>
-          <a href="#contact">Contact</a>
+          <a href="#chat">Savings chat</a>
+          <a href="residential.html">Residential</a>
         </div>
-        <a href="#contact" class="btn btn-primary nav-cta">Request a briefing</a>
+        <a
+          href="https://wa.me/19495915731?text=I%20need%20commercial%20solar%20numbers%20and%20a%20proposal"
+          class="btn btn-primary nav-cta"
+          target="_blank"
+          rel="noopener"
+        >
+          Open savings chat
+        </a>
       </nav>
     </header>
 
@@ -775,40 +1009,34 @@
         <div>
           <div class="eyebrow">
             <span class="eyebrow-dot"></span>
-            Solar | Storage | Automation
+            Profit-first commercial solar
           </div>
           <h1>
-            Utility-scale solar, storage, and automation engineered for resilient growth.
+            Profit with solar + storage built for high-load businesses.
           </h1>
           <p class="hero-sub">
-            Sol Solar Solutions LLC delivers grid-connected PV, battery systems, and smart controls with the rigor utilities, IPPs, data centers, and industrial operators expect - built for uptime, safety, and 2030 targets.
+            Cold storage, automotive, grocery, manufacturing, data/AI, and robotics—we cut demand charges, stack ITC + bonus + MACRS, and line up cash, PPA, or lease so you get day-one savings or the fastest payback.
           </p>
-          <div class="hero-meta">
-            <div class="pill">
-              <strong>Utility and industrial</strong>
-              <span>Solar, storage, data centers, automation</span>
-            </div>
-            <div class="pill">
-              <strong>Turnkey delivery</strong>
-              <span>Strategy -> EPC -> controls</span>
-            </div>
-            <div class="pill">
-              <strong>Governed outcomes</strong>
-              <span>Safety, compliance, uptime KPIs</span>
-            </div>
+          <div class="stat-strip">
+            <div class="stat-pill"><strong>30-40%</strong> bill compression</div>
+            <div class="stat-pill"><strong>3-6 yr</strong> typical payback</div>
+            <div class="stat-pill"><strong>48h</strong> proposal after site walk</div>
+            <div class="stat-pill"><strong>kW control</strong> solar + storage</div>
           </div>
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">
-              Request a briefing
+            <a
+              href="https://wa.me/19495915731?text=I%20need%20commercial%20solar%20numbers%20and%20a%20proposal"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Start the savings chat
             </a>
-            <a href="#solutions" class="btn btn-ghost">
-              See our solutions
+            <a href="#contact" class="btn btn-ghost">
+              Book a proposal visit
             </a>
-            <a href="careers.html" class="btn btn-ghost">
-              We are hiring
-            </a>
-            <a href="residential.html" class="btn btn-ghost">
-              Residential solar
+            <a href="#sectors" class="btn btn-ghost">
+              See best fits
             </a>
           </div>
         </div>
@@ -817,37 +1045,37 @@
           <div class="hero-panel">
             <div class="hero-grid">
               <div class="hero-card">
-                <div class="hero-card-label">Utility-scale solar</div>
-                <div class="hero-card-title">Grid-connected PV + hybrid</div>
-                <div class="hero-card-tag">20-300+ MW programs</div>
-                <div class="hero-card-metric">Tracker and fixed-tilt, SCADA-ready.</div>
+                <div class="hero-card-label">Fast numbers</div>
+                <div class="hero-card-title">Bill + address -> payback</div>
+                <div class="hero-card-tag">10-15 min</div>
+                <div class="hero-card-metric">Savings modeled with ITC, bonus, MACRS.</div>
               </div>
               <div class="hero-card">
-                <div class="hero-card-label">Battery systems (BESS)</div>
-                <div class="hero-card-title">Utility-grade storage</div>
-                <div class="hero-card-tag">1-200+ MWh</div>
+                <div class="hero-card-label">Demand control</div>
+                <div class="hero-card-title">Solar + storage plan</div>
+                <div class="hero-card-tag">Peak shaving</div>
                 <div class="hero-card-metric">
-                  Safety-first design with controls integration.
+                  Cut kW charges; keep cold rooms and lights on.
                 </div>
               </div>
               <div class="hero-card">
-                <div class="hero-card-label">Data centers</div>
-                <div class="hero-card-title">2030-ready power roadmaps</div>
-                <div class="hero-card-tag">Solar + storage + grid</div>
-                <div class="hero-card-metric">Resilient, low-carbon infrastructure.</div>
+                <div class="hero-card-label">Finance picks</div>
+                <div class="hero-card-title">Cash / PPA / lease / CPACE</div>
+                <div class="hero-card-tag">Good / Better / Best</div>
+                <div class="hero-card-metric">Day-one savings or fastest payback.</div>
               </div>
               <div class="hero-card">
-                <div class="hero-card-label">Automation and controls</div>
-                <div class="hero-card-title">Industrial and O&M robotics</div>
-                <div class="hero-card-tag">Plants, logistics, OT/IT</div>
+                <div class="hero-card-label">Delivery</div>
+                <div class="hero-card-title">Site walk -> build</div>
+                <div class="hero-card-tag">48h proposal</div>
                 <div class="hero-card-metric">
-                  PLC and SCADA integration with field systems.
+                  Design, permits, install, monitor, and service.
                 </div>
               </div>
             </div>
             <div class="hero-ribbon">
               <span>*</span>
-              Single partner for engineering, procurement, construction, and controls integration.
+              Built for high-load sites: cold storage, auto, grocery, manufacturing, data/AI, robotics.
             </div>
           </div>
         </div>
@@ -855,165 +1083,432 @@
 
       <div class="trust-band">
         <div class="trust-inner">
-          <div class="trust-title">Trusted for governed delivery and safety-first execution.</div>
-          <div class="trust-badges">
-            <span class="trust-badge"><span class="badge-dot"></span><strong>Utility-scale EPC</strong> programs</span>
-            <span class="trust-badge"><span class="badge-dot"></span><strong>SCADA & controls</strong> alignment</span>
-            <span class="trust-badge"><span class="badge-dot"></span><strong>NABCEP-trained</strong> leadership</span>
-            <span class="trust-badge"><span class="badge-dot"></span><strong>UL/ETL-listed</strong> components</span>
-            <span class="trust-badge"><span class="badge-dot"></span><strong>OSHA-focused</strong> safety plans</span>
-            <span class="trust-badge"><span class="badge-dot"></span><strong>Bonded & insured</strong> projects</span>
+          <div class="trust-title">Engineered for energy-heavy, high-ROI projects.</div>
+          <div class="trust-row">
+            <div class="trust-chip"><span class="badge-dot"></span> Tariff + demand charge modeling</div>
+            <div class="trust-chip"><span class="badge-dot"></span> Refrigeration/EV load strategies</div>
+            <div class="trust-chip"><span class="badge-dot"></span> Roof + carport structural review</div>
+            <div class="trust-chip"><span class="badge-dot"></span> Procurement leverage & pricing</div>
+            <div class="trust-chip"><span class="badge-dot"></span> Safety-first build teams</div>
+            <div class="trust-chip"><span class="badge-dot"></span> Monitoring + performance guardrails</div>
           </div>
         </div>
       </div>
 
-      <section class="section" id="solutions">
+      <div class="section">
+        <div class="proof-band">
+          <div class="proof-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:0.6rem;flex-wrap:wrap;">
+              <h3 style="margin:0;">How we make solar pay fast.</h3>
+              <div class="chip">Chat → Walk → Proposal</div>
+            </div>
+            <div class="steps">
+              <div class="step">
+                <span class="chip">01</span>
+                <span>Share address + bill for modeled demand and energy savings.</span>
+              </div>
+              <div class="step">
+                <span class="chip">02</span>
+                <span>Site walk to lock layout, storage sizing, and incentive stack.</span>
+              </div>
+              <div class="step">
+                <span class="chip">03</span>
+                <span>48h proposal with cash / PPA / lease options and payback.</span>
+              </div>
+            </div>
+            <div class="stat-strip" style="margin-top:1rem;">
+              <div class="stat-pill"><strong>kW control</strong> peak shaving plans</div>
+              <div class="stat-pill"><strong>ITC + bonus + MACRS</strong> applied</div>
+              <div class="stat-pill"><strong>OPS-friendly</strong> install + service</div>
+            </div>
+          </div>
+          <div class="hero-panel" style="height:100%;">
+            <video controls style="width:100%; border-radius:12px; border:1px solid var(--border-subtle); background:#050816;">
+              <source src="video-intro.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div style="margin-top:0.9rem; display:flex; gap:0.7rem; flex-wrap:wrap;">
+              <a class="btn btn-primary" href="https://www.youtube.com/@SolSolarSolutionsLLC" target="_blank" rel="noopener">Watch on YouTube</a>
+              <a class="btn btn-ghost" href="media.html">Open media page</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section" id="sectors">
         <div class="section-heading">
           <div>
-            <h2>Modular solutions built for scale and uptime.</h2>
+            <h2>The most lucrative fits for solar + storage.</h2>
           </div>
           <p>
-            One aligned team to plan, engineer, and deliver your solar, storage, data center power, and automation programs with disciplined governance.
+            We focus on energy-heavy businesses where demand charges, refrigeration, lighting, and EV loads make solar + storage a cash machine.
           </p>
         </div>
 
         <div class="solutions-grid">
           <article class="solution-card">
-            <div class="solution-icon">PV</div>
-            <div class="solution-title">Utility-scale solar</div>
+            <div class="solution-icon">COLD</div>
+            <div class="solution-title">Cold storage & food processing</div>
             <div class="solution-body">
-              Feasibility, interconnection, engineering, procurement, construction, and O&M for grid-connected PV and hybrid plants.
+              Stop demand spikes, keep inventory safe, and lower bills.
             </div>
             <div class="solution-meta">
-              Tracker or fixed-tilt; SCADA and performance monitoring aligned.
+              Solar + storage + controls for 24/7 refrigeration.
             </div>
             <div class="solution-foot">
-              <span class="chip">Utilities and IPPs</span>
-              <span>20-300+ MW</span>
+              <span class="chip">300 kW - 5+ MW</span>
+              <span>Fastest ROI</span>
             </div>
           </article>
 
           <article class="solution-card">
-            <div class="solution-icon">C&I</div>
-            <div class="solution-title">Commercial and industrial solar</div>
+            <div class="solution-icon">AUTO</div>
+            <div class="solution-title">Automotive dealers & fleets</div>
             <div class="solution-body">
-              Rooftop, carport, and ground-mount systems for manufacturing, logistics, and campus operators.
+              Shade lots, feed EV chargers, and cut showroom energy.
             </div>
             <div class="solution-meta">
-              Tariff modeling, load shaping, turnkey deployment.
+              Carports + storage tame charger spikes.
             </div>
             <div class="solution-foot">
-              <span class="chip">Industrial campuses</span>
-              <span>500 kW - 20 MW</span>
+              <span class="chip">Parking + service bays</span>
+              <span>Shade + power</span>
             </div>
           </article>
 
           <article class="solution-card">
-            <div class="solution-icon">RES</div>
-            <div class="solution-title">Residential solar & backup</div>
+            <div class="solution-icon">GROC</div>
+            <div class="solution-title">Grocery & convenience</div>
             <div class="solution-body">
-              Rooftop solar with battery backup and EV charging integration for homeowners who want resilience and lower bills.
+              Keep refrigeration steady and trim demand charges.
             </div>
             <div class="solution-meta">
-              Design → permits → install; monitoring and support included.
+              Rooftop + batteries shave peaks and back up cold aisles.
             </div>
             <div class="solution-foot">
-              <span class="chip">Homes</span>
-              <span>5 - 20 kW + storage</span>
+              <span class="chip">100 kW - 2 MW</span>
+              <span>Cold aisle protection</span>
             </div>
           </article>
 
           <article class="solution-card">
-            <div class="solution-icon">BESS</div>
-            <div class="solution-title">Battery and storage systems</div>
+            <div class="solution-icon">MFG</div>
+            <div class="solution-title">Manufacturing & industrial</div>
             <div class="solution-body">
-              Peak-shaving, backup power, and renewables-plus-storage plants with utility-grade battery systems.
+              Flatten compressor and shift-driven peaks.
             </div>
             <div class="solution-meta">
-              Containerized or hybrid; layered safety and controls.
+              Tariff optimization + storage for smooth shifts.
             </div>
             <div class="solution-foot">
-              <span class="chip">Utility and C&I</span>
-              <span>1-200+ MWh</span>
+              <span class="chip">500 kW - 10 MW</span>
+              <span>Shift-friendly</span>
+            </div>
+          </article>
+
+          <article class="solution-card">
+            <div class="solution-icon">DATA</div>
+            <div class="solution-title">Data centers & AI</div>
+            <div class="solution-body">
+              Keep cooling and uptime steady with solar + storage.
+            </div>
+            <div class="solution-meta">
+              Controlled switchover with UPS-friendly design.
+            </div>
+            <div class="solution-foot">
+              <span class="chip">UPS + storage</span>
+              <span>Uptime focused</span>
+            </div>
+          </article>
+
+          <article class="solution-card">
+            <div class="solution-icon">ROBO</div>
+            <div class="solution-title">Robotics & automation hubs</div>
+            <div class="solution-body">
+              Power conveyors and automation with stable, low-cost energy.
+            </div>
+            <div class="solution-meta">
+              Solar + storage to smooth kW spikes and protect uptime.
+            </div>
+            <div class="solution-foot">
+              <span class="chip">24/7 operations</span>
+              <span>Peak control</span>
             </div>
           </article>
 
           <article class="solution-card">
             <div class="solution-icon">DC</div>
-            <div class="solution-title">Data center power</div>
+            <div class="solution-title">Distribution & cold chain yards</div>
             <div class="solution-body">
-              Power architecture, resiliency, on-site solar and storage, and PPA strategy aligned to 2030 targets.
+              Dock equipment, forklifts, and yard lighting benefit from on-site generation.
             </div>
             <div class="solution-meta">
-              Tier-aligned redundancy and phased retrofits.
+              Canopies power docks; batteries cover peaks and outages.
             </div>
             <div class="solution-foot">
-              <span class="chip">Hyperscale and edge</span>
-              <span>2030-ready paths</span>
-            </div>
-          </article>
-
-          <article class="solution-card" id="automation">
-            <div class="solution-icon">AUTO</div>
-            <div class="solution-title">Automation and robotics</div>
-            <div class="solution-body">
-              Robotics and control systems for solar O&M, plants, warehouses, and energy assets integrated with your OT and IT stack.
-            </div>
-            <div class="solution-meta">
-              PLCs, SCADA, robotic cells, autonomous inspection.
-            </div>
-            <div class="solution-foot">
-              <span class="chip">Automation engineering</span>
-              <span>Pilot to scale</span>
-            </div>
-          </article>
-
-          <article class="solution-card">
-            <div class="solution-icon">EPC</div>
-            <div class="solution-title">Full-stack integration and EPC</div>
-            <div class="solution-body">
-              One accountable team to engineer, procure, construct, and automate your energy and infrastructure stack.
-            </div>
-            <div class="solution-meta">
-              Governed delivery with clear performance KPIs.
-            </div>
-            <div class="solution-foot">
-              <span class="chip">EPC and integration</span>
-              <span>Design to commissioning</span>
+              <span class="chip">Carports + rooftops</span>
+              <span>Logistics ready</span>
             </div>
           </article>
         </div>
 
-        <div class="initiative" id="initiative">
+        <div class="initiative" id="money-map">
           <div>
             <div class="initiative-badge">
-              2030 Data Center Readiness
+              Money map
             </div>
-            <h3>Clean-powered data centers aligned to your 2030 targets.</h3>
+            <h3>Capture every dollar: incentives, demand cuts, new revenue.</h3>
             <p>
-              We map power architecture, resiliency, and carbon pathways to meet uptime SLAs while reducing emissions.
+              Three levers we stack for cold storage, auto, grocery, manufacturing, data/AI, and robotics sites.
             </p>
-            <ul class="initiative-list">
-              <li>Discovery, load, and uptime modeling.</li>
-              <li>On-site utility-scale solar and battery integration.</li>
-              <li>Redundancy, backup, and automation architecture.</li>
-              <li>Phased retrofit and migration plans for existing sites.</li>
-            </ul>
+            <div class="solutions-grid" style="gap:0.75rem; margin: 1rem 0;">
+              <article class="solution-card">
+                <div class="solution-title">Incentives</div>
+                <div class="solution-body">30% ITC + bonus + MACRS + local rebates applied to your layout.</div>
+                <div class="solution-meta">We handle paperwork and eligibility.</div>
+              </article>
+              <article class="solution-card">
+                <div class="solution-title">Demand shaving</div>
+                <div class="solution-body">Solar + storage to flatten kW peaks and shift loads.</div>
+                <div class="solution-meta">Tariff-specific modeling for your utility.</div>
+              </article>
+              <article class="solution-card">
+                <div class="solution-title">New revenue</div>
+                <div class="solution-body">RECs, EV charging, and grid services where available.</div>
+                <div class="solution-meta">Optional adders; we show the math.</div>
+              </article>
+            </div>
             <div class="initiative-metric">
-              Align reliability and emissions outcomes with a governed roadmap.
+              Typical payback 3-6 years with incentives; PPAs/leases start day-one savings.
             </div>
           </div>
           <div class="initiative-right">
             <div class="initiative-tagline">
-              Start with a discovery session to benchmark your footprint, load profile, and 2030 objectives.
+              See your modeled savings and payback before we visit.
             </div>
             <div>
               <div class="initiative-stat">
-                2030
-                <span>net-zero and growth-ready power planning</span>
+                48h
+                <span>proposal turnaround after site walk</span>
               </div>
-              <a href="#contact" class="btn btn-primary" style="margin-top: 0.9rem;">
-                Schedule a discovery call
+              <a
+                href="https://wa.me/19495915731?text=I%20need%20commercial%20solar%20numbers%20and%20a%20proposal"
+                class="btn btn-primary"
+                style="margin-top: 0.9rem;"
+                target="_blank"
+                rel="noopener"
+              >
+                Open savings chat
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="finance">
+        <div class="section-heading">
+          <div>
+            <h2>Finance and deal structures that protect your cash.</h2>
+          </div>
+          <p>
+            See monthly, day-one savings, and payback side by side across cash, PPA, lease, and CPACE with Good / Better / Best equipment options—kept simple.
+          </p>
+        </div>
+
+        <div class="solutions-grid">
+          <article class="solution-card">
+            <div class="solution-icon">CASH</div>
+            <div class="solution-title">Cash + incentives</div>
+            <div class="solution-body">
+              Max ROI with ITC, bonus, MACRS, and local rebates applied day one.
+            </div>
+            <div class="solution-meta">
+              3-6 year payback typical for high-load sites; you own the asset.
+            </div>
+            <div class="solution-foot">
+              <span class="chip">Fastest payback</span>
+              <span>Own + depreciate</span>
+            </div>
+          </article>
+
+          <article class="solution-card">
+            <div class="solution-icon">PPA</div>
+            <div class="solution-title">$0 CapEx PPA</div>
+            <div class="solution-body">
+              Off-balance sheet, day-one bill reduction with fixed or capped escalators.
+            </div>
+            <div class="solution-meta">
+              We bid multiple providers; you pick the rate and term that wins.
+            </div>
+            <div class="solution-foot">
+              <span class="chip">Day-one savings</span>
+              <span>Operations-friendly</span>
+            </div>
+          </article>
+
+          <article class="solution-card">
+            <div class="solution-icon">PACE</div>
+            <div class="solution-title">Lease / CPACE</div>
+            <div class="solution-body">
+              Preserve cash while leveraging tax benefits; CPACE offers long-term fixed payments.
+            </div>
+            <div class="solution-meta">
+              Sized so payments sit below current utility spend where possible.
+            </div>
+            <div class="solution-foot">
+              <span class="chip">Cash-flow positive</span>
+              <span>20-30 yr terms</span>
+            </div>
+          </article>
+
+          <article class="solution-card">
+            <div class="solution-icon">GBB</div>
+            <div class="solution-title">Good / Better / Best kits</div>
+            <div class="solution-body">
+              Value, premium, and resilient packages for modules, inverters, storage, and warranties.
+            </div>
+            <div class="solution-meta">
+              Pick the mix that matches your risk tolerance and uptime needs.
+            </div>
+            <div class="solution-foot">
+              <span class="chip">Transparent</span>
+              <span>Modeled savings</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="mini-form" id="quick-form" style="margin-top:1.4rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:0.6rem;flex-wrap:wrap;">
+            <h3 style="margin:0;">Get your modeled savings.</h3>
+            <div class="chip">Fast savings chat</div>
+          </div>
+          <div class="row">
+            <input type="text" placeholder="Name*" />
+            <input type="email" placeholder="Work email*" />
+            <input type="tel" placeholder="Phone" />
+          </div>
+          <div class="row">
+            <input type="text" placeholder="Company" />
+            <select>
+              <option value="">Primary interest</option>
+              <option>Cold storage / food processing</option>
+              <option>Automotive dealer / fleet depot</option>
+              <option>Grocery / convenience</option>
+              <option>Manufacturing / industrial</option>
+              <option>Robotics / automation facility</option>
+              <option>Data/AI / server room</option>
+              <option>Distribution / cold chain yards</option>
+              <option>Solar carport / canopy</option>
+              <option>Solar + storage for demand shaving</option>
+              <option>Power purchase agreement (PPA)</option>
+              <option>Lease / CPACE</option>
+              <option>Cash purchase with incentives</option>
+              <option>Bill and tariff analysis only</option>
+            </select>
+          </div>
+          <div class="row">
+            <input type="text" placeholder="Service address" />
+            <input type="text" placeholder="Average monthly bill + demand charges" />
+          </div>
+          <div class="cta-bar" style="margin-top:0.6rem; gap:0.6rem;">
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/19495915731?text=I%20need%20commercial%20solar%20numbers%20and%20a%20proposal"
+              target="_blank"
+              rel="noopener"
+            >
+              Open savings chat
+            </a>
+            <a class="btn btn-ghost" href="#contact">Send full proposal request</a>
+          </div>
+        </div>
+
+        <div class="initiative" id="delivery">
+          <div>
+            <div class="initiative-badge">
+              Delivery loop
+            </div>
+            <h3>From chat to energized system without friction.</h3>
+            <p>
+              We handle the heavy lifting so operations stay focused on revenue.
+            </p>
+            <ul class="initiative-list">
+              <li>Share your bill + address for modeled savings and incentive stack.</li>
+              <li>Site walk to verify roof/carport/electrical and confirm storage sizing.</li>
+              <li>Proposal with cash/PPA/lease + Good / Better / Best equipment options.</li>
+              <li>Permits, procurement, install, commissioning, and monitoring/training.</li>
+            </ul>
+            <div class="initiative-metric">
+              We manage utility interconnection, AHJ permits, structural, and commissioning checkpoints.
+            </div>
+          </div>
+          <div class="initiative-right">
+            <div class="initiative-tagline">
+              Fast numbers, no-compromise install quality.
+            </div>
+            <div>
+              <div class="initiative-stat">
+                30-60 days
+                <span>typical build window after permits</span>
+              </div>
+              <a
+                href="https://wa.me/19495915731?text=I%20need%20commercial%20solar%20numbers%20and%20a%20proposal"
+                class="btn btn-primary"
+                style="margin-top: 0.9rem;"
+                target="_blank"
+                rel="noopener"
+              >
+                Open savings chat
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="apply">
+        <div class="section-heading">
+          <div>
+            <h2>Apply to join our commercial solar team.</h2>
+          </div>
+          <p>
+            Project managers, engineers, sales, and channel partners—plug into a profit-first commercial solar group serving high-load sites.
+          </p>
+        </div>
+        <div class="initiative">
+          <div>
+            <div class="initiative-badge">
+              Careers
+            </div>
+            <h3>Build and sell high-impact solar + storage projects.</h3>
+            <ul class="initiative-list">
+              <li>Commercial PMs, electricians, structural/EE support, and site survey pros.</li>
+              <li>Channel partners and reps focused on cold storage, auto, grocery, industrial, data/AI, and robotics sites.</li>
+              <li>Performance-driven culture with clean handoffs from design to commissioning.</li>
+            </ul>
+            <div class="initiative-metric">
+              Submit your background and region—we align you to active projects and partner routes.
+            </div>
+          </div>
+          <div class="initiative-right">
+            <div class="initiative-tagline">
+              Ready to work on the highest-ROI commercial solar deals?
+            </div>
+            <div>
+              <a
+                href="Apply.html"
+                class="btn btn-primary"
+                style="margin-top: 0.9rem;"
+              >
+                Apply now
+              </a>
+              <a
+                href="https://wa.me/19495915731?text=I%20want%20to%20apply%20to%20your%20commercial%20solar%20team"
+                class="btn btn-ghost"
+                style="margin-top: 0.9rem;"
+                target="_blank"
+                rel="noopener"
+              >
+                Message recruiting
               </a>
             </div>
           </div>
@@ -1023,21 +1518,21 @@
       <section class="section" id="contact">
         <div class="contact-grid">
           <div class="contact-copy">
-            <h2>Tell us about your project.</h2>
+            <h2>Request your profit-first commercial solar proposal.</h2>
             <p>
-              Share your site details, target capacity, timeline, and priorities. Whether utility-scale solar, storage, data center power, or automation, we will respond with a structured next step.
+              Tell us about your sites, bills, and timeline. We visit, capture photos, and return Good / Better / Best options tuned for your loads (refrigeration, EVs, industrial, data) with the best-priced finance structure.
             </p>
             <div style="margin-top: 0.9rem; font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">
-              Typical clients:
+              Helpful details:
               <br />
-              utilities, IPPs, C&I portfolios, data center operators, industrial and logistics leaders.
+              service address, average monthly bill and demand charges, refrigeration tonnage or EV chargers, roof/carport type, main panel size, target go-live date.
             </div>
             <div style="margin-top: 0.9rem; display: flex; gap: 0.7rem; flex-wrap: wrap;">
-              <a class="btn btn-primary" href="https://wa.me/19495915731?text=Hi%20Sol%20Solar%20Solutions%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener">
-                WhatsApp: instant response
+              <a class="btn btn-primary" href="https://wa.me/19495915731?text=I%20need%20commercial%20solar%20numbers%20and%20a%20proposal" target="_blank" rel="noopener">
+                Start savings chat
               </a>
-              <a class="btn btn-ghost" href="careers.html">
-                We are hiring
+              <a class="btn btn-ghost" href="#delivery">
+                See how the plan works
               </a>
             </div>
           </div>
@@ -1070,12 +1565,19 @@
               <label for="solution">Primary interest*</label>
               <select id="solution" name="solution" required>
                 <option value="">Select an option</option>
-                <option>Utility-scale solar</option>
-                <option>Commercial and industrial solar</option>
-                <option>Battery and storage (BESS)</option>
-                <option>Data centers (2030 roadmap)</option>
-                <option>Automation and controls</option>
-                <option>Multiple / full-stack integration</option>
+                <option>Cold storage / food processing</option>
+                <option>Automotive dealer / fleet depot</option>
+                <option>Grocery / convenience</option>
+                <option>Manufacturing / industrial</option>
+                <option>Robotics / automation facility</option>
+                <option>Data/AI / server room</option>
+                <option>Distribution / cold chain yards</option>
+                <option>Solar carport / canopy</option>
+                <option>Solar + storage for demand shaving</option>
+                <option>Power purchase agreement (PPA)</option>
+                <option>Lease / CPACE</option>
+                <option>Cash purchase with incentives</option>
+                <option>Bill and tariff analysis only</option>
               </select>
             </div>
             <div class="field">
@@ -1083,18 +1585,18 @@
               <textarea
                 id="message"
                 name="message"
-                placeholder="Site locations, approximate size (MW/MWh), target go-live date, and any key constraints."
+                placeholder="Service address, average monthly bill, roof/carport type, main panel size, target go-live date, and any constraints."
               ></textarea>
             </div>
             <div class="field">
               <label for="bill">Recent electric bill (PDF/JPG/PNG, optional)</label>
               <input id="bill" name="bill" type="file" accept=".pdf,.png,.jpg,.jpeg" />
               <div class="form-footnote">
-                For faster sizing, upload your latest bill. If upload is unavailable in your browser, email it to solsolarsolutions@icloud.com.
+                For faster sizing, upload your latest bill. If upload is unavailable, drop it in the savings chat or email solsolarsolutions@icloud.com.
               </div>
             </div>
             <button type="submit" class="btn btn-primary">
-              Submit inquiry
+              Send proposal request
             </button>
             <div class="form-footnote">
               By submitting, you agree to be contacted about your project. You can update your preferences at any time.
@@ -1127,9 +1629,41 @@
             <span class="social-icon">WA</span> WhatsApp
           </a>
         </div>
-        <div>Solar | Storage | Data Centers | Automation & Controls</div>
+        <div>Commercial Solar | Storage | Carports | Deal Desk</div>
       </div>
     </footer>
+    <div class="referral-band" id="chat">
+      <div class="referral-inner">
+        <div class="referral-text">
+          <span class="referral-badge">Savings chat</span>
+          <span class="reward-pill">Fast numbers</span>
+          <span class="reward-pill">Good / Better / Best</span>
+          <strong>Get profit-first solar numbers for cold storage, auto, grocery, manufacturing, robotics, and data sites.</strong>
+          <span>Share address, bill, and demand charges-we reply with pricing ranges, incentives, and payback before we visit.</span>
+        </div>
+        <div class="referral-form">
+          <a
+            class="btn btn-primary referral-cta-btn"
+            href="https://wa.me/19495915731?text=I%20need%20commercial%20solar%20numbers%20and%20a%20proposal"
+            target="_blank"
+            rel="noopener"
+          >
+            Start savings chat
+          </a>
+          <a class="btn btn-ghost" href="#contact">Request proposal</a>
+        </div>
+      </div>
+    </div>
+    <div class="floating-cta">
+      <a
+        class="btn btn-primary"
+        href="https://wa.me/19495915731?text=I%20need%20commercial%20solar%20numbers%20and%20a%20proposal"
+        target="_blank"
+        rel="noopener"
+      >
+        Open savings chat
+      </a>
+    </div>
   </div>
 
   <script>

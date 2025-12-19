@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apply – Sol Solar National Recruiting Division</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Apply to join the Sol Solar National Recruiting Division. Licensed reps, door-to-door pros, and deal submitters can plug into a national solar organization."
+  />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lora:wght@400;500;600&family=Raleway:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-soft: #f0d889;
+      --black: #000000;
+      --carbon: #2b2b2b;
+      --dark: #111111;
+      --light: #f5f5f5;
+      --white: #ffffff;
+      --radius-lg: 18px;
+      --radius-xl: 28px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.35);
+      --shadow-sm: 0 10px 24px rgba(0, 0, 0, 0.3);
+      --max-width: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Lora", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #222222 0%, #000000 60%);
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.92),
+        rgba(0, 0, 0, 0.86),
+        rgba(0, 0, 0, 0.6)
+      );
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 0;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(212, 175, 55, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 10%, #ffffff, #f0d889, #b68e20);
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-mark::before {
+      content: "SS";
+      font-family: "Raleway", sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      color: #000;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .logo-sub {
+      font-family: "Raleway", sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-family: "Raleway", sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      color: #000;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.5);
+      filter: brightness(1.05);
+    }
+
+    .btn-outline {
+      border-color: rgba(212, 175, 55, 0.75);
+      color: var(--gold-soft);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: rgba(212, 175, 55, 0.08);
+    }
+
+    .btn-ghost {
+      background: rgba(0, 0, 0, 0.5);
+      border-color: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .btn-sm {
+      padding: 0.4rem 0.95rem;
+      font-size: 0.72rem;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    section {
+      padding: 2.6rem 0 2.4rem;
+    }
+
+    .section-header {
+      margin-top: 1.4rem;
+      margin-bottom: 1.8rem;
+      text-align: left;
+    }
+
+    .section-eyebrow {
+      font-family: "Raleway", sans-serif;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.26em;
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.72);
+      max-width: 640px;
+    }
+
+    .apply-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.3fr);
+      gap: 1.7rem;
+      align-items: flex-start;
+    }
+
+    .apply-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.15) 0, #050505 70%);
+      padding: 1.4rem 1.3rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .apply-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .apply-card p {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 0.8rem;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.75rem;
+      margin-top: 0.4rem;
+    }
+
+    label {
+      font-size: 0.8rem;
+      font-family: "Raleway", sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 0.2rem;
+      display: block;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 0.55rem 0.8rem;
+      font-size: 0.86rem;
+      font-family: inherit;
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.7);
+      outline: none;
+      transition: border-color 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+    }
+
+    textarea {
+      border-radius: 14px;
+      min-height: 90px;
+      resize: vertical;
+      padding: 0.6rem 0.8rem;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(212, 175, 55, 0.85);
+      box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.5);
+      background: rgba(0, 0, 0, 0.9);
+    }
+
+    .helper-text {
+      font-size: 0.74rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 0.15rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 0.25rem 0.7rem;
+      font-size: 0.72rem;
+      font-family: "Raleway", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255, 255, 255, 0.7);
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .apply-side {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .side-box {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(0, 0, 0, 0.72);
+      padding: 1rem 0.95rem 1.05rem;
+      font-size: 0.86rem;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .side-title {
+      font-family: "Raleway", sans-serif;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gold-soft);
+      margin-bottom: 0.45rem;
+    }
+
+    .side-list {
+      margin-left: 0.9rem;
+      margin-top: 0.3rem;
+      list-style: disc;
+    }
+
+    .side-list li {
+      margin-bottom: 0.25rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem 0 1.4rem;
+      margin-top: 2.2rem;
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+    }
+
+    @media (max-width: 840px) {
+      .apply-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-cta {
+        gap: 0.35rem;
+      }
+
+      .btn {
+        padding: 0.45rem 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <div class="nav-left">
+            <div class="logo-mark" aria-hidden="true"></div>
+            <div class="logo-text">
+              <div class="logo-title">Sol Solar</div>
+              <div class="logo-sub">National Recruiting Division</div>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="index.html" class="btn btn-ghost btn-sm">← Back to Home</a>
+            <a
+              href="https://calendly.com/salvadorcastillo2020/30m"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-gold btn-sm"
+            >
+              Schedule Call
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="wrapper">
+          <div class="section-header">
+            <div class="section-eyebrow">Application</div>
+            <h1 class="section-title">Apply to Join the Division</h1>
+            <p class="section-subtitle">
+              Fill out this short form so we can understand your background, where you’re located, and which path you’re
+              interested in—licensed rep, door-to-door pro, or deal partner.
+            </p>
+          </div>
+
+          <div class="apply-layout">
+            <div class="apply-card">
+              <h3>Tell Us Who You Are</h3>
+              <p>
+                Be honest and simple. You don’t need a perfect résumé—just clarity on your experience and your goals.
+              </p>
+
+              <!-- This form sends an email draft through the user's email client -->
+              <form
+                action="mailto:solsolarsolutions@icloud.com?subject=Sol%20Solar%20National%20Recruiting%20Application"
+                method="post"
+                enctype="text/plain"
+              >
+                <div>
+                  <label for="name">Full Name</label>
+                  <input id="name" name="Full Name" type="text" required />
+                </div>
+
+                <div>
+                  <label for="email">Email</label>
+                  <input id="email" name="Email" type="email" required />
+                </div>
+
+                <div>
+                  <label for="phone">Phone Number</label>
+                  <input id="phone" name="Phone" type="tel" required />
+                  <div class="helper-text">Include country code if outside the U.S.</div>
+                </div>
+
+                <div>
+                  <label for="location">City &amp; State</label>
+                  <input id="location" name="City & State" type="text" placeholder="Example: San Diego, CA" required />
+                </div>
+
+                <div>
+                  <label for="track">Path You’re Applying For</label>
+                  <select id="track" name="Track" required>
+                    <option value="">Select one…</option>
+                    <option value="Licensed Solar / HIS Rep">Licensed Solar / HIS Rep</option>
+                    <option value="Door-to-Door Sales Pro">Door-to-Door Sales Pro</option>
+                    <option value="Deal Submitter / Connector">Deal Submitter / Connector</option>
+                    <option value="Open to Salvador’s Recommendation">Open to Salvador’s Recommendation</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="experience">Sales / Solar Experience</label>
+                  <textarea
+                    id="experience"
+                    name="Experience"
+                    placeholder="Tell us briefly what you’ve sold before (if anything), and how long you’ve been in sales or solar."
+                  ></textarea>
+                </div>
+
+                <div>
+                  <label for="license">Licenses (if any)</label>
+                  <input
+                    id="license"
+                    name="Licenses"
+                    type="text"
+                    placeholder="HIS, contractor, electrical, insurance, real estate, etc."
+                  />
+                </div>
+
+                <div>
+                  <label for="income">Income Goal (Next 12 Months)</label>
+                  <input
+                    id="income"
+                    name="Income Goal"
+                    type="text"
+                    placeholder="Example: $80,000 – $150,000+"
+                  />
+                </div>
+
+                <div>
+                  <label for="start">How Soon Can You Start?</label>
+                  <input
+                    id="start"
+                    name="Start Timeline"
+                    type="text"
+                    placeholder="Example: Immediately, 2 weeks, next month"
+                  />
+                </div>
+
+                <div>
+                  <label for="notes">Anything Else Salvador Should Know?</label>
+                  <textarea
+                    id="notes"
+                    name="Notes"
+                    placeholder="Optional: Share anything important about your schedule, background, or expectations."
+                  ></textarea>
+                </div>
+
+                <div>
+                  <button type="submit" class="btn btn-gold" style="margin-top: 0.6rem;">
+                    Submit Application
+                  </button>
+                </div>
+
+                <div class="helper-text">
+                  Clicking “Submit Application” will open your email client with this information. You can review and send
+                  it directly to Salvador.
+                </div>
+              </form>
+            </div>
+
+            <div class="apply-side">
+              <div class="side-box">
+                <div class="side-title">Three Main Tracks</div>
+                <p>
+                  You don’t have to lock yourself into a single lane forever. Many recruits start in one track and shift
+                  as they gain confidence and experience.
+                </p>
+                <ul class="side-list">
+                  <li><strong>Licensed reps</strong> leverage experience and licenses for higher-level deals.</li>
+                  <li><strong>D2D pros</strong> transition from other verticals into higher-paying solar programs.</li>
+                  <li><strong>Deal submitters</strong> monetize relationships and referrals with low time commitment.</li>
+                </ul>
+              </div>
+
+              <div class="side-box">
+                <div class="side-title">What Happens After You Apply</div>
+                <p>
+                  Once your application comes in, Salvador or someone on the leadership side will:
+                </p>
+                <ul class="side-list">
+                  <li>Review your background and track selection.</li>
+                  <li>Reach out by WhatsApp, phone, or email if it’s a fit.</li>
+                  <li>Place you into the correct onboarding path and training modules.</li>
+                  <li>Help you focus on clear first objectives within your first 30–90 days.</li>
+                </ul>
+              </div>
+
+              <div class="side-box">
+                <div class="side-title">Faster Ways to Connect</div>
+                <p>Want to move faster while your application is being reviewed?</p>
+                <div class="pill-row">
+                  <a
+                    href="https://wa.me/19495915731"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="pill"
+                  >
+                    WhatsApp Salvador
+                  </a>
+                  <a
+                    href="https://calendly.com/salvadorcastillo2020/30m"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="pill"
+                  >
+                    Book a Call
+                  </a>
+                  <a href="index.html" class="pill">
+                    Visit Main Site
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrapper">
+        <div class="footer-inner">
+          <div>
+            &copy; <span id="year"></span> Sol Solar Solutions LLC &mdash; Sol Solar National Recruiting Division.
+          </div>
+          <div>
+            Application page for licensed reps, door-to-door pros, and deal partners across the U.S.
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
