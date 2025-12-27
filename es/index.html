@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sol Solar Solutions | Solar comercial y almacenamiento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Solar comercial + baterías para cámaras frías, automotriz, supermercados, manufactura y centros de datos. Reducimos picos, apilamos incentivos y mostramos efectivo, PPA o lease con ahorros claros." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
+    :root {
+      --bg: #04060f;
+      --bg-soft: #0a1020;
+      --panel: #111a32;
+      --card-bg: #10182f;
+      --accent: #0ed0a3;
+      --accent-amber: #f5c06b;
+      --text-main: #f6f8ff;
+      --text-muted: #a5b2c9;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --max-width: 1140px;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+      --transition-fast: 0.18s ease-out;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 18% 10%, #0f1e38 0, #05070f 45%, #02030a 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: 0.01em;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(5, 8, 22, 0.9), rgba(5, 8, 22, 0.72), transparent);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #f5c06b, #0ed0a3 55%, #050816 92%);
+      box-shadow: 0 0 28px rgba(14, 208, 163, 0.7);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a { position: relative; padding-bottom: 0.15rem; }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-amber));
+      border-radius: 999px;
+      transition: width var(--transition-fast);
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-actions { display: flex; align-items: center; gap: 0.65rem; }
+    .lang-toggle { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.6rem; border-radius: 999px; border: 1px solid var(--border-subtle); background: rgba(8, 12, 31, 0.6); color: var(--text-muted); font-size: 0.85rem; }
+    .lang-toggle a { padding: 0.2rem 0.55rem; border-radius: 999px; border: 1px solid transparent; color: inherit; }
+    .lang-toggle a.active { border-color: rgba(14, 208, 163, 0.45); color: var(--text-main); background: rgba(14, 208, 163, 0.14); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.35rem;
+      font-size: 0.92rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: none;
+      color: inherit;
+      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+      text-decoration: none;
+      gap: 0.45rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    .btn-primary { background: linear-gradient(120deg, #0aa67e, var(--accent), var(--accent-amber)); color: #050816; box-shadow: 0 12px 32px rgba(10, 166, 126, 0.55); border-color: transparent; }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 16px 42px rgba(10, 166, 126, 0.7); }
+    .btn-ghost { border-color: var(--border-subtle); background: rgba(5, 8, 22, 0.75); color: var(--text-muted); }
+    .btn-ghost:hover { background: rgba(14, 19, 46, 0.9); border-color: rgba(94, 242, 255, 0.35); color: var(--text-main); }
+
+    main { flex: 1; }
+    .section { max-width: var(--max-width); margin: 0 auto; padding: 2.8rem 1.25rem; }
+
+    .hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr); align-items: center; gap: 2.6rem; padding-top: 3rem; padding-bottom: 1.8rem; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.22rem 0.7rem; border-radius: 999px; background: rgba(14, 208, 163, 0.08); border: 1px solid rgba(14, 208, 163, 0.35); color: var(--accent); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 1rem; }
+    .eyebrow-dot { width: 7px; height: 7px; border-radius: 999px; background: var(--accent); box-shadow: 0 0 14px rgba(14, 208, 163, 0.9); }
+    .hero h1 { font-size: clamp(2.5rem, 3.8vw + 1rem, 3.4rem); line-height: 1.05; margin: 0 0 1rem; letter-spacing: -0.015em; }
+    .hero-sub { font-size: 1rem; color: var(--text-muted); max-width: 36rem; line-height: 1.6; margin-bottom: 1.9rem; }
+
+    .stat-strip { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 1.4rem; }
+    .stat-pill { background: rgba(15, 23, 42, 0.9); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 0.55rem 0.9rem; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-muted); }
+    .stat-pill strong { color: var(--text-main); font-weight: 700; }
+
+    .hero-panel { border-radius: var(--radius-lg); border: 1px solid var(--border-subtle); background: radial-gradient(circle at 20% 0%, rgba(14, 208, 163, 0.12), transparent 42%), linear-gradient(145deg, #0c1224, #0b1424 40%, #070d1a); padding: 1.2rem 1.25rem; box-shadow: var(--shadow-soft); }
+    .hero-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.85rem; font-size: 0.85rem; }
+    .hero-card { border-radius: 14px; padding: 0.9rem 0.95rem; background: rgba(4, 7, 24, 0.96); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.35rem; position: relative; overflow: hidden; }
+    .hero-card-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+    .hero-card-title { font-weight: 700; }
+    .hero-card-body { color: var(--text-muted); line-height: 1.55; font-size: 0.9rem; }
+
+    .section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; margin-bottom: 1.6rem; }
+    .section-heading h2 { margin: 0; font-size: 1.5rem; }
+    .section-heading p { margin: 0; font-size: 0.95rem; color: var(--text-muted); max-width: 32rem; line-height: 1.55; }
+
+    .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .solution-card { border-radius: var(--radius-md); padding: 1rem; background: var(--card-bg); border: 1px solid var(--border-subtle); box-shadow: 0 10px 28px rgba(0,0,0,0.35); display: flex; flex-direction: column; gap: 0.4rem; }
+    .solution-title { font-weight: 700; }
+    .solution-body { color: var(--text-muted); font-size: 0.9rem; line-height: 1.55; }
+    .badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; border-radius: 999px; background: rgba(14, 208, 163, 0.1); border: 1px solid rgba(14, 208, 163, 0.3); color: var(--accent); font-size: 0.82rem; }
+
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.95rem; }
+    .card { border-radius: var(--radius-md); padding: 1rem; background: rgba(8, 12, 31, 0.95); border: 1px solid var(--border-subtle); box-shadow: 0 10px 26px rgba(0,0,0,0.35); display: flex; flex-direction: column; gap: 0.5rem; }
+    .card-title { font-weight: 700; }
+    .card-body { color: var(--text-muted); font-size: 0.9rem; line-height: 1.55; }
+
+    .process { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0.9rem; margin-top: 1rem; }
+    .process-card { border-radius: var(--radius-md); padding: 0.95rem; border: 1px solid var(--border-subtle); background: rgba(5, 8, 22, 0.92); box-shadow: 0 8px 22px rgba(0,0,0,0.32); }
+    .process-step { font-weight: 700; color: var(--accent); margin-bottom: 0.35rem; }
+    .process-body { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+
+    form { border-radius: var(--radius-md); padding: 1.1rem 1rem; background: rgba(8, 12, 31, 0.95); border: 1px solid var(--border-subtle); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45); display: grid; gap: 0.75rem; }
+    .field { display: grid; gap: 0.28rem; font-size: 0.84rem; }
+    label { color: var(--text-muted); }
+    input, select, textarea { font: inherit; padding: 0.55rem 0.65rem; border-radius: 10px; border: 1px solid var(--border-subtle); background: rgba(5, 8, 22, 0.95); color: var(--text-main); outline: none; transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast); resize: vertical; min-height: 38px; }
+    input:focus, select:focus, textarea:focus { border-color: rgba(94, 242, 255, 0.6); box-shadow: 0 0 0 1px rgba(94, 242, 255, 0.35); background: rgba(5, 8, 22, 1); }
+    textarea { min-height: 120px; }
+    .form-footnote { font-size: 0.76rem; color: var(--text-muted); line-height: 1.5; }
+
+    footer { border-top: 1px solid var(--border-subtle); padding: 1.1rem 1.25rem 1.9rem; font-size: 0.8rem; color: var(--text-muted); }
+    .footer-inner { max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .footer-social { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+    .social-btn { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.7rem; border-radius: 999px; border: 1px solid var(--border-subtle); background: rgba(8, 12, 31, 0.6); color: var(--text-main); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.01em; transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast); }
+    .social-btn:hover { background: rgba(14, 19, 46, 0.9); border-color: rgba(14, 208, 163, 0.35); color: #ffffff; }
+    .social-icon { width: 20px; height: 20px; border-radius: 6px; background: rgba(255, 255, 255, 0.08); display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.7rem; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: minmax(0, 1fr); padding-top: 2.4rem; }
+      .hero-right { order: -1; }
+      .section { padding-inline: 1rem; }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .lang-toggle { padding: 0.35rem 0.55rem; }
+      .section { padding-block: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <nav class="nav">
+        <a href="#top" class="nav-brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <span>Sol Solar Solutions LLC</span>
+        </a>
+        <div class="nav-links">
+          <a href="#sectors">Sectores</a>
+          <a href="#money-map">Mapa financiero</a>
+          <a href="#finance">Financiamiento</a>
+          <a href="#delivery">Entrega</a>
+          <a href="#contacto">Contacto</a>
+          <a href="/es/datacenters.html">Data centers</a>
+          <a href="/es/robotics.html">Robótica</a>
+          <a href="/es/residential.html">Residencial</a>
+        </div>
+        <div class="nav-actions">
+          <div class="lang-toggle" aria-label="Cambiar idioma">
+            <a href="/index.html">EN</a>
+            <span aria-hidden="true">/</span>
+            <a href="/es/index.html" class="active">ES</a>
+          </div>
+          <a
+            href="https://wa.me/19495915731?text=Quiero%20n%C3%BAmeros%20de%20ahorro%20y%20una%20propuesta%20de%20solar"
+            class="btn btn-primary"
+            target="_blank"
+            rel="noopener"
+          >
+            Abrir chat de ahorros
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section hero" id="top">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Solar + baterías para negocios
+          </div>
+          <h1>Gana control de tu factura con solar y almacenamiento diseñado para cargas altas.</h1>
+          <p class="hero-sub">
+            Refrigeración, automotriz, supermercados, manufactura y data/IA: reducimos cargos por demanda, apilamos ITC + bonus + MACRS y mostramos efectivo, PPA o lease para que tengas ahorros desde el día uno o el payback más rápido.
+          </p>
+          <div class="stat-strip">
+            <div class="stat-pill"><strong>30-40%</strong> compresión típica de la factura</div>
+            <div class="stat-pill"><strong>3-6 años</strong> payback común</div>
+            <div class="stat-pill"><strong>48h</strong> propuesta después del site walk</div>
+            <div class="stat-pill"><strong>Control kW</strong> solar + baterías</div>
+          </div>
+          <div class="hero-actions">
+            <a
+              href="https://wa.me/19495915731?text=Quiero%20n%C3%BAmeros%20de%20ahorro%20y%20una%20propuesta%20de%20solar"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Iniciar chat de ahorros
+            </a>
+            <a href="#contacto" class="btn btn-ghost">Agendar visita</a>
+            <a href="#sectors" class="btn btn-ghost">Ver sectores</a>
+          </div>
+        </div>
+        <div class="hero-panel hero-right">
+          <div class="hero-grid">
+            <div class="hero-card">
+              <div class="hero-card-label">Ahorros modelados</div>
+              <div class="hero-card-title">Tarifa, clima y producción</div>
+              <div class="hero-card-body">Modelamos tu tarifa, irradiación y perfil de carga para mostrar reducción de demanda y energía.</div>
+            </div>
+            <div class="hero-card">
+              <div class="hero-card-label">Stack de incentivos</div>
+              <div class="hero-card-title">ITC + bonus + MACRS</div>
+              <div class="hero-card-body">Capturamos créditos federales, estatales y depreciación acelerada con cronograma claro.</div>
+            </div>
+            <div class="hero-card">
+              <div class="hero-card-label">Financiamiento</div>
+              <div class="hero-card-title">Efectivo, PPA o lease</div>
+              <div class="hero-card-body">Compara lado a lado tu costo nivelado, flujo de caja y periodo de recuperación.</div>
+            </div>
+            <div class="hero-card">
+              <div class="hero-card-label">Entrega</div>
+              <div class="hero-card-title">Ingeniería y construcción</div>
+              <div class="hero-card-body">Interconexión, permisos, construcción y puesta en marcha con control de kW.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="sectors">
+        <div class="section-heading">
+          <h2>Sectores con mayor impacto</h2>
+          <p>Negocios con alto uso en horas pico y cargas críticas obtienen la mayor reducción de demanda y resiliencia con solar + almacenamiento.</p>
+        </div>
+        <div class="solutions-grid">
+          <div class="solution-card">
+            <div class="badge">Cámaras frías</div>
+            <div class="solution-title">Refrigeración y congelado</div>
+            <div class="solution-body">Control de picos por compresores, aislamiento de racks críticos y respaldo para evitar pérdida de inventario.</div>
+          </div>
+          <div class="solution-card">
+            <div class="badge">Automotriz</div>
+            <div class="solution-title">Concesionarios y talleres</div>
+            <div class="solution-body">Reducción de demanda por HVAC e iluminación, estaciones de carga EV y techos solares en estacionamientos.</div>
+          </div>
+          <div class="solution-card">
+            <div class="badge">Supermercados</div>
+            <div class="solution-title">Grocery y retail</div>
+            <div class="solution-body">Ahorro en refrigeración y HVAC, más baterías para mantener POS y cuartos fríos en línea durante cortes.</div>
+          </div>
+          <div class="solution-card">
+            <div class="badge">Manufactura</div>
+            <div class="solution-title">Plantas y food & bev</div>
+            <div class="solution-body">Aplanamos picos de maquinaria, estabilizamos temperaturas y protegemos procesos sensibles.</div>
+          </div>
+          <div class="solution-card">
+            <div class="badge">Data/IA</div>
+            <div class="solution-title">Centros de datos y edge</div>
+            <div class="solution-body">Solar + baterías para estabilidad térmica, UPS friendly y reducción de demanda en salas de IA.</div>
+          </div>
+          <div class="solution-card">
+            <div class="badge">Robótica</div>
+            <div class="solution-title">Automatización y O&M</div>
+            <div class="solution-body">Integración de robots (incluye Pudu) para O&M y logística, con energía limpia y respaldo.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="money-map">
+        <div class="section-heading">
+          <h2>Mapa financiero rápido</h2>
+          <p>En 48 horas entregamos números de ahorro, incentivos aplicables y comparación de financiamiento.</p>
+        </div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-title">Datos que necesitamos</div>
+            <div class="card-body">Factura eléctrica reciente, dirección y uso horario. Para resultados más precisos, agrega datos de submedición o BMS si están disponibles.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Modelado de ahorros</div>
+            <div class="card-body">Simulamos irradiación, curva de carga y tarifas TOU para estimar reducción de kWh y demanda con baterías para shaving.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Stack de incentivos</div>
+            <div class="card-body">ITC base + bonus (domestic/energy community), depreciación, reembolsos locales y opciones de monetización.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Comparación de pagos</div>
+            <div class="card-body">Efectivo, PPA o lease. Vemos flujo de caja año 1, costo nivelado y tiempo de recuperación para elegir la vía óptima.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="finance">
+        <div class="section-heading">
+          <h2>Opciones de financiamiento</h2>
+          <p>Elegimos el modelo que maximiza tu ahorro neto y simplifica la aprobación interna.</p>
+        </div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-title">Efectivo</div>
+            <div class="card-body">Máximo valor presente neto y control total del activo. Desbloquea incentivos y depreciación de inmediato.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">PPA</div>
+            <div class="card-body">Precio por kWh estable, sin CAPEX. Ahorros desde el primer mes y servicio completo.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Lease/financiamiento</div>
+            <div class="card-body">Pagos fijos con opción de compra. Ideal para proteger flujo de caja mientras obtienes beneficios fiscales.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="delivery">
+        <div class="section-heading">
+          <h2>Entrega dirigida a resultados</h2>
+          <p>Plan de ingeniería, permisos y construcción con gestión de kW y coordinación con tus operaciones.</p>
+        </div>
+        <div class="process">
+          <div class="process-card">
+            <div class="process-step">1) Site walk y datos</div>
+            <div class="process-body">Revisión de techos/estacionamientos, cargas críticas y puntos de interconexión.</div>
+          </div>
+          <div class="process-card">
+            <div class="process-step">2) Ingeniería y permisos</div>
+            <div class="process-body">Diseño sellado, estudios estructurales y eléctricos, interconexión y permisos AHJ.</div>
+          </div>
+          <div class="process-card">
+            <div class="process-step">3) Construcción</div>
+            <div class="process-body">Construcción con seguridad OSHA, QA/QC y coordinación para minimizar paros.</div>
+          </div>
+          <div class="process-card">
+            <div class="process-step">4) Puesta en marcha</div>
+            <div class="process-body">Pruebas, monitoreo y entrenamiento para operar solar + baterías con confianza.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contacto">
+        <div class="section-heading">
+          <h2>Comparte tu sitio y agenda una llamada</h2>
+          <p>Envíanos tu factura y requisitos de carga para recibir números preliminares en 48 horas.</p>
+        </div>
+        <div class="solutions-grid">
+          <form>
+            <div class="field">
+              <label for="name">Nombre y empresa</label>
+              <input id="name" name="name" type="text" placeholder="Ej. Ana López – FríoPac" />
+            </div>
+            <div class="field">
+              <label for="email">Correo</label>
+              <input id="email" name="email" type="email" placeholder="ana@empresa.com" />
+            </div>
+            <div class="field">
+              <label for="phone">Teléfono</label>
+              <input id="phone" name="phone" type="tel" placeholder="(XXX) XXX-XXXX" />
+            </div>
+            <div class="field">
+              <label for="address">Dirección del sitio</label>
+              <input id="address" name="address" type="text" placeholder="Ciudad, estado" />
+            </div>
+            <div class="field">
+              <label for="bill">Enlace a factura o datos de consumo</label>
+              <input id="bill" name="bill" type="url" placeholder="URL segura o nota: puedo enviar por correo" />
+            </div>
+            <div class="field">
+              <label for="notes">Notas de carga o respaldo</label>
+              <textarea id="notes" name="notes" placeholder="Cargas críticas, horarios pico, metas de ahorro"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Enviar solicitud</button>
+            <div class="form-footnote">También puedes escribir a solsolarsolutions@icloud.com o usar el chat de ahorros.</div>
+          </form>
+          <div class="solution-card">
+            <div class="badge">Respuesta en 48h</div>
+            <div class="solution-title">Qué recibirás</div>
+            <div class="solution-body">
+              <ul>
+                <li>Modelo de ahorro y demanda con solar + baterías.</li>
+                <li>Stack de incentivos (ITC, bonus, MACRS, locales).</li>
+                <li>Comparación de efectivo vs. PPA vs. lease.</li>
+                <li>Plan de entrega con hitos y próximos pasos.</li>
+              </ul>
+            </div>
+            <div class="badge" style="margin-top:0.8rem;">Lista de control</div>
+            <div class="solution-body">Factura eléctrica, fotos del sitio/techos, y disponibilidad para un site walk.</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© 2024 Sol Solar Solutions LLC. Solar comercial y residencial en todo EE. UU.</div>
+        <div class="footer-social">
+          <a class="social-btn" href="https://wa.me/19495915731" target="_blank" rel="noopener">
+            <span class="social-icon">WA</span> WhatsApp
+          </a>
+          <a class="social-btn" href="mailto:solsolarsolutions@icloud.com">Email</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
