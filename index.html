@@ -749,6 +749,67 @@
       color: var(--text-muted);
     }
 
+    .form-alert {
+      padding: 0.55rem 0.65rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(8, 12, 31, 0.9);
+      color: var(--text-muted);
+      font-size: 0.86rem;
+      display: none;
+    }
+
+    .form-alert.success {
+      display: block;
+      border-color: rgba(14, 208, 163, 0.5);
+      background: rgba(14, 208, 163, 0.08);
+      color: #b8ffe9;
+    }
+
+    .form-alert.error {
+      display: block;
+      border-color: rgba(255, 94, 94, 0.6);
+      background: rgba(255, 94, 94, 0.08);
+      color: #ffdada;
+    }
+
+    .form-alert.info {
+      display: block;
+      border-color: rgba(94, 242, 255, 0.4);
+      background: rgba(94, 242, 255, 0.08);
+      color: #d9f7ff;
+    }
+    .form-alert {
+      padding: 0.55rem 0.65rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(8, 12, 31, 0.9);
+      color: var(--text-muted);
+      font-size: 0.86rem;
+      display: none;
+    }
+
+    .form-alert.success {
+      display: block;
+      border-color: rgba(14, 208, 163, 0.5);
+      background: rgba(14, 208, 163, 0.08);
+      color: #b8ffe9;
+    }
+
+    .form-alert.error {
+      display: block;
+      border-color: rgba(255, 94, 94, 0.6);
+      background: rgba(255, 94, 94, 0.08);
+      color: #ffdada;
+    }
+
+    .form-alert.info {
+      display: block;
+      border-color: rgba(94, 242, 255, 0.4);
+      background: rgba(94, 242, 255, 0.08);
+      color: #d9f7ff;
+    }
+
     footer {
       border-top: 1px solid var(--border-subtle);
       padding: 1.1rem 1.25rem 1.9rem;
@@ -1123,9 +1184,9 @@
             </div>
           </div>
           <div class="hero-panel" style="height:100%;">
-            <video controls style="width:100%; border-radius:12px; border:1px solid var(--border-subtle); background:#050816;">
-              <source src="video-intro.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
+            <video controls poster="https://storage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg" style="width:100%; border-radius:12px; border:1px solid var(--border-subtle); background:#050816;">
+              <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+              Your browser does not support the video tag. Watch the clip on YouTube instead.
             </video>
             <div style="margin-top:0.9rem; display:flex; gap:0.7rem; flex-wrap:wrap;">
               <a class="btn btn-primary" href="https://www.youtube.com/@SolSolarSolutionsLLC" target="_blank" rel="noopener">Watch on YouTube</a>
@@ -1536,7 +1597,19 @@
               </a>
             </div>
           </div>
-          <form>
+          <form
+            class="lead-form"
+            method="post"
+            action="https://formsubmit.co/ajax/solsolarsolutions@icloud.com"
+            enctype="multipart/form-data"
+            novalidate
+            data-success="Thanks for your request. We received it and will reply quickly."
+            data-error="Something went wrong. Please retry or email solsolarsolutions@icloud.com."
+          >
+            <input type="hidden" name="form_name" value="Commercial solar proposal" />
+            <input type="hidden" name="source_page" value="index.html#contact" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_subject" value="Commercial solar proposal request" />
             <div class="field">
               <label for="name">Name*</label>
               <input id="name" name="name" type="text" placeholder="Jane Doe" required />
@@ -1595,6 +1668,7 @@
                 For faster sizing, upload your latest bill. If upload is unavailable, drop it in the savings chat or email solsolarsolutions@icloud.com.
               </div>
             </div>
+            <div class="form-alert" role="status" aria-live="polite"></div>
             <button type="submit" class="btn btn-primary">
               Send proposal request
             </button>
@@ -1668,6 +1742,66 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    (function () {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      const setAlert = (node, type, message) => {
+        if (!node) return;
+        node.className = `form-alert ${type}`;
+        node.textContent = message;
+      };
+
+      document.querySelectorAll('.lead-form').forEach((form) => {
+        const alertNode = form.querySelector('.form-alert');
+
+        form.addEventListener('submit', async (event) => {
+          event.preventDefault();
+
+          if (!form.reportValidity()) {
+            setAlert(alertNode, 'error', 'Please fill out the required fields.');
+            return;
+          }
+
+          const emailField = form.querySelector('input[type="email"]');
+          if (emailField && !emailPattern.test(emailField.value.trim())) {
+            setAlert(alertNode, 'error', 'Enter a valid work email.');
+            emailField.focus();
+            return;
+          }
+
+          const phoneField = form.querySelector('input[type="tel"][required]');
+          if (phoneField && phoneField.value.trim().length < 7) {
+            setAlert(alertNode, 'error', 'Add a phone number so we can confirm details.');
+            phoneField.focus();
+            return;
+          }
+
+          setAlert(alertNode, 'info', 'Submitting...');
+
+          const formData = new FormData(form);
+          formData.append('submitted_at', new Date().toISOString());
+
+          try {
+            const response = await fetch(form.action, {
+              method: form.method || 'post',
+              body: formData,
+              headers: { Accept: 'application/json' },
+            });
+
+            if (!response.ok) {
+              throw new Error('Network error');
+            }
+
+            setAlert(alertNode, 'success', form.dataset.success || 'Thanks for your request. We will respond shortly.');
+            form.reset();
+          } catch (error) {
+            console.error('Lead submit error', error);
+            setAlert(alertNode, 'error', form.dataset.error || 'There was an issue sending your request. Please retry or email solsolarsolutions@icloud.com.');
+          }
+        });
+      });
+    })();
   </script>
 </body>
 </html>
