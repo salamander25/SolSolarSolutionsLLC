@@ -90,6 +90,11 @@
     textarea { min-height: 120px; }
     .form-footnote { font-size: 0.76rem; color: var(--text-muted); line-height: 1.5; }
 
+    .form-alert { padding: 0.55rem 0.65rem; border-radius: 10px; border: 1px solid var(--border-subtle); background: rgba(8, 12, 31, 0.9); color: var(--text-muted); font-size: 0.86rem; display: none; }
+    .form-alert.success { display: block; border-color: rgba(14, 208, 163, 0.5); background: rgba(14, 208, 163, 0.08); color: #b8ffe9; }
+    .form-alert.error { display: block; border-color: rgba(255, 94, 94, 0.6); background: rgba(255, 94, 94, 0.08); color: #ffdada; }
+    .form-alert.info { display: block; border-color: rgba(94, 242, 255, 0.4); background: rgba(94, 242, 255, 0.08); color: #d9f7ff; }
+
     .cta-bar { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1rem; }
 
     footer { border-top: 1px solid var(--border-subtle); padding: 1.1rem 1.25rem 1.9rem; font-size: 0.8rem; color: var(--text-muted); }
@@ -214,7 +219,19 @@
           <p>Tell us your site type and workload. We’ll size the fleet, estimate payback, and outline integration.</p>
         </div>
         <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr); gap: 1.5rem; align-items: start;">
-          <form>
+          <form
+            class="lead-form"
+            method="post"
+            action="https://formsubmit.co/ajax/solsolarsolutions@icloud.com"
+            enctype="multipart/form-data"
+            novalidate
+            data-success="Thanks for your robotics ROI request. We’ll respond shortly."
+            data-error="Couldn’t send your request. Please retry or email solsolarsolutions@icloud.com."
+          >
+            <input type="hidden" name="form_name" value="Robotics ROI request" />
+            <input type="hidden" name="source_page" value="robotics.html#quote" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_subject" value="Robotics ROI request" />
             <div class="field">
               <label for="name">Full name*</label>
               <input id="name" name="name" type="text" placeholder="Jane Doe" required />
@@ -246,6 +263,7 @@
               <label for="referral">Referral (if any)</label>
               <input id="referral" name="referral" type="text" placeholder="Name or code" />
             </div>
+            <div class="form-alert" role="status" aria-live="polite"></div>
             <button type="submit" class="btn btn-primary">Submit request</button>
             <div class="form-footnote">By submitting, you agree to be contacted about your project. You can update your preferences at any time.</div>
           </form>
@@ -283,6 +301,66 @@
     </footer>
   </div>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function () {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      const setAlert = (node, type, message) => {
+        if (!node) return;
+        node.className = `form-alert ${type}`;
+        node.textContent = message;
+      };
+
+      document.querySelectorAll('.lead-form').forEach((form) => {
+        const alertNode = form.querySelector('.form-alert');
+
+        form.addEventListener('submit', async (event) => {
+          event.preventDefault();
+
+          if (!form.reportValidity()) {
+            setAlert(alertNode, 'error', 'Please fill out the required fields.');
+            return;
+          }
+
+          const emailField = form.querySelector('input[type="email"]');
+          if (emailField && !emailPattern.test(emailField.value.trim())) {
+            setAlert(alertNode, 'error', 'Enter a valid email.');
+            emailField.focus();
+            return;
+          }
+
+          const phoneField = form.querySelector('input[type="tel"][required]');
+          if (phoneField && phoneField.value.trim().length < 7) {
+            setAlert(alertNode, 'error', 'Add a phone number so we can confirm details.');
+            phoneField.focus();
+            return;
+          }
+
+          setAlert(alertNode, 'info', 'Submitting...');
+
+          const formData = new FormData(form);
+          formData.append('submitted_at', new Date().toISOString());
+
+          try {
+            const response = await fetch(form.action, {
+              method: form.method || 'post',
+              body: formData,
+              headers: { Accept: 'application/json' },
+            });
+
+            if (!response.ok) throw new Error('Network error');
+
+            setAlert(alertNode, 'success', form.dataset.success || 'Thanks for your request. We will respond shortly.');
+            form.reset();
+          } catch (error) {
+            console.error('Lead submit error', error);
+            setAlert(alertNode, 'error', form.dataset.error || 'There was an issue sending your request. Please retry or email us.');
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
