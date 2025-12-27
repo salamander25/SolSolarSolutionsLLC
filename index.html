@@ -513,18 +513,32 @@
       align-items: flex-end;
       gap: 1rem;
       margin-bottom: 1.8rem;
+      flex-wrap: wrap;
     }
 
     .section-heading h2 {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
+      letter-spacing: -0.01em;
+      position: relative;
+      padding-bottom: 0.4rem;
+    }
+
+    .section-heading h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      margin-top: 0.45rem;
+      background: linear-gradient(120deg, var(--accent), var(--accent-amber));
+      border-radius: 999px;
     }
 
     .section-heading p {
       margin: 0;
       font-size: 0.95rem;
       color: var(--text-muted);
-      max-width: 30rem;
+      max-width: 32rem;
       line-height: 1.55;
     }
 
@@ -601,6 +615,105 @@
       border-radius: 999px;
       background: rgba(15, 23, 42, 0.9);
       border: 1px solid var(--border-subtle);
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .case-card {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(140deg, rgba(14, 208, 163, 0.06), rgba(245, 192, 107, 0.06)), rgba(8, 12, 31, 0.92);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-height: 100%;
+    }
+
+    .case-photo {
+      position: relative;
+      height: 170px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .case-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(5, 8, 22, 0.75));
+    }
+
+    .case-body {
+      padding: 1rem 1.1rem 1.2rem;
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .case-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(14, 208, 163, 0.14);
+      border: 1px solid rgba(14, 208, 163, 0.4);
+      font-size: 0.82rem;
+      color: var(--text-main);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+      width: fit-content;
+    }
+
+    .case-title {
+      font-weight: 700;
+      font-size: 1.08rem;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    .case-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    .case-metric {
+      padding: 0.5rem 0.65rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .case-metric strong {
+      display: block;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .case-quote {
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      border-left: 3px solid rgba(245, 192, 107, 0.6);
+      padding-left: 0.75rem;
+    }
+
+    .case-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
     }
 
     .initiative {
@@ -958,9 +1071,9 @@
         display: inline-flex;
       }
 
-      .section {
-        padding-block: 2.2rem;
-      }
+    .section {
+      padding-block: 2.2rem;
+    }
 
       .solutions-grid {
         grid-template-columns: minmax(0, 1fr);
@@ -983,6 +1096,7 @@
         </a>
         <div class="nav-links">
           <a href="#sectors">Best fits</a>
+          <a href="#case-studies">Case studies</a>
           <a href="#money-map">Money map</a>
           <a href="#finance">Financing</a>
           <a href="#delivery">Delivery</a>
@@ -1302,6 +1416,104 @@
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="section" id="case-studies">
+        <div class="section-heading">
+          <div>
+            <h2>Case studies that prove the math.</h2>
+          </div>
+          <p>
+            Demand charge cuts, resilient storage, and faster payback across cold storage, auto, grocery, and data-heavy sites.
+          </p>
+        </div>
+
+        <div class="case-grid">
+          <article class="case-card">
+            <div class="case-photo" style="background-image:url('https://images.unsplash.com/photo-1510520964270-39b2fda3ec1e?auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="case-body">
+              <span class="case-tag">Cold storage | 1.4 MW solar + 2 MWh storage</span>
+              <h3 class="case-title">Demand peaks flattened for a national freezer operator.</h3>
+              <div class="case-metrics">
+                <div class="case-metric">
+                  <strong>38%</strong>
+                  Demand charge reduction year one
+                </div>
+                <div class="case-metric">
+                  <strong>4.2 yr</strong>
+                  modeled payback with ITC + bonus + MACRS
+                </div>
+              </div>
+              <p class="case-quote">“We finally stopped budgeting for surprise peaks. Storage + controls keep the compressors steady.”</p>
+              <a class="case-link" href="case-studies.html#cold-storage">See the full breakdown →</a>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="case-photo" style="background-image:url('https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="case-body">
+              <span class="case-tag">Auto dealer | 820 kW carport + 0.8 MWh storage</span>
+              <h3 class="case-title">EV chargers powered without bill spikes.</h3>
+              <div class="case-metrics">
+                <div class="case-metric">
+                  <strong>$27k/mo</strong>
+                  bill compression vs. pre-project baseline
+                </div>
+                <div class="case-metric">
+                  <strong>day-one</strong>
+                  savings with $0 CapEx PPA
+                </div>
+              </div>
+              <p class="case-quote">“We shade the lot, feed chargers, and customers see the tech at work.”</p>
+              <a class="case-link" href="case-studies.html#auto-dealer">View EV charging case →</a>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="case-photo" style="background-image:url('https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="case-body">
+              <span class="case-tag">Grocery | 540 kW rooftop + controls</span>
+              <h3 class="case-title">Cold aisles protected during outages.</h3>
+              <div class="case-metrics">
+                <div class="case-metric">
+                  <strong>31%</strong>
+                  utility spend reduction with tariff tuning
+                </div>
+                <div class="case-metric">
+                  <strong>3 hours</strong>
+                  refrigeration ride-through from storage
+                </div>
+              </div>
+              <p class="case-quote">“We stopped throwing product away when the grid blips. Customers never notice.”</p>
+              <a class="case-link" href="case-studies.html#grocery">Read grocery safeguards →</a>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="case-photo" style="background-image:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="case-body">
+              <span class="case-tag">Data/AI hub | 1 MW solar + 3 MWh storage</span>
+              <h3 class="case-title">Cooling + UPS-friendly storage for AI racks.</h3>
+              <div class="case-metrics">
+                <div class="case-metric">
+                  <strong>45%</strong>
+                  peak shaving on cooling-driven spikes
+                </div>
+                <div class="case-metric">
+                  <strong>N+1</strong>
+                  storage architecture with controlled switchover
+                </div>
+              </div>
+              <p class="case-quote">“We keep GPUs online through grid noise while lowering the blended kWh rate.”</p>
+              <a class="case-link" href="case-studies.html#data-ai">Explore resilient design →</a>
+            </div>
+          </article>
+        </div>
+
+        <div style="display:flex; gap:0.8rem; flex-wrap:wrap; margin-top:1.1rem;">
+          <a class="btn btn-primary" href="case-studies.html">Open the full case studies page</a>
+          <a class="btn btn-ghost" href="#contact">Book a proposal visit</a>
         </div>
       </section>
 

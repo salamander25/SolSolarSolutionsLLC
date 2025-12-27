@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Case Studies | Sol Solar Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Solar + storage case studies with demand charge reductions, resilient cooling, EV charging coverage, and fast payback across commercial sectors." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
+    :root {
+      --bg: #04060f;
+      --bg-soft: #0a1020;
+      --panel: #111a32;
+      --card-bg: #10182f;
+      --accent: #0ed0a3;
+      --accent-amber: #f5c06b;
+      --accent-royal: #5eb2ff;
+      --text-main: #f6f8ff;
+      --text-muted: #a5b2c9;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+      --transition-fast: 0.18s ease-out;
+      --max-width: 1140px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 18% 10%, rgba(14,208,163,0.18), transparent 30%), radial-gradient(circle at 82% 8%, rgba(94,178,255,0.18), transparent 32%), #05070f;
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: 0.01em;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    img { max-width: 100%; display: block; }
+
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(5, 8, 22, 0.9), rgba(5, 8, 22, 0.7), transparent);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.95rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-brand { display: flex; align-items: center; gap: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.9rem; }
+    .brand-mark { width: 30px; height: 30px; border-radius: 999px; background: radial-gradient(circle at 30% 30%, #f5c06b, #0ed0a3 55%, #050816 92%); box-shadow: 0 0 28px rgba(14, 208, 163, 0.7); }
+    .nav-links { display: flex; gap: 1.2rem; font-size: 0.92rem; color: var(--text-muted); flex-wrap: wrap; }
+    .nav-links a { position: relative; padding-bottom: 0.15rem; }
+    .nav-links a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-amber)); border-radius: 999px; transition: width var(--transition-fast); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta { display: none; }
+
+    main { flex: 1; }
+    .section { max-width: var(--max-width); margin: 0 auto; padding: 3rem 1.25rem; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      align-items: center;
+      gap: 2.2rem;
+      padding-top: 3.2rem;
+    }
+
+    .eyebrow { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.28rem 0.85rem; border-radius: 999px; background: rgba(14, 208, 163, 0.12); border: 1px solid rgba(14, 208, 163, 0.35); color: var(--accent); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 1rem; }
+    .eyebrow-dot { width: 7px; height: 7px; border-radius: 999px; background: var(--accent); box-shadow: 0 0 14px rgba(14, 208, 163, 0.9); }
+    h1 { font-size: clamp(2.5rem, 3vw + 1rem, 3.4rem); line-height: 1.05; margin: 0 0 1rem; letter-spacing: -0.015em; }
+    .hero-sub { font-size: 1rem; color: var(--text-muted); max-width: 34rem; line-height: 1.65; margin-bottom: 1.5rem; }
+
+    .stat-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.6rem; margin-top: 1rem; }
+    .stat-pill { background: linear-gradient(140deg, rgba(14, 208, 163, 0.16), rgba(94, 178, 255, 0.12)); border: 1px solid rgba(14, 208, 163, 0.4); border-radius: 14px; padding: 0.85rem 1rem; font-size: 0.95rem; color: var(--text-main); display: grid; gap: 0.2rem; box-shadow: 0 12px 32px rgba(0,0,0,0.32); }
+    .stat-pill span { color: var(--text-muted); font-size: 0.85rem; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.78rem 1.35rem; font-size: 0.93rem; border-radius: 999px; border: 1px solid transparent; cursor: pointer; background: none; color: inherit; transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast); text-decoration: none; gap: 0.45rem; font-weight: 700; letter-spacing: 0.01em; }
+    .btn-primary { background: linear-gradient(120deg, #0ed0a3, #58f7cf, #f5c06b); color: #050816; box-shadow: 0 14px 34px rgba(14, 208, 163, 0.38); }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 18px 46px rgba(14, 208, 163, 0.5); }
+    .btn-ghost { border-color: rgba(255,255,255,0.16); background: rgba(8, 12, 31, 0.7); color: var(--text-main); }
+    .btn-ghost:hover { border-color: rgba(94,178,255,0.35); box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
+
+    .panel { border-radius: var(--radius-lg); border: 1px solid var(--border-subtle); background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(13, 20, 44, 0.92)); padding: 1.2rem 1.1rem; box-shadow: var(--shadow-soft); }
+
+    .section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; margin-bottom: 1.6rem; flex-wrap: wrap; }
+    .section-heading h2 { margin: 0; font-size: 1.5rem; letter-spacing: -0.01em; position: relative; padding-bottom: 0.35rem; }
+    .section-heading h2::after { content: ""; display: block; width: 60px; height: 3px; margin-top: 0.4rem; background: linear-gradient(120deg, var(--accent), var(--accent-amber)); border-radius: 999px; }
+    .section-heading p { margin: 0; font-size: 0.95rem; color: var(--text-muted); max-width: 32rem; line-height: 1.55; }
+
+    .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+    .case-card { border-radius: var(--radius-md); border: 1px solid var(--border-subtle); background: linear-gradient(140deg, rgba(14, 208, 163, 0.06), rgba(245, 192, 107, 0.06)), rgba(8, 12, 31, 0.92); box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5); overflow: hidden; display: grid; grid-template-rows: auto 1fr; min-height: 100%; }
+    .case-photo { position: relative; height: 200px; background-size: cover; background-position: center; }
+    .case-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(5, 8, 22, 0.78)); }
+    .case-body { padding: 1rem 1.1rem 1.2rem; display: grid; gap: 0.6rem; }
+    .case-tag { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.7rem; border-radius: 999px; background: rgba(14, 208, 163, 0.14); border: 1px solid rgba(14, 208, 163, 0.4); font-size: 0.82rem; color: var(--text-main); box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35); width: fit-content; }
+    .case-title { font-weight: 700; font-size: 1.08rem; margin: 0; letter-spacing: -0.01em; }
+    .case-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.5rem; }
+    .case-metric { padding: 0.55rem 0.65rem; border-radius: 12px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-subtle); font-size: 0.82rem; color: var(--text-muted); }
+    .case-metric strong { display: block; color: var(--text-main); font-size: 0.95rem; margin-bottom: 0.15rem; }
+    .case-quote { font-style: italic; color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; border-left: 3px solid rgba(245, 192, 107, 0.6); padding-left: 0.75rem; }
+    .case-foot { display: flex; justify-content: space-between; align-items: center; gap: 0.6rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-muted); }
+
+    .list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; color: var(--text-muted); font-size: 0.9rem; }
+    .list li { display: flex; align-items: center; gap: 0.45rem; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-amber)); box-shadow: 0 0 12px rgba(14, 208, 163, 0.55); }
+
+    .footer { border-top: 1px solid var(--border-subtle); padding: 1.1rem 1.25rem 1.9rem; font-size: 0.8rem; color: var(--text-muted); }
+    .footer-inner { max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: center; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: minmax(0,1fr); }
+      .nav { padding-inline: 1rem; }
+      .section { padding-inline: 1rem; }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .nav-cta { display: inline-flex; }
+      .section { padding-block: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <nav class="nav">
+        <a href="index.html#top" class="nav-brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <span>Sol Solar Solutions LLC</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html#sectors">Best fits</a>
+          <a href="case-studies.html">Case studies</a>
+          <a href="index.html#finance">Financing</a>
+          <a href="datacenters.html">Data centers</a>
+          <a href="robotics.html">Robotics</a>
+          <a href="media.html">Media</a>
+          <a href="Apply.html">Apply</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+        <a href="https://wa.me/19495915731?text=I%20need%20commercial%20solar%20numbers%20and%20a%20proposal" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Open savings chat</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section hero">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Proof of savings
+          </div>
+          <h1>Case studies: measured demand cuts, uptime, and faster payback.</h1>
+          <p class="hero-sub">See how cold storage, auto, grocery, and AI-heavy sites compress bills, protect operations, and finance projects for day-one savings.</p>
+          <div class="stat-strip">
+            <div class="stat-pill"><strong>30-45%</strong><span>peak shaving on high-load sites</span></div>
+            <div class="stat-pill"><strong>3-6 yr</strong><span>typical payback with ITC + bonus + MACRS</span></div>
+            <div class="stat-pill"><strong>48h</strong><span>proposal turnaround after site walk</span></div>
+            <div class="stat-pill"><strong>$0 CapEx</strong><span>PPA and lease options available</span></div>
+          </div>
+          <div style="margin-top:1.2rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="https://wa.me/19495915731?text=I%20need%20commercial%20solar%20numbers%20and%20a%20proposal" target="_blank" rel="noopener">Start the savings chat</a>
+            <a class="btn btn-ghost" href="#cold-storage">Jump to case details</a>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="section-heading" style="margin-bottom:0.8rem;">
+            <div><h2 style="margin:0;">What we measure</h2></div>
+            <p style="max-width: 22rem;">Every project is modeled for demand cuts, incentive stack, uptime, and financing so the math is transparent.</p>
+          </div>
+          <ul class="list">
+            <li><span class="dot"></span> Tariff-specific demand shaving impact and blended kWh rates.</li>
+            <li><span class="dot"></span> ITC + bonus + MACRS + local rebates applied to each design.</li>
+            <li><span class="dot"></span> Uptime modeling for refrigeration, chargers, and AI cooling.</li>
+            <li><span class="dot"></span> Cash vs. PPA vs. lease/CPACE payback side by side.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="cold-storage">
+        <div class="section-heading">
+          <div>
+            <h2>Cold storage: 1.4 MW solar + 2 MWh storage</h2>
+          </div>
+          <p>Flattened compressor peaks, lower blended kWh cost, and resilient cold chain uptime.</p>
+        </div>
+        <div class="case-grid">
+          <article class="case-card">
+            <div class="case-photo" style="background-image:url('https://images.unsplash.com/photo-1510520964270-39b2fda3ec1e?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="case-body">
+              <span class="case-tag">National freezer operator</span>
+              <h3 class="case-title">Peaks controlled with storage + controls.</h3>
+              <div class="case-metrics">
+                <div class="case-metric"><strong>38%</strong>Demand charge reduction year one</div>
+                <div class="case-metric"><strong>4.2 yrs</strong>Modeled payback with ITC + bonus + MACRS</div>
+                <div class="case-metric"><strong>6.5 hrs</strong>Critical load coverage for compressors</div>
+              </div>
+              <p class="case-quote">“We finally stopped budgeting for surprise peaks. Storage + controls keep the compressors steady.”</p>
+              <div class="case-foot">
+                <span>Scope: rooftop + canopy solar, EMS, 2 MWh LFP storage</span>
+                <a class="btn btn-ghost" href="https://wa.me/19495915731?text=I%20want%20the%20cold%20storage%20case%20study" target="_blank" rel="noopener">Request PDF</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="auto-dealer">
+        <div class="section-heading">
+          <div>
+            <h2>Auto dealer: 820 kW carport + 0.8 MWh storage</h2>
+          </div>
+          <p>EV charging without surprise bills, lot shading, and visible sustainability for customers.</p>
+        </div>
+        <div class="case-grid">
+          <article class="case-card">
+            <div class="case-photo" style="background-image:url('https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="case-body">
+              <span class="case-tag">PPA structure</span>
+              <h3 class="case-title">Day-one savings with chargers fueled on-site.</h3>
+              <div class="case-metrics">
+                <div class="case-metric"><strong>$27k/mo</strong>Bill compression vs. pre-project baseline</div>
+                <div class="case-metric"><strong>0 CapEx</strong>Dealer kept cash while locking a flat rate</div>
+                <div class="case-metric"><strong>85%</strong>Charger sessions powered by solar/storage</div>
+              </div>
+              <p class="case-quote">“We shade the lot, feed chargers, and customers see the tech at work.”</p>
+              <div class="case-foot">
+                <span>Scope: steel carports, integrated EV chargers, EMS, storage</span>
+                <a class="btn btn-ghost" href="https://wa.me/19495915731?text=I%20want%20the%20auto%20dealer%20case%20study" target="_blank" rel="noopener">Request PDF</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="grocery">
+        <div class="section-heading">
+          <div>
+            <h2>Grocery: 540 kW rooftop + controls</h2>
+          </div>
+          <p>Cold aisles stay protected and utility bills drop with tariff-tuned controls.</p>
+        </div>
+        <div class="case-grid">
+          <article class="case-card">
+            <div class="case-photo" style="background-image:url('https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="case-body">
+              <span class="case-tag">Regional grocer</span>
+              <h3 class="case-title">Tariff optimization and ride-through resilience.</h3>
+              <div class="case-metrics">
+                <div class="case-metric"><strong>31%</strong>Utility spend reduction with tariff tuning</div>
+                <div class="case-metric"><strong>3 hrs</strong>Refrigeration ride-through from storage</div>
+                <div class="case-metric"><strong>18 mo</strong>SPIF incentives recovered in first 18 months</div>
+              </div>
+              <p class="case-quote">“We stopped throwing product away when the grid blips. Customers never notice.”</p>
+              <div class="case-foot">
+                <span>Scope: rooftop PV, controls, small storage block, ATS tie-in</span>
+                <a class="btn btn-ghost" href="https://wa.me/19495915731?text=I%20want%20the%20grocery%20case%20study" target="_blank" rel="noopener">Request PDF</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="data-ai">
+        <div class="section-heading">
+          <div>
+            <h2>Data/AI hub: 1 MW solar + 3 MWh storage</h2>
+          </div>
+          <p>Cooling stability, N+1 storage, and UPS-friendly switchover for GPU racks.</p>
+        </div>
+        <div class="case-grid">
+          <article class="case-card">
+            <div class="case-photo" style="background-image:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="case-body">
+              <span class="case-tag">AI/edge facility</span>
+              <h3 class="case-title">Resilient storage keeps cooling and racks online.</h3>
+              <div class="case-metrics">
+                <div class="case-metric"><strong>45%</strong>Peak shaving on cooling-driven spikes</div>
+                <div class="case-metric"><strong>N+1</strong>Storage architecture with controlled switchover</div>
+                <div class="case-metric"><strong>5.1 yrs</strong>Payback modeled with REC revenue</div>
+              </div>
+              <p class="case-quote">“We keep GPUs online through grid noise while lowering the blended kWh rate.”</p>
+              <div class="case-foot">
+                <span>Scope: rooftop PV, canopy PV, 3 MWh storage, UPS coordination</span>
+                <a class="btn btn-ghost" href="https://wa.me/19495915731?text=I%20want%20the%20data%20AI%20case%20study" target="_blank" rel="noopener">Request PDF</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel">
+          <div class="section-heading" style="margin-bottom:0.9rem;">
+            <div><h2 style="margin:0;">Ready for your own numbers?</h2></div>
+            <p style="max-width:26rem;">Share a bill and address to see modeled demand cuts, incentive stack, and financing options in one view.</p>
+          </div>
+          <div style="display:flex; gap:0.7rem; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="https://wa.me/19495915731?text=I%20need%20commercial%20solar%20numbers%20and%20a%20proposal" target="_blank" rel="noopener">Open savings chat</a>
+            <a class="btn btn-ghost" href="index.html#contact">Book a proposal visit</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>© 2024 Sol Solar Solutions LLC. Commercial solar + storage.</div>
+        <div style="display:flex; gap:0.6rem; flex-wrap:wrap;">
+          <a class="btn btn-ghost" style="padding:0.4rem 0.8rem; font-size:0.82rem;" href="https://www.linkedin.com/company/sol-solar-solutions-llc/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-ghost" style="padding:0.4rem 0.8rem; font-size:0.82rem;" href="https://wa.me/19495915731?text=I%20need%20commercial%20solar%20numbers%20and%20a%20proposal" target="_blank" rel="noopener">Savings chat</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
