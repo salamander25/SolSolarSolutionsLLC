@@ -119,6 +119,37 @@
       width: 100%;
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(8, 12, 31, 0.6);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .lang-toggle a {
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: inherit;
+    }
+
+    .lang-toggle a.active {
+      border-color: rgba(14, 208, 163, 0.45);
+      color: var(--text-main);
+      background: rgba(14, 208, 163, 0.14);
+    }
+
     .nav-cta {
       display: none;
     }
@@ -954,6 +985,10 @@
         display: none;
       }
 
+      .lang-toggle {
+        padding: 0.35rem 0.55rem;
+      }
+
       .nav-cta {
         display: inline-flex;
       }
@@ -993,14 +1028,21 @@
           <a href="#chat">Savings chat</a>
           <a href="residential.html">Residential</a>
         </div>
-        <a
-          href="https://wa.me/19495915731?text=I%20need%20commercial%20solar%20numbers%20and%20a%20proposal"
-          class="btn btn-primary nav-cta"
-          target="_blank"
-          rel="noopener"
-        >
-          Open savings chat
-        </a>
+        <div class="nav-actions">
+          <div class="lang-toggle" aria-label="Language toggle">
+            <a href="/index.html" class="active">EN</a>
+            <span aria-hidden="true">/</span>
+            <a href="/es/index.html">ES</a>
+          </div>
+          <a
+            href="https://wa.me/19495915731?text=I%20need%20commercial%20solar%20numbers%20and%20a%20proposal"
+            class="btn btn-primary nav-cta"
+            target="_blank"
+            rel="noopener"
+          >
+            Open savings chat
+          </a>
+        </div>
       </nav>
     </header>
 
