@@ -23,6 +23,7 @@
       --radius-md: 12px;
       --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
       --transition-fast: 0.18s ease-out;
+      --header-height: 82px;
     }
 
     * { box-sizing: border-box; }
@@ -38,21 +39,24 @@
 
     a { color: inherit; text-decoration: none; }
 
-    .page { min-height: 100vh; display: flex; flex-direction: column; }
+    .page { min-height: 100vh; display: flex; flex-direction: column; padding-top: var(--header-height); }
 
-    header { position: sticky; top: 0; z-index: 40; backdrop-filter: blur(16px); background: linear-gradient(to bottom, rgba(5, 8, 22, 0.9), rgba(5, 8, 22, 0.72), transparent); border-bottom: 1px solid var(--border-subtle); }
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 40; backdrop-filter: blur(16px); background: linear-gradient(to bottom, rgba(5, 8, 22, 0.95), rgba(5, 8, 22, 0.88)); border-bottom: 1px solid var(--border-subtle); }
 
-    .nav { max-width: var(--max-width); margin: 0 auto; padding: 0.9rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .nav { max-width: var(--max-width); margin: 0 auto; padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
     .nav-brand { display: flex; align-items: center; gap: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.9rem; }
     .brand-mark { width: 30px; height: 30px; border-radius: 999px; background: radial-gradient(circle at 30% 30%, #f5c06b, #0ed0a3 55%, #050816 92%); box-shadow: 0 0 28px rgba(14, 208, 163, 0.7); }
-    .nav-links { display: flex; gap: 1.4rem; font-size: 0.92rem; color: var(--text-muted); }
-    .nav-links a { position: relative; padding-bottom: 0.15rem; }
-    .nav-links a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-amber)); border-radius: 999px; transition: width var(--transition-fast); }
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links { display: flex; gap: 0.9rem; font-size: 0.92rem; color: var(--text-muted); align-items: stretch; flex-wrap: wrap; }
+    .nav-group { display: flex; align-items: flex-start; gap: 0.65rem; padding: 0.55rem 0.75rem; border-radius: 14px; border: 1px solid var(--border-subtle); background: rgba(255, 255, 255, 0.03); box-shadow: 0 10px 26px rgba(0, 0, 0, 0.3); }
+    .nav-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-main); font-weight: 700; margin-top: 0.06rem; white-space: nowrap; }
+    .nav-group-links { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+    .nav-group a { position: relative; padding-bottom: 0.15rem; }
+    .nav-group a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-amber)); border-radius: 999px; transition: width var(--transition-fast); }
+    .nav-group a:hover::after { width: 100%; }
     .nav-cta { display: none; }
 
     main { flex: 1; }
-    .section { max-width: var(--max-width); margin: 0 auto; padding: 2.8rem 1.25rem; }
+    .section { max-width: var(--max-width); margin: 0 auto; padding: 2.8rem 1.25rem; scroll-margin-top: calc(var(--header-height) + 10px); }
 
     .hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: center; gap: 2.4rem; padding-top: 3rem; padding-bottom: 1.6rem; }
     .eyebrow { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.22rem 0.7rem; border-radius: 999px; background: rgba(14, 208, 163, 0.08); border: 1px solid rgba(14, 208, 163, 0.35); color: var(--accent); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 1rem; }
@@ -120,15 +124,34 @@
           <span>Sol Solar Solutions LLC</span>
         </a>
         <div class="nav-links">
-          <a href="index.html#sectors">Commercial solar</a>
-          <a href="datacenters.html">Data centers</a>
-          <a href="robotics.html">Robotics</a>
-          <a href="residential.html">Residential</a>
-          <a href="media.html">Media</a>
-          <a href="Apply.html">Apply</a>
-          <a href="index.html#contact">Contact</a>
+          <div class="nav-group">
+            <div class="nav-label">Solutions</div>
+            <div class="nav-group-links">
+              <a href="index.html#sectors">Commercial</a>
+              <a href="datacenters.html">Data &amp; AI</a>
+              <a href="#top">Robotics</a>
+              <a href="residential.html">Residential</a>
+            </div>
+          </div>
+          <div class="nav-group">
+            <div class="nav-label">Approach</div>
+            <div class="nav-group-links">
+              <a href="#roi">ROI</a>
+              <a href="#use-cases">Use cases</a>
+              <a href="#quote">Delivery</a>
+              <a href="media.html">Media</a>
+            </div>
+          </div>
+          <div class="nav-group">
+            <div class="nav-label">Engage</div>
+            <div class="nav-group-links">
+              <a href="Apply.html">Apply</a>
+              <a href="#quote">Contact</a>
+              <a href="index.html#chat">Savings chat</a>
+            </div>
+          </div>
         </div>
-        <a href="index.html#contact" class="btn btn-primary nav-cta">Request a briefing</a>
+        <a href="#quote" class="btn btn-primary nav-cta">Request a briefing</a>
       </nav>
     </header>
 

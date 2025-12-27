@@ -23,6 +23,7 @@
       --radius-md: 12px;
       --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
       --transition-fast: 0.18s ease-out;
+      --header-height: 82px;
     }
 
     * {
@@ -52,21 +53,24 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      padding-top: var(--header-height);
     }
 
     header {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 40;
       backdrop-filter: blur(16px);
-      background: linear-gradient(to bottom, rgba(5, 8, 22, 0.9), rgba(5, 8, 22, 0.72), transparent);
+      background: linear-gradient(to bottom, rgba(5, 8, 22, 0.95), rgba(5, 8, 22, 0.88));
       border-bottom: 1px solid var(--border-subtle);
     }
 
     .nav {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0.9rem 1.25rem;
+      padding: 1rem 1.25rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -93,17 +97,47 @@
 
     .nav-links {
       display: flex;
-      gap: 1.4rem;
+      gap: 0.9rem;
       font-size: 0.92rem;
       color: var(--text-muted);
+      align-items: stretch;
+      flex-wrap: wrap;
     }
 
-    .nav-links a {
+    .nav-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.03);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-main);
+      font-weight: 700;
+      margin-top: 0.06rem;
+      white-space: nowrap;
+    }
+
+    .nav-group-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .nav-group a {
       position: relative;
       padding-bottom: 0.15rem;
     }
 
-    .nav-links a::after {
+    .nav-group a::after {
       content: "";
       position: absolute;
       left: 0;
@@ -115,7 +149,7 @@
       transition: width var(--transition-fast);
     }
 
-    .nav-links a:hover::after {
+    .nav-group a:hover::after {
       width: 100%;
     }
 
@@ -131,6 +165,7 @@
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 2.8rem 1.25rem;
+      scroll-margin-top: calc(var(--header-height) + 10px);
     }
 
     .hero {
@@ -982,16 +1017,32 @@
           <span>Sol Solar Solutions LLC</span>
         </a>
         <div class="nav-links">
-          <a href="#sectors">Best fits</a>
-          <a href="#money-map">Money map</a>
-          <a href="#finance">Financing</a>
-          <a href="#delivery">Delivery</a>
-          <a href="datacenters.html">Data centers</a>
-          <a href="robotics.html">Robotics</a>
-          <a href="#apply">Apply</a>
-          <a href="media.html">Media</a>
-          <a href="#chat">Savings chat</a>
-          <a href="residential.html">Residential</a>
+          <div class="nav-group">
+            <div class="nav-label">Solutions</div>
+            <div class="nav-group-links">
+              <a href="#sectors">Commercial</a>
+              <a href="datacenters.html">Data &amp; AI</a>
+              <a href="robotics.html">Robotics</a>
+              <a href="residential.html">Residential</a>
+            </div>
+          </div>
+          <div class="nav-group">
+            <div class="nav-label">Approach</div>
+            <div class="nav-group-links">
+              <a href="#money-map">Money map</a>
+              <a href="#finance">Financing</a>
+              <a href="#delivery">Delivery</a>
+              <a href="media.html">Media</a>
+            </div>
+          </div>
+          <div class="nav-group">
+            <div class="nav-label">Engage</div>
+            <div class="nav-group-links">
+              <a href="Apply.html">Apply</a>
+              <a href="#chat">Savings chat</a>
+              <a href="#contact">Contact</a>
+            </div>
+          </div>
         </div>
         <a
           href="https://wa.me/19495915731?text=I%20need%20commercial%20solar%20numbers%20and%20a%20proposal"

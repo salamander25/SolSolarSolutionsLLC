@@ -25,6 +25,7 @@
       --radius-md: 14px;
       --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.6);
       --transition-fast: 0.18s ease-out;
+      --header-height: 86px;
     }
 
     * { box-sizing: border-box; }
@@ -43,17 +44,20 @@
 
     a { color: inherit; text-decoration: none; }
 
-    .page { min-height: 100vh; display: flex; flex-direction: column; }
+    .page { min-height: 100vh; display: flex; flex-direction: column; padding-top: var(--header-height); }
 
-    header { position: sticky; top: 0; z-index: 40; backdrop-filter: blur(16px); background: linear-gradient(to bottom, rgba(5, 8, 22, 0.9), rgba(5, 8, 22, 0.7), transparent); border-bottom: 1px solid var(--border-subtle); }
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 40; backdrop-filter: blur(16px); background: linear-gradient(to bottom, rgba(5, 8, 22, 0.95), rgba(5, 8, 22, 0.88)); border-bottom: 1px solid var(--border-subtle); }
 
-    .nav { max-width: var(--max-width); margin: 0 auto; padding: 1rem 1.4rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .nav { max-width: var(--max-width); margin: 0 auto; padding: 1.05rem 1.4rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
     .nav-brand { display: flex; align-items: center; gap: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.95rem; }
     .brand-mark { width: 32px; height: 32px; border-radius: 12px; background: linear-gradient(135deg, #26f1c3, #6da8ff); box-shadow: 0 0 28px rgba(38, 241, 195, 0.6); }
-    .nav-links { display: flex; gap: 1.1rem; font-size: 0.93rem; color: var(--text-muted); flex-wrap: wrap; }
-    .nav-links a { position: relative; padding-bottom: 0.15rem; }
-    .nav-links a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-royal)); border-radius: 999px; transition: width var(--transition-fast); }
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links { display: flex; gap: 0.9rem; font-size: 0.93rem; color: var(--text-muted); flex-wrap: wrap; align-items: stretch; }
+    .nav-group { display: flex; align-items: flex-start; gap: 0.65rem; padding: 0.55rem 0.8rem; border-radius: 14px; border: 1px solid var(--border-subtle); background: rgba(255, 255, 255, 0.03); box-shadow: 0 10px 26px rgba(0, 0, 0, 0.32); }
+    .nav-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-main); font-weight: 700; margin-top: 0.06rem; white-space: nowrap; }
+    .nav-group-links { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
+    .nav-group a { position: relative; padding-bottom: 0.15rem; }
+    .nav-group a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-royal)); border-radius: 999px; transition: width var(--transition-fast); }
+    .nav-group a:hover::after { width: 100%; }
     .nav-cta { display: none; }
 
     .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem 1.45rem; font-size: 0.94rem; border-radius: 999px; border: 1px solid transparent; cursor: pointer; background: none; color: inherit; transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast); text-decoration: none; gap: 0.45rem; font-weight: 700; letter-spacing: 0.01em; }
@@ -63,7 +67,7 @@
     .btn-ghost:hover { border-color: rgba(109, 168, 255, 0.4); color: #fff; box-shadow: 0 10px 26px rgba(0,0,0,0.35); }
 
     main { flex: 1; }
-    .section { max-width: var(--max-width); margin: 0 auto; padding: 3.4rem 1.4rem; position: relative; }
+    .section { max-width: var(--max-width); margin: 0 auto; padding: 3.4rem 1.4rem; position: relative; scroll-margin-top: calc(var(--header-height) + 10px); }
     .section:not(.hero)::before {
       content: "";
       position: absolute;
@@ -172,13 +176,32 @@
           <span>Sol Solar Solutions LLC</span>
         </a>
         <div class="nav-links">
-          <a href="index.html#sectors">Commercial solar</a>
-          <a href="datacenters.html">Data centers</a>
-          <a href="robotics.html">Robotics</a>
-          <a href="residential.html">Residential</a>
-          <a href="media.html">Media</a>
-          <a href="Apply.html">Apply</a>
-          <a href="#contact">Contact</a>
+          <div class="nav-group">
+            <div class="nav-label">Solutions</div>
+            <div class="nav-group-links">
+              <a href="index.html#sectors">Commercial</a>
+              <a href="#fits">Data &amp; AI</a>
+              <a href="robotics.html">Robotics</a>
+              <a href="residential.html">Residential</a>
+            </div>
+          </div>
+          <div class="nav-group">
+            <div class="nav-label">Approach</div>
+            <div class="nav-group-links">
+              <a href="#architectures">Architectures</a>
+              <a href="#finance">Financing</a>
+              <a href="#videos">Highlights</a>
+              <a href="media.html">Media</a>
+            </div>
+          </div>
+          <div class="nav-group">
+            <div class="nav-label">Engage</div>
+            <div class="nav-group-links">
+              <a href="Apply.html">Apply</a>
+              <a href="#contact">Contact</a>
+              <a href="index.html#chat">Savings chat</a>
+            </div>
+          </div>
         </div>
         <a href="#contact" class="btn btn-primary nav-cta">Request a briefing</a>
       </nav>
