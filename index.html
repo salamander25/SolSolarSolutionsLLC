@@ -340,6 +340,7 @@
       z-index: 60;
     }
 
+
     .floating-cta .btn-primary {
       padding-inline: 1.1rem;
     }
@@ -349,6 +350,31 @@
       flex-wrap: wrap;
       gap: 1rem;
       align-items: center;
+    }
+
+    .cta-highlight {
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(120deg, rgba(14, 208, 163, 0.16), rgba(94, 242, 255, 0.12));
+      padding: 1.05rem 1.15rem;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-highlight h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .cta-highlight p {
+      margin: 0.2rem 0 0;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
     }
 
     .btn {
@@ -1123,6 +1149,19 @@
         </div>
       </section>
 
+      <section class="section" style="padding-top: 0;">
+        <div class="cta-highlight">
+          <div>
+            <h3>Get a free commercial solar assessment.</h3>
+            <p>Jump to the main lead form to share your bill, address, and load profile.</p>
+          </div>
+          <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+            <a class="btn btn-primary" href="#contact">Get a free assessment</a>
+            <a class="btn btn-ghost" href="#contact">View lead form</a>
+          </div>
+        </div>
+      </section>
+
       <div class="trust-band">
         <div class="trust-inner">
           <div class="trust-title">Engineered for energy-heavy, high-ROI projects.</div>
@@ -1644,6 +1683,19 @@
               By submitting, you agree to be contacted about your project. You can update your preferences at any time.
             </div>
           </form>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 1.4rem;">
+        <div class="cta-highlight">
+          <div>
+            <h3>Ready to capture your solar savings?</h3>
+            <p>Send the quick form below and we’ll reply with modeled savings, incentives, and finance options.</p>
+          </div>
+          <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+            <a class="btn btn-primary" href="#contact">Complete the lead form</a>
+            <a class="btn btn-ghost" href="#chat">Chat instead</a>
+          </div>
         </div>
       </section>
     </main>
