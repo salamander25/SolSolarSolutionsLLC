@@ -1,41 +1,61 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sol Solar Solutions LLC | Utility-Scale Solar, Storage & Smart Integration</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Sol Solar Solutions LLC delivers utility-scale solar, battery storage, and automation with turnkey EPC and controls integration for utilities, IPPs, data centers, and industrial operators." />
+  <title>Sol Solar Solutions LLC | Solar, BESS, Data Centers & Robotics</title>
+  <meta
+    name="description"
+    content="Professional lead funnel for residential and commercial solar, BESS, data center power, and robotics automation projects."
+  />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
     :root {
-      --bg: #04060f;
-      --bg-soft: #0a1020;
-      --panel: #111a32;
-      --card-bg: #10182f;
-      --accent: #0ed0a3;
-      --accent-amber: #f5c06b;
-      --text-main: #f6f8ff;
-      --text-muted: #a5b2c9;
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --max-width: 1140px;
-      --radius-lg: 18px;
-      --radius-md: 12px;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
-      --transition-fast: 0.18s ease-out;
+      --bg: #f3f6fa;
+      --paper: #ffffff;
+      --text: #182431;
+      --muted: #5b6775;
+      --line: #d5dde6;
+      --accent: #0f5f8f;
+      --accent-soft: #e7f0f8;
+      --warm: #1f7c6d;
+      --warm-soft: #eaf5f3;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --shadow-soft: 0 16px 40px rgba(18, 33, 43, 0.08);
+      --max: 1180px;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html,
     body {
       margin: 0;
-      font-family: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
-      background: radial-gradient(circle at 18% 10%, #0f1e38 0, #05070f 45%, #02030a 100%);
-      color: var(--text-main);
-      -webkit-font-smoothing: antialiased;
-      letter-spacing: 0.01em;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Plus Jakarta Sans", "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 14% 10%, #f8fbff 0, transparent 36%),
+        radial-gradient(circle at 86% 15%, #ecf4fb 0, transparent 34%),
+        var(--bg);
+      line-height: 1.5;
+    }
+
+    .ambient {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background-image: linear-gradient(rgba(15, 95, 143, 0.03) 1px, transparent 1px);
+      background-size: 100% 42px;
+      opacity: 0.18;
     }
 
     a {
@@ -43,1101 +63,779 @@
       text-decoration: none;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
+    .topbar {
       position: sticky;
       top: 0;
-      z-index: 40;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(to bottom, rgba(5, 8, 22, 0.9), rgba(5, 8, 22, 0.72), transparent);
-      border-bottom: 1px solid var(--border-subtle);
+      z-index: 10;
+      border-bottom: 1px solid rgba(213, 221, 230, 0.9);
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.9);
     }
 
-    .nav {
-      max-width: var(--max-width);
+    .topbar-inner {
+      max-width: var(--max);
       margin: 0 auto;
-      padding: 0.9rem 1.25rem;
+      padding: 0.9rem 1.2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
     }
 
-    .nav-brand {
+    .brand {
       display: flex;
       align-items: center;
       gap: 0.65rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      font-size: 0.9rem;
+      font-size: 0.82rem;
     }
 
-    .brand-mark {
-      width: 30px;
-      height: 30px;
+    .brand-dot {
+      width: 11px;
+      height: 11px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, #f5c06b, #0ed0a3 55%, #050816 92%);
-      box-shadow: 0 0 28px rgba(14, 208, 163, 0.7);
+      background: linear-gradient(140deg, var(--warm), var(--accent));
+      box-shadow: 0 0 14px rgba(20, 107, 97, 0.45);
     }
 
-    .nav-links {
+    .nav {
       display: flex;
-      gap: 1.4rem;
+      gap: 1.2rem;
+      color: var(--muted);
       font-size: 0.92rem;
-      color: var(--text-muted);
-    }
-
-    .nav-links a {
-      position: relative;
-      padding-bottom: 0.15rem;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-amber));
-      border-radius: 999px;
-      transition: width var(--transition-fast);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .nav-cta {
-      display: none;
-    }
-
-    main {
-      flex: 1;
-    }
-
-    .section {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 2.8rem 1.25rem;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      align-items: center;
-      gap: 2.7rem;
-      padding-top: 3rem;
-      padding-bottom: 1.6rem;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.22rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(14, 208, 163, 0.08);
-      border: 1px solid rgba(14, 208, 163, 0.35);
-      color: var(--accent);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin-bottom: 1rem;
-    }
-
-    .eyebrow-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 14px rgba(14, 208, 163, 0.9);
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 3.8vw + 1rem, 3.5rem);
-      line-height: 1.05;
-      margin: 0 0 1rem;
-      letter-spacing: -0.015em;
-    }
-
-    .hero h1 span.accent {
-      background: linear-gradient(120deg, var(--accent), #58f7cf, #f5c06b);
-      -webkit-background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 34px rgba(88, 247, 207, 0.25);
-    }
-
-    .hero-sub {
-      font-size: 1rem;
-      color: var(--text-muted);
-      max-width: 34rem;
-      line-height: 1.6;
-      margin-bottom: 1.9rem;
-    }
-
-    .hero-meta {
-      display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
     }
 
-    .pill {
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      border: 1px solid var(--border-subtle);
-      background: rgba(9, 12, 28, 0.92);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-    }
-
-    .pill strong {
-      color: var(--text-main);
-      font-weight: 600;
-    }
-
-    .hero-actions {
+    .header-actions {
       display: flex;
+      gap: 0.5rem;
       flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
+      justify-content: flex-end;
     }
 
     .btn {
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 0.68rem 1.1rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.75rem 1.35rem;
-      font-size: 0.92rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      cursor: pointer;
-      background: none;
-      color: inherit;
-      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-      text-decoration: none;
       gap: 0.45rem;
-      font-weight: 600;
-      letter-spacing: 0.01em;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
     }
 
     .btn-primary {
-      background: linear-gradient(120deg, #0aa67e, var(--accent), var(--accent-amber));
-      color: #050816;
-      box-shadow: 0 12px 32px rgba(10, 166, 126, 0.55);
-      border-color: transparent;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 42px rgba(10, 166, 126, 0.7);
+      background: linear-gradient(130deg, var(--accent), #1f887a);
+      color: #fff;
+      box-shadow: 0 9px 20px rgba(20, 107, 97, 0.28);
     }
 
     .btn-ghost {
-      border-color: var(--border-subtle);
-      background: rgba(5, 8, 22, 0.75);
-      color: var(--text-muted);
+      border-color: var(--line);
+      background: #fff;
+      color: var(--text);
     }
 
-    .btn-ghost:hover {
-      background: rgba(14, 19, 46, 0.9);
-      border-color: rgba(94, 242, 255, 0.35);
-      color: var(--text-main);
+    .btn-quick {
+      padding: 0.58rem 0.9rem;
+      font-size: 0.82rem;
     }
 
-    .hero-right {
-      position: relative;
-    }
-
-    .hero-panel {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      background: radial-gradient(circle at 20% 0%, rgba(14, 208, 163, 0.12), transparent 42%), linear-gradient(145deg, #0c1224, #0b1424 40%, #070d1a);
-      padding: 1.2rem 1.25rem;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.8rem;
-      font-size: 0.85rem;
-    }
-
-    .hero-card {
-      border-radius: 14px;
-      padding: 0.9rem 0.95rem;
-      background: rgba(4, 7, 24, 0.96);
-      border: 1px solid var(--border-subtle);
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(94, 242, 255, 0.16), transparent 58%);
-      opacity: 0;
-      transition: opacity var(--transition-fast);
-      pointer-events: none;
-    }
-
-    .hero-card:hover::before {
-      opacity: 1;
-    }
-
-    .hero-card-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .hero-card-title {
-      font-weight: 700;
-    }
-
-    .hero-card-tag {
-      margin-top: 0.1rem;
-      font-size: 0.78rem;
-      color: var(--accent);
-    }
-
-    .hero-card-metric {
-      margin-top: 0.2rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .hero-ribbon {
-      margin-top: 0.85rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-    }
-
-    .hero-ribbon span {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      background: rgba(14, 208, 163, 0.1);
-      color: var(--accent);
-      font-size: 0.9rem;
-    }
-
-    .trust-band {
-      max-width: var(--max-width);
+    main {
+      max-width: var(--max);
       margin: 0 auto;
-      padding: 0 1.25rem 0;
+      padding: 1.3rem 1.2rem 3rem;
     }
 
-    .trust-inner {
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-      border: 1px solid var(--border-subtle);
+    .hero {
+      margin-top: 1.1rem;
+      border: 1px solid var(--line);
       border-radius: var(--radius-lg);
-      background: rgba(8, 12, 31, 0.85);
-      padding: 0.95rem 1.05rem;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.32);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(250, 246, 236, 0.92)),
+        var(--paper);
+      box-shadow: var(--shadow-soft);
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 1.4rem 2rem;
+      overflow: hidden;
+      animation: rise 0.7s ease both;
     }
 
-    .trust-title {
-      font-weight: 700;
-      font-size: 0.98rem;
-      margin-bottom: 0.55rem;
-      color: var(--text-main);
-      letter-spacing: 0.01em;
-    }
-
-    .trust-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-    }
-
-    .trust-badge {
+    .letterhead {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      padding: 0.45rem 0.75rem;
-      border-radius: 12px;
-      border: 1px solid var(--border-subtle);
-      background: rgba(5, 8, 22, 0.85);
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      letter-spacing: 0.01em;
-    }
-
-    .trust-badge strong {
-      color: var(--text-main);
-      font-weight: 700;
-    }
-
-    .badge-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-amber));
-      box-shadow: 0 0 12px rgba(14, 208, 163, 0.55);
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 1rem;
-      margin-bottom: 1.8rem;
-    }
-
-    .section-heading h2 {
-      margin: 0;
-      font-size: 1.5rem;
-    }
-
-    .section-heading p {
-      margin: 0;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      max-width: 30rem;
-      line-height: 1.55;
-    }
-
-    .solutions-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.15rem;
-    }
-
-    .solution-card {
-      border-radius: var(--radius-md);
-      padding: 1.1rem;
-      background: rgba(8, 12, 31, 0.95);
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-      position: relative;
-      overflow: hidden;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-    }
-
-    .solution-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(94, 242, 255, 0.28);
-      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.6);
-    }
-
-    .solution-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, rgba(14, 208, 163, 0.18), rgba(245, 192, 107, 0.18));
-      border: 1px solid var(--border-subtle);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      color: var(--text-main);
-      letter-spacing: 0.04em;
-      font-size: 0.78rem;
-    }
-
-    .solution-title {
-      font-weight: 700;
-      font-size: 1.02rem;
-    }
-
-    .solution-body {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      flex: 1;
-      line-height: 1.55;
-    }
-
-    .solution-meta {
-      font-size: 0.82rem;
-      color: var(--accent);
-      margin-top: 0.1rem;
-    }
-
-    .solution-foot {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 0.7rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .chip {
-      padding: 0.28rem 0.65rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid var(--border-subtle);
-    }
-
-    .initiative {
-      margin-top: 1.6rem;
-      border-radius: var(--radius-lg);
-      padding: 1.25rem 1.15rem;
-      background: radial-gradient(circle at top left, rgba(14, 208, 163, 0.12), #050816 68%);
-      border: 1px solid var(--border-subtle);
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 1.5rem;
-    }
-
-    .initiative-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.3rem 0.75rem;
-      border-radius: 999px;
-      background: rgba(245, 192, 107, 0.14);
-      color: var(--accent-amber);
-      font-size: 0.82rem;
-      letter-spacing: 0.05em;
       text-transform: uppercase;
-      border: 1px solid rgba(245, 192, 107, 0.35);
-    }
-
-    .initiative h3 {
-      margin: 0.75rem 0 0.55rem;
-      font-size: 1.18rem;
-    }
-
-    .initiative p {
-      margin: 0 0 0.85rem;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .initiative-list {
-      margin: 0;
-      padding-left: 1.05rem;
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-    }
-
-    .initiative-list li + li {
-      margin-top: 0.25rem;
-    }
-
-    .initiative-metric {
-      font-size: 0.86rem;
+      letter-spacing: 0.11em;
+      font-size: 0.72rem;
       color: var(--accent);
-      margin-top: 0.5rem;
+      padding: 0.28rem 0.66rem;
+      border-radius: 999px;
+      border: 1px solid rgba(20, 107, 97, 0.3);
+      background: rgba(229, 241, 238, 0.75);
+      margin-bottom: 0.95rem;
+      width: fit-content;
     }
 
-    .initiative-right {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .initiative-tagline {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .initiative-stat {
-      font-size: 1.8rem;
+    .hero h1 {
+      margin: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.45rem);
+      line-height: 1.04;
       font-weight: 700;
+      letter-spacing: 0.01em;
+      max-width: 16ch;
     }
 
-    .initiative-stat span {
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      margin-left: 0.55rem;
+    .hero h1 span {
+      color: var(--accent);
     }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 1.8rem;
+    .hero p {
+      margin: 0.95rem 0 0;
+      color: var(--muted);
+      max-width: 52ch;
     }
 
-    .contact-copy p {
-      margin-top: 0.7rem;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      max-width: 28rem;
-      line-height: 1.6;
+    .hero-actions {
+      margin-top: 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
     }
 
-    form {
-      border-radius: var(--radius-md);
-      padding: 1.1rem 1rem;
-      background: rgba(8, 12, 31, 0.95);
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    .quick-kpis {
+      align-self: center;
       display: grid;
       gap: 0.75rem;
     }
 
-    .field {
+    .kpi {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: #fff;
+      padding: 0.85rem 1rem;
+    }
+
+    .kpi strong {
+      display: block;
+      font-size: 1.25rem;
+      line-height: 1.1;
+      margin-bottom: 0.2rem;
+      color: var(--text);
+    }
+
+    .kpi span {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    section {
+      margin-top: 1.25rem;
+    }
+
+    .section-head {
+      margin-bottom: 0.9rem;
+    }
+
+    .section-head h2 {
+      margin: 0 0 0.35rem;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.7rem, 2.4vw, 2.25rem);
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .tracks {
       display: grid;
-      gap: 0.28rem;
-      font-size: 0.84rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .track-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+      padding: 1.2rem;
+      animation: rise 0.7s ease both;
+    }
+
+    .track-card:nth-child(2) {
+      animation-delay: 0.06s;
+    }
+
+    .track-card h3 {
+      margin: 0.1rem 0 0.45rem;
+      font-size: 1.2rem;
+    }
+
+    .track-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .track-list {
+      margin: 0.9rem 0 1rem;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.45rem;
+      color: #2e3642;
+      font-size: 0.93rem;
+    }
+
+    .track-list li::before {
+      content: "• ";
+      color: var(--accent);
+      font-weight: 700;
+      margin-right: 0.2rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .feature-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: #fff;
+      padding: 1rem;
+      box-shadow: var(--shadow-soft);
+      animation: rise 0.7s ease both;
+    }
+
+    .feature-card:nth-child(2) { animation-delay: 0.04s; }
+    .feature-card:nth-child(3) { animation-delay: 0.08s; }
+    .feature-card:nth-child(4) { animation-delay: 0.12s; }
+    .feature-card:nth-child(5) { animation-delay: 0.16s; }
+    .feature-card:nth-child(6) { animation-delay: 0.2s; }
+
+    .feature-card h3 {
+      margin: 0.05rem 0 0.38rem;
+      font-size: 1.02rem;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .video-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      animation: rise 0.7s ease both;
+    }
+
+    .video-frame {
+      aspect-ratio: 16 / 9;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(140deg, rgba(20, 107, 97, 0.13), rgba(255, 241, 221, 0.9)),
+        #f4efe4;
+      overflow: hidden;
+    }
+
+    .video-embed {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 0;
+      background: #121b23;
+    }
+
+    .video-hint {
+      border-bottom: 1px solid var(--line);
+      padding: 0.55rem 0.95rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: #fffdf9;
+    }
+
+    .video-copy {
+      padding: 0.9rem 1rem 1rem;
+    }
+
+    .video-copy h3 {
+      margin: 0 0 0.25rem;
+      font-size: 1rem;
+    }
+
+    .video-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 1rem;
+    }
+
+    .contact-copy,
+    .contact-form {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+      padding: 1.1rem;
+    }
+
+    .contact-copy h2 {
+      margin: 0 0 0.4rem;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2rem;
+    }
+
+    .contact-copy p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .contact-links {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.58rem;
+    }
+
+    .contact-links a {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.55rem 0.85rem;
+      background: #fff;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .social-links {
+      margin-top: 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .social-links a {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.46rem 0.8rem;
+      background: #fff;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #314252;
+    }
+
+    .field {
+      margin-bottom: 0.7rem;
     }
 
     label {
-      color: var(--text-muted);
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: #3b4656;
     }
 
     input,
     select,
     textarea {
-      font: inherit;
-      padding: 0.55rem 0.65rem;
+      width: 100%;
+      border: 1px solid var(--line);
       border-radius: 10px;
-      border: 1px solid var(--border-subtle);
-      background: rgba(5, 8, 22, 0.95);
-      color: var(--text-main);
-      outline: none;
-      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
-      resize: vertical;
-      min-height: 38px;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: rgba(94, 242, 255, 0.6);
-      box-shadow: 0 0 0 1px rgba(94, 242, 255, 0.35);
-      background: rgba(5, 8, 22, 1);
+      padding: 0.68rem 0.74rem;
+      font: inherit;
+      color: var(--text);
+      background: #fff;
     }
 
     textarea {
-      min-height: 88px;
+      min-height: 90px;
+      resize: vertical;
     }
 
-    .form-footnote {
-      font-size: 0.76rem;
-      color: var(--text-muted);
+    .form-note {
+      margin-top: 0.55rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .status {
+      margin-top: 0.6rem;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.86rem;
+      min-height: 1.2em;
     }
 
     footer {
-      border-top: 1px solid var(--border-subtle);
-      padding: 1.1rem 1.25rem 1.9rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .footer-inner {
-      max-width: var(--max-width);
+      max-width: var(--max);
       margin: 0 auto;
+      padding: 1.2rem;
+      color: #6a7382;
+      font-size: 0.84rem;
       display: flex;
-      justify-content: space-between;
-      gap: 1rem;
       flex-wrap: wrap;
+      gap: 0.6rem 1rem;
+      justify-content: space-between;
       align-items: center;
     }
 
     .footer-social {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.45rem;
       flex-wrap: wrap;
-      align-items: center;
     }
 
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.35rem 0.7rem;
+    .footer-social a {
+      border: 1px solid var(--line);
       border-radius: 999px;
-      border: 1px solid var(--border-subtle);
-      background: rgba(8, 12, 31, 0.6);
-      color: var(--text-main);
+      padding: 0.42rem 0.72rem;
+      background: #fff;
+      font-size: 0.78rem;
+      color: #36495a;
       font-weight: 600;
-      font-size: 0.82rem;
-      letter-spacing: 0.01em;
-      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
     }
 
-    .social-btn:hover {
-      background: rgba(14, 19, 46, 0.9);
-      border-color: rgba(14, 208, 163, 0.35);
-      color: #ffffff;
-    }
-
-    .social-icon {
-      width: 20px;
-      height: 20px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.08);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.7rem;
-    }
-
-    @media (max-width: 900px) {
-      .hero,
-      .contact-grid,
-      .initiative,
-      .solutions-grid {
-        grid-template-columns: minmax(0, 1fr);
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
       }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
+    @media (max-width: 980px) {
       .hero {
-        padding-top: 2.4rem;
+        grid-template-columns: 1fr;
       }
 
-      .hero-right {
-        order: -1;
+      .contact-wrap {
+        grid-template-columns: 1fr;
       }
 
-      .section {
-        padding-inline: 1rem;
+      .features-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
     @media (max-width: 720px) {
-      .nav-links {
-        display: none;
-      }
-
-      .nav-cta {
-        display: inline-flex;
-      }
-
-      .section {
-        padding-block: 2.2rem;
-      }
-
-      .solutions-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .section-heading {
-        flex-direction: column;
+      .topbar-inner {
         align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .tracks,
+      .video-grid,
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        max-width: 100%;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header>
-      <nav class="nav">
-        <a href="#top" class="nav-brand">
-          <div class="brand-mark" aria-hidden="true"></div>
-          <span>Sol Solar Solutions LLC</span>
-        </a>
-        <div class="nav-links">
-          <a href="#solutions">Solutions</a>
-          <a href="#initiative">Data Centers</a>
-          <a href="#automation">Automation</a>
-          <a href="residential.html">Residential</a>
-          <a href="media.html">Media</a>
-          <a href="careers.html">Careers</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <a href="#contact" class="btn btn-primary nav-cta">Request a briefing</a>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#top" class="brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        Sol Solar Solutions LLC
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#tracks">Project Types</a>
+        <a href="#features">Service Focus</a>
+        <a href="#videos">Video Proof</a>
+        <a href="#contact">Start Intake</a>
+        <a href="robotics.html">Robotics</a>
       </nav>
-    </header>
+      <div class="header-actions">
+        <a class="btn btn-primary" href="#contact">Request Consultation</a>
+        <a class="btn btn-ghost btn-quick" href="https://wa.me/19495915731?text=Hi%20Sol%20Solar%20Solutions%2C%20I%20would%20like%20to%20chat%20now." target="_blank" rel="noopener">WhatsApp Now</a>
+        <a class="btn btn-ghost btn-quick" href="tel:+19495915731">Call Now</a>
+      </div>
+    </div>
+  </header>
 
-    <main>
-      <section class="section hero" id="top">
-        <div>
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Solar | Storage | Automation
-          </div>
-          <h1>
-            Utility-scale solar, storage, and automation engineered for resilient growth.
-          </h1>
-          <p class="hero-sub">
-            Sol Solar Solutions LLC delivers grid-connected PV, battery systems, and smart controls with the rigor utilities, IPPs, data centers, and industrial operators expect - built for uptime, safety, and 2030 targets.
-          </p>
-          <div class="hero-meta">
-            <div class="pill">
-              <strong>Utility and industrial</strong>
-              <span>Solar, storage, data centers, automation</span>
-            </div>
-            <div class="pill">
-              <strong>Turnkey delivery</strong>
-              <span>Strategy -> EPC -> controls</span>
-            </div>
-            <div class="pill">
-              <strong>Governed outcomes</strong>
-              <span>Safety, compliance, uptime KPIs</span>
-            </div>
-          </div>
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">
-              Request a briefing
-            </a>
-            <a href="#solutions" class="btn btn-ghost">
-              See our solutions
-            </a>
-            <a href="careers.html" class="btn btn-ghost">
-              We are hiring
-            </a>
-            <a href="residential.html" class="btn btn-ghost">
-              Residential solar
-            </a>
-          </div>
-        </div>
-
-        <div class="hero-right">
-          <div class="hero-panel">
-            <div class="hero-grid">
-              <div class="hero-card">
-                <div class="hero-card-label">Utility-scale solar</div>
-                <div class="hero-card-title">Grid-connected PV + hybrid</div>
-                <div class="hero-card-tag">20-300+ MW programs</div>
-                <div class="hero-card-metric">Tracker and fixed-tilt, SCADA-ready.</div>
-              </div>
-              <div class="hero-card">
-                <div class="hero-card-label">Battery systems (BESS)</div>
-                <div class="hero-card-title">Utility-grade storage</div>
-                <div class="hero-card-tag">1-200+ MWh</div>
-                <div class="hero-card-metric">
-                  Safety-first design with controls integration.
-                </div>
-              </div>
-              <div class="hero-card">
-                <div class="hero-card-label">Data centers</div>
-                <div class="hero-card-title">2030-ready power roadmaps</div>
-                <div class="hero-card-tag">Solar + storage + grid</div>
-                <div class="hero-card-metric">Resilient, low-carbon infrastructure.</div>
-              </div>
-              <div class="hero-card">
-                <div class="hero-card-label">Automation and controls</div>
-                <div class="hero-card-title">Industrial and O&M robotics</div>
-                <div class="hero-card-tag">Plants, logistics, OT/IT</div>
-                <div class="hero-card-metric">
-                  PLC and SCADA integration with field systems.
-                </div>
-              </div>
-            </div>
-            <div class="hero-ribbon">
-              <span>*</span>
-              Single partner for engineering, procurement, construction, and controls integration.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="trust-band">
-        <div class="trust-inner">
-          <div class="trust-title">Trusted for governed delivery and safety-first execution.</div>
-          <div class="trust-badges">
-            <span class="trust-badge"><span class="badge-dot"></span><strong>Utility-scale EPC</strong> programs</span>
-            <span class="trust-badge"><span class="badge-dot"></span><strong>SCADA & controls</strong> alignment</span>
-            <span class="trust-badge"><span class="badge-dot"></span><strong>NABCEP-trained</strong> leadership</span>
-            <span class="trust-badge"><span class="badge-dot"></span><strong>UL/ETL-listed</strong> components</span>
-            <span class="trust-badge"><span class="badge-dot"></span><strong>OSHA-focused</strong> safety plans</span>
-            <span class="trust-badge"><span class="badge-dot"></span><strong>Bonded & insured</strong> projects</span>
-          </div>
+  <main>
+    <section class="hero" id="top">
+      <div>
+        <div class="letterhead">Integrated Energy + Automation</div>
+        <h1><span>Solar, BESS, Data Centers, and Robotics</span> delivered by one team.</h1>
+        <p>
+          A direct project intake page for homeowners, commercial operators, and infrastructure teams.
+          Share your scope and get qualified next steps quickly.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Start Project Intake</a>
+          <a class="btn btn-ghost" href="residential.html">Residential Solutions</a>
+          <a class="btn btn-ghost" href="media.html">Project Media</a>
         </div>
       </div>
+      <div class="quick-kpis">
+        <div class="kpi">
+          <strong>24h</strong>
+          <span>target response window for qualified inquiries</span>
+        </div>
+        <div class="kpi">
+          <strong>Residential + Commercial</strong>
+          <span>coverage from homes to enterprise facilities</span>
+        </div>
+        <div class="kpi">
+          <strong>4 Core Verticals</strong>
+          <span>Solar, BESS, data center power, and robotics automation</span>
+        </div>
+      </div>
+    </section>
 
-      <section class="section" id="solutions">
-        <div class="section-heading">
-          <div>
-            <h2>Modular solutions built for scale and uptime.</h2>
+    <section id="tracks">
+      <div class="section-head">
+        <h2>Lead Funnel: Choose Project Type</h2>
+        <p>Select your scope and move directly into qualification and scheduling.</p>
+      </div>
+      <div class="tracks">
+        <article class="track-card">
+          <div class="letterhead">Residential Solutions</div>
+          <h3>Home Improvement</h3>
+          <p>Residential solar, battery backup, and smart controls built around real energy usage.</p>
+          <ul class="track-list">
+            <li>Bill-based solar sizing and panel layout</li>
+            <li>BESS planning for outage resilience</li>
+            <li>Smart home integration and monitoring</li>
+            <li>Clear timeline from survey to install</li>
+          </ul>
+          <a class="btn btn-primary" href="#contact">Get Home Proposal</a>
+        </article>
+
+        <article class="track-card">
+          <div class="letterhead">Commercial + Infrastructure</div>
+          <h3>Business Improvement</h3>
+          <p>Commercial solar, BESS, data center power planning, and robotics integration for higher uptime.</p>
+          <ul class="track-list">
+            <li>Solar + BESS strategy for facilities</li>
+            <li>Data center resiliency and load planning</li>
+            <li>Robotics workflow integration and safety planning</li>
+            <li>Deployment roadmap with ROI checkpoints</li>
+          </ul>
+          <a class="btn btn-primary" href="#contact">Get Business Proposal</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="section-head">
+        <h2>Core Service Focus</h2>
+        <p>Designed as a clean conversion funnel from initial inquiry to scoped project.</p>
+      </div>
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="letterhead">Service Area</div>
+          <h3>Solar Engineering & Delivery</h3>
+          <p>Site sizing, equipment planning, and execution for residential and commercial assets.</p>
+        </article>
+        <article class="feature-card">
+          <div class="letterhead">Service Area</div>
+          <h3>BESS Architecture</h3>
+          <p>Battery design and integration for outage support, demand management, and resilience.</p>
+        </article>
+        <article class="feature-card">
+          <div class="letterhead">Service Area</div>
+          <h3>Data Center Power Strategy</h3>
+          <p>Energy planning for critical loads, scaling requirements, and operational continuity.</p>
+        </article>
+        <article class="feature-card">
+          <div class="letterhead">Service Area</div>
+          <h3>Robotics & Automation</h3>
+          <p>Workflow automation and field robotics integration aligned with safety and performance targets.</p>
+        </article>
+        <article class="feature-card">
+          <div class="letterhead">Delivery Model</div>
+          <h3>Project Governance</h3>
+          <p>Structured milestones, reporting cadence, and clear handoffs from scoping through commissioning.</p>
+        </article>
+        <article class="feature-card">
+          <div class="letterhead">Lead Funnel</div>
+          <h3>Fast Qualification</h3>
+          <p>Simple intake form with direct WhatsApp and email routes to reduce delay.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="videos">
+      <div class="section-head">
+        <h2>Video Proof (2 Embedded Slots)</h2>
+        <p>Use these two embeds for Sora videos that support residential and commercial conversion.</p>
+      </div>
+      <div class="video-grid">
+        <article class="video-card">
+          <div class="video-frame">
+            <iframe
+              class="video-embed"
+              src="https://www.youtube.com/embed/REPLACE_WITH_SORA2_HOME_VIDEO_ID"
+              title="Sora 2 Home Improvement Video"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
           </div>
+          <div class="video-hint">
+            Slot 01 embed: replace iframe <code>src</code> with your YouTube or Vimeo URL.
+          </div>
+          <div class="video-copy">
+            <h3>Residential Transformation Reel</h3>
+            <p>Use this slot for before/after residential solar and BESS outcomes.</p>
+          </div>
+        </article>
+
+        <article class="video-card">
+          <div class="video-frame">
+            <iframe
+              class="video-embed"
+              src="https://www.youtube.com/embed/REPLACE_WITH_SORA2_BUSINESS_VIDEO_ID"
+              title="Sora 2 Business Robotics Video"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="video-hint">
+            Slot 02 embed: replace iframe <code>src</code> with your YouTube or Vimeo URL.
+          </div>
+          <div class="video-copy">
+            <h3>Commercial & Data Center Reel</h3>
+            <p>Use this slot for BESS, data center power, and robotics deployment visuals.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-wrap">
+        <article class="contact-copy">
+          <div class="letterhead">Project Intake</div>
+          <h2>Start Your Project Intake</h2>
           <p>
-            One aligned team to plan, engineer, and deliver your solar, storage, data center power, and automation programs with disciplined governance.
+            Share project details in under a minute. We will follow up with qualification steps
+            and scheduling options.
           </p>
-        </div>
-
-        <div class="solutions-grid">
-          <article class="solution-card">
-            <div class="solution-icon">PV</div>
-            <div class="solution-title">Utility-scale solar</div>
-            <div class="solution-body">
-              Feasibility, interconnection, engineering, procurement, construction, and O&M for grid-connected PV and hybrid plants.
-            </div>
-            <div class="solution-meta">
-              Tracker or fixed-tilt; SCADA and performance monitoring aligned.
-            </div>
-            <div class="solution-foot">
-              <span class="chip">Utilities and IPPs</span>
-              <span>20-300+ MW</span>
-            </div>
-          </article>
-
-          <article class="solution-card">
-            <div class="solution-icon">C&I</div>
-            <div class="solution-title">Commercial and industrial solar</div>
-            <div class="solution-body">
-              Rooftop, carport, and ground-mount systems for manufacturing, logistics, and campus operators.
-            </div>
-            <div class="solution-meta">
-              Tariff modeling, load shaping, turnkey deployment.
-            </div>
-            <div class="solution-foot">
-              <span class="chip">Industrial campuses</span>
-              <span>500 kW - 20 MW</span>
-            </div>
-          </article>
-
-          <article class="solution-card">
-            <div class="solution-icon">RES</div>
-            <div class="solution-title">Residential solar & backup</div>
-            <div class="solution-body">
-              Rooftop solar with battery backup and EV charging integration for homeowners who want resilience and lower bills.
-            </div>
-            <div class="solution-meta">
-              Design → permits → install; monitoring and support included.
-            </div>
-            <div class="solution-foot">
-              <span class="chip">Homes</span>
-              <span>5 - 20 kW + storage</span>
-            </div>
-          </article>
-
-          <article class="solution-card">
-            <div class="solution-icon">BESS</div>
-            <div class="solution-title">Battery and storage systems</div>
-            <div class="solution-body">
-              Peak-shaving, backup power, and renewables-plus-storage plants with utility-grade battery systems.
-            </div>
-            <div class="solution-meta">
-              Containerized or hybrid; layered safety and controls.
-            </div>
-            <div class="solution-foot">
-              <span class="chip">Utility and C&I</span>
-              <span>1-200+ MWh</span>
-            </div>
-          </article>
-
-          <article class="solution-card">
-            <div class="solution-icon">DC</div>
-            <div class="solution-title">Data center power</div>
-            <div class="solution-body">
-              Power architecture, resiliency, on-site solar and storage, and PPA strategy aligned to 2030 targets.
-            </div>
-            <div class="solution-meta">
-              Tier-aligned redundancy and phased retrofits.
-            </div>
-            <div class="solution-foot">
-              <span class="chip">Hyperscale and edge</span>
-              <span>2030-ready paths</span>
-            </div>
-          </article>
-
-          <article class="solution-card" id="automation">
-            <div class="solution-icon">AUTO</div>
-            <div class="solution-title">Automation and robotics</div>
-            <div class="solution-body">
-              Robotics and control systems for solar O&M, plants, warehouses, and energy assets integrated with your OT and IT stack.
-            </div>
-            <div class="solution-meta">
-              PLCs, SCADA, robotic cells, autonomous inspection.
-            </div>
-            <div class="solution-foot">
-              <span class="chip">Automation engineering</span>
-              <span>Pilot to scale</span>
-            </div>
-          </article>
-
-          <article class="solution-card">
-            <div class="solution-icon">EPC</div>
-            <div class="solution-title">Full-stack integration and EPC</div>
-            <div class="solution-body">
-              One accountable team to engineer, procure, construct, and automate your energy and infrastructure stack.
-            </div>
-            <div class="solution-meta">
-              Governed delivery with clear performance KPIs.
-            </div>
-            <div class="solution-foot">
-              <span class="chip">EPC and integration</span>
-              <span>Design to commissioning</span>
-            </div>
-          </article>
-        </div>
-
-        <div class="initiative" id="initiative">
-          <div>
-            <div class="initiative-badge">
-              2030 Data Center Readiness
-            </div>
-            <h3>Clean-powered data centers aligned to your 2030 targets.</h3>
-            <p>
-              We map power architecture, resiliency, and carbon pathways to meet uptime SLAs while reducing emissions.
-            </p>
-            <ul class="initiative-list">
-              <li>Discovery, load, and uptime modeling.</li>
-              <li>On-site utility-scale solar and battery integration.</li>
-              <li>Redundancy, backup, and automation architecture.</li>
-              <li>Phased retrofit and migration plans for existing sites.</li>
-            </ul>
-            <div class="initiative-metric">
-              Align reliability and emissions outcomes with a governed roadmap.
-            </div>
+          <div class="contact-links">
+            <a href="https://wa.me/19495915731?text=Hi%20Sol%20Solar%20Solutions%2C%20I%20want%20a%20project%20quote." target="_blank" rel="noopener">WhatsApp Intake</a>
+            <a href="tel:+19495915731">Call +1 (949) 591-5731</a>
+            <a href="mailto:solsolarsolutions@icloud.com">Email Intake</a>
+            <a href="robotics.html">Robotics Details</a>
+            <a href="careers.html">Careers</a>
           </div>
-          <div class="initiative-right">
-            <div class="initiative-tagline">
-              Start with a discovery session to benchmark your footprint, load profile, and 2030 objectives.
-            </div>
-            <div>
-              <div class="initiative-stat">
-                2030
-                <span>net-zero and growth-ready power planning</span>
-              </div>
-              <a href="#contact" class="btn btn-primary" style="margin-top: 0.9rem;">
-                Schedule a discovery call
-              </a>
-            </div>
+          <div class="social-links" aria-label="Social media">
+            <a href="https://www.linkedin.com/in/solsolarsolutionsllc" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.youtube.com/@SolSolarSolutionsLLC" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://www.facebook.com/salvador.castillo" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/solsolarsolutions21" target="_blank" rel="noopener">Instagram</a>
           </div>
-        </div>
-      </section>
+        </article>
 
-      <section class="section" id="contact">
-        <div class="contact-grid">
-          <div class="contact-copy">
-            <h2>Tell us about your project.</h2>
-            <p>
-              Share your site details, target capacity, timeline, and priorities. Whether utility-scale solar, storage, data center power, or automation, we will respond with a structured next step.
-            </p>
-            <div style="margin-top: 0.9rem; font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">
-              Typical clients:
-              <br />
-              utilities, IPPs, C&I portfolios, data center operators, industrial and logistics leaders.
-            </div>
-            <div style="margin-top: 0.9rem; display: flex; gap: 0.7rem; flex-wrap: wrap;">
-              <a class="btn btn-primary" href="https://wa.me/19495915731?text=Hi%20Sol%20Solar%20Solutions%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener">
-                WhatsApp: instant response
-              </a>
-              <a class="btn btn-ghost" href="careers.html">
-                We are hiring
-              </a>
-            </div>
+        <form id="lead-form" class="contact-form">
+          <div class="field">
+            <label for="lead-name">Name</label>
+            <input id="lead-name" name="name" type="text" placeholder="Your name" required />
           </div>
-          <form>
-            <div class="field">
-              <label for="name">Name*</label>
-              <input id="name" name="name" type="text" placeholder="Jane Doe" required />
-            </div>
-            <div class="field">
-              <label for="company">Company*</label>
-              <input
-                id="company"
-                name="company"
-                type="text"
-                placeholder="Your company"
-                required
-              />
-            </div>
-            <div class="field">
-              <label for="email">Work email*</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="you@company.com"
-                required
-              />
-            </div>
-            <div class="field">
-              <label for="solution">Primary interest*</label>
-              <select id="solution" name="solution" required>
-                <option value="">Select an option</option>
-                <option>Utility-scale solar</option>
-                <option>Commercial and industrial solar</option>
-                <option>Battery and storage (BESS)</option>
-                <option>Data centers (2030 roadmap)</option>
-                <option>Automation and controls</option>
-                <option>Multiple / full-stack integration</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="message">Project details</label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Site locations, approximate size (MW/MWh), target go-live date, and any key constraints."
-              ></textarea>
-            </div>
-            <div class="field">
-              <label for="bill">Recent electric bill (PDF/JPG/PNG, optional)</label>
-              <input id="bill" name="bill" type="file" accept=".pdf,.png,.jpg,.jpeg" />
-              <div class="form-footnote">
-                For faster sizing, upload your latest bill. If upload is unavailable in your browser, email it to solsolarsolutions@icloud.com.
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary">
-              Submit inquiry
-            </button>
-            <div class="form-footnote">
-              By submitting, you agree to be contacted about your project. You can update your preferences at any time.
-            </div>
-          </form>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="footer-inner">
-        <div>© <span id="year"></span> Sol Solar Solutions LLC. All rights reserved.</div>
-        <div class="footer-social">
-          <a class="social-btn" href="https://www.linkedin.com/in/solsolarsolutionsllc" target="_blank" rel="noopener">
-            <span class="social-icon">in</span> LinkedIn
-          </a>
-          <a class="social-btn" href="https://www.youtube.com/@SolSolarSolutionsLLC" target="_blank" rel="noopener">
-            <span class="social-icon">YT</span> YouTube
-          </a>
-          <a class="social-btn" href="https://www.facebook.com/salvador.castillo" target="_blank" rel="noopener">
-            <span class="social-icon">f</span> Facebook
-          </a>
-          <a class="social-btn" href="https://www.instagram.com/solsolarsolutions21" target="_blank" rel="noopener">
-            <span class="social-icon">ig</span> Instagram
-          </a>
-          <a class="social-btn" href="mailto:solsolarsolutions@icloud.com">
-            <span class="social-icon">@</span> Email
-          </a>
-          <a class="social-btn" href="https://wa.me/19495915731?text=Hi%20Sol%20Solar%20Solutions%2C%20I%27d%20like%20to%20connect" target="_blank" rel="noopener">
-            <span class="social-icon">WA</span> WhatsApp
-          </a>
-        </div>
-        <div>Solar | Storage | Data Centers | Automation & Controls</div>
+          <div class="field">
+            <label for="lead-contact">Phone or Email</label>
+            <input id="lead-contact" name="contact" type="text" placeholder="Best contact method" required />
+          </div>
+          <div class="field">
+            <label for="lead-type">Project Type</label>
+            <select id="lead-type" name="type">
+              <option>Residential solar + battery</option>
+              <option>Commercial solar + BESS</option>
+              <option>Data center power strategy</option>
+              <option>Robotics + automation</option>
+              <option>Integrated full scope</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="lead-message">Quick Project Notes</label>
+            <textarea id="lead-message" name="message" placeholder="Location, timeline, load profile, budget range, and project goals."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Intake via WhatsApp</button>
+          <div class="form-note">No account setup required. This opens a prefilled intake message.</div>
+          <div id="form-status" class="status" aria-live="polite"></div>
+        </form>
       </div>
-    </footer>
-  </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>&copy; <span id="year"></span> Sol Solar Solutions LLC</div>
+    <div class="footer-social" aria-label="Footer social links">
+      <a href="https://wa.me/19495915731?text=Hi%20Sol%20Solar%20Solutions%2C%20I%20would%20like%20to%20chat%20now." target="_blank" rel="noopener">WhatsApp</a>
+      <a href="tel:+19495915731">Call</a>
+      <a href="https://www.linkedin.com/in/solsolarsolutionsllc" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.youtube.com/@SolSolarSolutionsLLC" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.facebook.com/salvador.castillo" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/solsolarsolutions21" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <div>Solar | BESS | Data Centers | Robotics | Automation</div>
+  </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.getElementById("lead-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      var name = document.getElementById("lead-name").value.trim();
+      var contact = document.getElementById("lead-contact").value.trim();
+      var type = document.getElementById("lead-type").value;
+      var message = document.getElementById("lead-message").value.trim();
+      var status = document.getElementById("form-status");
+
+      var text =
+        "New Project Intake - Sol Solar Solutions" +
+        "\nName: " + name +
+        "\nContact: " + contact +
+        "\nProject: " + type +
+        (message ? "\nNotes: " + message : "");
+
+      var url = "https://wa.me/19495915731?text=" + encodeURIComponent(text);
+      window.open(url, "_blank", "noopener");
+      status.textContent = "Project intake message opened in WhatsApp.";
+    });
   </script>
 </body>
 </html>
-
-
-
 
