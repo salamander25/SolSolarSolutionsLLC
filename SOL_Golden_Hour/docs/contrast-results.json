@@ -1,0 +1,106 @@
+[
+  {
+    "check": "Golden body",
+    "foreground": "#f6f2e8",
+    "background": "#10120f",
+    "ratio": 16.84,
+    "target": 4.5,
+    "pass_": true
+  },
+  {
+    "check": "Golden muted on raised",
+    "foreground": "#b7b9ad",
+    "background": "#20241d",
+    "ratio": 7.93,
+    "target": 4.5,
+    "pass_": true
+  },
+  {
+    "check": "Golden gold on raised",
+    "foreground": "#eac778",
+    "background": "#20241d",
+    "ratio": 9.72,
+    "target": 4.5,
+    "pass_": true
+  },
+  {
+    "check": "CTA dark on gold",
+    "foreground": "#10120f",
+    "background": "#eac778",
+    "ratio": 11.6,
+    "target": 4.5,
+    "pass_": true
+  },
+  {
+    "check": "Daybreak body",
+    "foreground": "#173e30",
+    "background": "#f5f1e7",
+    "ratio": 10.53,
+    "target": 4.5,
+    "pass_": true
+  },
+  {
+    "check": "Daybreak muted on raised",
+    "foreground": "#4b5b4d",
+    "background": "#e8e6d8",
+    "ratio": 5.77,
+    "target": 4.5,
+    "pass_": true
+  },
+  {
+    "check": "Daybreak gold on raised",
+    "foreground": "#73541b",
+    "background": "#e8e6d8",
+    "ratio": 5.56,
+    "target": 4.5,
+    "pass_": true
+  },
+  {
+    "check": "Command muted on raised",
+    "foreground": "#b5c3cb",
+    "background": "#1c2c39",
+    "ratio": 7.92,
+    "target": 4.5,
+    "pass_": true
+  },
+  {
+    "check": "Input border Golden",
+    "foreground": "#747969",
+    "background": "#10120f",
+    "ratio": 4.2,
+    "target": 3,
+    "pass_": true
+  },
+  {
+    "check": "Input border Daybreak",
+    "foreground": "#747969",
+    "background": "#f5f1e7",
+    "ratio": 3.98,
+    "target": 3,
+    "pass_": true
+  },
+  {
+    "check": "Input border Command",
+    "foreground": "#747969",
+    "background": "#101820",
+    "ratio": 3.99,
+    "target": 3,
+    "pass_": true
+  },
+  {
+    "check": "Golden focus on raised",
+    "foreground": "#eac778",
+    "background": "#20241d",
+    "ratio": 9.72,
+    "target": 3,
+    "pass_": true
+  },
+  {
+    "check": "Daybreak focus on raised",
+    "foreground": "#73541b",
+    "background": "#e8e6d8",
+    "ratio": 5.56,
+    "target": 3,
+    "pass_": true
+  }
+]

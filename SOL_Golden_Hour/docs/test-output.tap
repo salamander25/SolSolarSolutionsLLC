@@ -1,0 +1,45 @@
+✔ Residential solar: valid product-specific inquiry (13.637766ms)
+✔ Commercial solar: valid product-specific inquiry (0.345753ms)
+✔ Battery storage: valid product-specific inquiry (1.040513ms)
+✔ Commercial robotics: valid product-specific inquiry (0.259201ms)
+✔ Utility-scale solar: valid product-specific inquiry (0.243037ms)
+✔ AI / data-center infrastructure: valid product-specific inquiry (0.228706ms)
+✔ Reject invalid email (0.419634ms)
+✔ Reject phone required for phone response (0.181384ms)
+✔ Reject phone and email-only preference conflict (0.196657ms)
+✔ Reject phone and email-only hours conflict (0.432634ms)
+✔ Reject unknown solution (0.136777ms)
+✔ Reject invalid product category (0.136346ms)
+✔ Reject cross-lane questions (0.091719ms)
+✔ Reject untrusted owner injection (0.123657ms)
+✔ Reject untrusted tenant injection (0.184919ms)
+✔ Reject request consent missing (0.207153ms)
+✔ Reject string boolean rejected (0.174494ms)
+✔ Reject SMS not authorized (0.232681ms)
+✔ Reject invalid consent version (0.241114ms)
+✔ Reject invalid timezone (0.272091ms)
+✔ Reject person-hours evidence cannot be forged (0.106411ms)
+✔ Reject overlong context (0.085179ms)
+✔ Reject unknown attribution / PII rejected (0.189126ms)
+✔ Reject honeypot (0.121223ms)
+✔ Reject contradictory calling window (0.165571ms)
+✔ Unknown timezone accepted without inventing one (0.087443ms)
+✔ Specific person hours and IANA timezone survive commit (3.206427ms)
+✔ One durable record for repeated submission, including restart (1.678488ms)
+✔ Same idempotency key with different payload returns conflict (1.495851ms)
+✔ Commit failure rolls back inquiry and outbox; no receipt (1.110849ms)
+✔ Notification failure retains one saved record and supports retry (1.436842ms)
+✔ Suppression, ownership, tenant and campaign hold cannot be lifted by inquiry (1.17106ms)
+✔ Database rate limit blocks burst and permits next window (2.167366ms)
+✔ HTTP server enforces origin, CSRF, JSON, limits; browser contract commits first (80.111162ms)
+✔ Disabled capture never emits a receipt (6.545835ms)
+✔ All six static pages have unique source content, H1 and noindex (0.597143ms)
+✔ Public preview contains no guessed backend, fake success timer or unapproved inbox (0.33105ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 194.719948

@@ -1,0 +1,72 @@
+[
+  {
+    "asset": "SOL light motif / wordmark treatment",
+    "source_url": "Original project CSS and favicon source",
+    "publisher": "SOL Golden Hour project",
+    "permission_basis": "Original commissioned project work",
+    "planned_usage": "Decorative hero and brand proposal",
+    "attribution": "None required; not physical hardware or project evidence",
+    "verified": "2026-09-12",
+    "status": "Built; owner design approval pending"
+  },
+  {
+    "asset": "solar-roof.webp",
+    "source_url": "https://unsplash.com/photos/solar-panels-on-a-roof-omfN1pW-n2Y",
+    "publisher": "Soren H / Unsplash",
+    "permission_basis": "Free image; https://unsplash.com/license verified",
+    "planned_usage": "Illustrative architecture / solar photo in Daybreak and infrastructure section",
+    "attribution": "Illustrative stock photograph · Soren H / Unsplash. Not a Sol project.",
+    "verified": "2026-09-12",
+    "status": "Source and license reviewed; 1400 × 933 WebP; final art approval pending"
+  },
+  {
+    "asset": "GT3 official page",
+    "source_url": "https://www.pudurobotics.com/en/products/pudu-gt3",
+    "publisher": "PUDU Robotics",
+    "permission_basis": "External link to first-party product evidence",
+    "planned_usage": "Verify mower product category and direct publisher fallback",
+    "attribution": "PUDU GT3 · official product page",
+    "verified": "2026-09-12",
+    "status": "Page reviewed; commercial authorization/territory not established"
+  },
+  {
+    "asset": "CC1 Pro official page",
+    "source_url": "https://www.pudurobotics.com/en/products/cc1-pro",
+    "publisher": "PUDU Robotics",
+    "permission_basis": "External link to first-party product evidence",
+    "planned_usage": "Verify cleaning product name/category",
+    "attribution": "PUDU CC1 Pro · official product page",
+    "verified": "2026-09-12",
+    "status": "Page reviewed; commercial terms require supplier confirmation"
+  },
+  {
+    "asset": "GT3 manufacturer video candidate",
+    "source_url": "https://cdn.pudutech.com/GT_3_EN_4775061562.mp4",
+    "publisher": "PUDU via official GT3 page source",
+    "permission_basis": "Manufacturer-hosted first-party source; public usage permission pending",
+    "planned_usage": "Click-to-load preview-only native player; no copied media file",
+    "attribution": "PUDU · Manufacturer footage; not a Sol demonstration",
+    "verified": "2026-09-12",
+    "status": "Actual browser playback: duration 31s; readyState 4; currentTime >19s. Captions/transcript and publication rights unverified"
+  },
+  {
+    "asset": "YouTube first-look candidate",
+    "source_url": "https://www.youtube.com/watch?v=qom-3RPdrEE",
+    "publisher": "Unverified",
+    "permission_basis": "Not established",
+    "planned_usage": "None",
+    "attribution": "None; not used",
+    "verified": "2026-09-12",
+    "status": "Fetch and oEmbed failed; not embedded"
+  },
+  {
+    "asset": "Company overview",
+    "source_url": "docs/OVERVIEW_STORYBOARD.md",
+    "publisher": "Original project script",
+    "permission_basis": "Original script; final footage and soundtrack not selected",
+    "planned_usage": "Optional future 40-second video",
+    "attribution": "Final footage credits to be approved",
+    "verified": "2026-09-12",
+    "status": "Script and shot list only; no rendered video"
+  }
+]
