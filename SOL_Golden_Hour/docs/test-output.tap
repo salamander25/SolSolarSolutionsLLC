@@ -1,45 +1,232 @@
-✔ Residential solar: valid product-specific inquiry (13.637766ms)
-✔ Commercial solar: valid product-specific inquiry (0.345753ms)
-✔ Battery storage: valid product-specific inquiry (1.040513ms)
-✔ Commercial robotics: valid product-specific inquiry (0.259201ms)
-✔ Utility-scale solar: valid product-specific inquiry (0.243037ms)
-✔ AI / data-center infrastructure: valid product-specific inquiry (0.228706ms)
-✔ Reject invalid email (0.419634ms)
-✔ Reject phone required for phone response (0.181384ms)
-✔ Reject phone and email-only preference conflict (0.196657ms)
-✔ Reject phone and email-only hours conflict (0.432634ms)
-✔ Reject unknown solution (0.136777ms)
-✔ Reject invalid product category (0.136346ms)
-✔ Reject cross-lane questions (0.091719ms)
-✔ Reject untrusted owner injection (0.123657ms)
-✔ Reject untrusted tenant injection (0.184919ms)
-✔ Reject request consent missing (0.207153ms)
-✔ Reject string boolean rejected (0.174494ms)
-✔ Reject SMS not authorized (0.232681ms)
-✔ Reject invalid consent version (0.241114ms)
-✔ Reject invalid timezone (0.272091ms)
-✔ Reject person-hours evidence cannot be forged (0.106411ms)
-✔ Reject overlong context (0.085179ms)
-✔ Reject unknown attribution / PII rejected (0.189126ms)
-✔ Reject honeypot (0.121223ms)
-✔ Reject contradictory calling window (0.165571ms)
-✔ Unknown timezone accepted without inventing one (0.087443ms)
-✔ Specific person hours and IANA timezone survive commit (3.206427ms)
-✔ One durable record for repeated submission, including restart (1.678488ms)
-✔ Same idempotency key with different payload returns conflict (1.495851ms)
-✔ Commit failure rolls back inquiry and outbox; no receipt (1.110849ms)
-✔ Notification failure retains one saved record and supports retry (1.436842ms)
-✔ Suppression, ownership, tenant and campaign hold cannot be lifted by inquiry (1.17106ms)
-✔ Database rate limit blocks burst and permits next window (2.167366ms)
-✔ HTTP server enforces origin, CSRF, JSON, limits; browser contract commits first (80.111162ms)
-✔ Disabled capture never emits a receipt (6.545835ms)
-✔ All six static pages have unique source content, H1 and noindex (0.597143ms)
-✔ Public preview contains no guessed backend, fake success timer or unapproved inbox (0.33105ms)
-ℹ tests 37
-ℹ suites 0
-ℹ pass 37
-ℹ fail 0
-ℹ cancelled 0
-ℹ skipped 0
-ℹ todo 0
-ℹ duration_ms 194.719948
+TAP version 13
+# Subtest: Residential solar: valid product-specific inquiry
+ok 1 - Residential solar: valid product-specific inquiry
+  ---
+  duration_ms: 15.004199
+  type: 'test'
+  ...
+# Subtest: Commercial solar: valid product-specific inquiry
+ok 2 - Commercial solar: valid product-specific inquiry
+  ---
+  duration_ms: 0.435629
+  type: 'test'
+  ...
+# Subtest: Battery storage: valid product-specific inquiry
+ok 3 - Battery storage: valid product-specific inquiry
+  ---
+  duration_ms: 0.549701
+  type: 'test'
+  ...
+# Subtest: Commercial robotics: valid product-specific inquiry
+ok 4 - Commercial robotics: valid product-specific inquiry
+  ---
+  duration_ms: 1.209428
+  type: 'test'
+  ...
+# Subtest: Utility-scale solar: valid product-specific inquiry
+ok 5 - Utility-scale solar: valid product-specific inquiry
+  ---
+  duration_ms: 0.281205
+  type: 'test'
+  ...
+# Subtest: AI / data-center infrastructure: valid product-specific inquiry
+ok 6 - AI / data-center infrastructure: valid product-specific inquiry
+  ---
+  duration_ms: 0.222106
+  type: 'test'
+  ...
+# Subtest: Reject invalid email
+ok 7 - Reject invalid email
+  ---
+  duration_ms: 0.37043
+  type: 'test'
+  ...
+# Subtest: Reject phone required for phone response
+ok 8 - Reject phone required for phone response
+  ---
+  duration_ms: 0.180243
+  type: 'test'
+  ...
+# Subtest: Reject phone and email-only preference conflict
+ok 9 - Reject phone and email-only preference conflict
+  ---
+  duration_ms: 0.262958
+  type: 'test'
+  ...
+# Subtest: Reject phone and email-only hours conflict
+ok 10 - Reject phone and email-only hours conflict
+  ---
+  duration_ms: 0.441969
+  type: 'test'
+  ...
+# Subtest: Reject unknown solution
+ok 11 - Reject unknown solution
+  ---
+  duration_ms: 0.160302
+  type: 'test'
+  ...
+# Subtest: Reject invalid product category
+ok 12 - Reject invalid product category
+  ---
+  duration_ms: 0.213974
+  type: 'test'
+  ...
+# Subtest: Reject cross-lane questions
+ok 13 - Reject cross-lane questions
+  ---
+  duration_ms: 0.100592
+  type: 'test'
+  ...
+# Subtest: Reject untrusted owner injection
+ok 14 - Reject untrusted owner injection
+  ---
+  duration_ms: 0.106971
+  type: 'test'
+  ...
+# Subtest: Reject untrusted tenant injection
+ok 15 - Reject untrusted tenant injection
+  ---
+  duration_ms: 0.141224
+  type: 'test'
+  ...
+# Subtest: Reject request consent missing
+ok 16 - Reject request consent missing
+  ---
+  duration_ms: 0.207794
+  type: 'test'
+  ...
+# Subtest: Reject string boolean rejected
+ok 17 - Reject string boolean rejected
+  ---
+  duration_ms: 0.170808
+  type: 'test'
+  ...
+# Subtest: Reject SMS not authorized
+ok 18 - Reject SMS not authorized
+  ---
+  duration_ms: 0.206882
+  type: 'test'
+  ...
+# Subtest: Reject invalid consent version
+ok 19 - Reject invalid consent version
+  ---
+  duration_ms: 0.180042
+  type: 'test'
+  ...
+# Subtest: Reject invalid timezone
+ok 20 - Reject invalid timezone
+  ---
+  duration_ms: 0.212922
+  type: 'test'
+  ...
+# Subtest: Reject person-hours evidence cannot be forged
+ok 21 - Reject person-hours evidence cannot be forged
+  ---
+  duration_ms: 0.091097
+  type: 'test'
+  ...
+# Subtest: Reject overlong context
+ok 22 - Reject overlong context
+  ---
+  duration_ms: 0.077938
+  type: 'test'
+  ...
+# Subtest: Reject unknown attribution / PII rejected
+ok 23 - Reject unknown attribution / PII rejected
+  ---
+  duration_ms: 0.189667
+  type: 'test'
+  ...
+# Subtest: Reject honeypot
+ok 24 - Reject honeypot
+  ---
+  duration_ms: 0.07917
+  type: 'test'
+  ...
+# Subtest: Reject contradictory calling window
+ok 25 - Reject contradictory calling window
+  ---
+  duration_ms: 0.158991
+  type: 'test'
+  ...
+# Subtest: Unknown timezone accepted without inventing one
+ok 26 - Unknown timezone accepted without inventing one
+  ---
+  duration_ms: 0.126311
+  type: 'test'
+  ...
+# Subtest: Specific person hours and IANA timezone survive commit
+ok 27 - Specific person hours and IANA timezone survive commit
+  ---
+  duration_ms: 3.666975
+  type: 'test'
+  ...
+# Subtest: One durable record for repeated submission, including restart
+ok 28 - One durable record for repeated submission, including restart
+  ---
+  duration_ms: 1.95063
+  type: 'test'
+  ...
+# Subtest: Same idempotency key with different payload returns conflict
+ok 29 - Same idempotency key with different payload returns conflict
+  ---
+  duration_ms: 1.683836
+  type: 'test'
+  ...
+# Subtest: Commit failure rolls back inquiry and outbox; no receipt
+ok 30 - Commit failure rolls back inquiry and outbox; no receipt
+  ---
+  duration_ms: 1.166915
+  type: 'test'
+  ...
+# Subtest: Notification failure retains one saved record and supports retry
+ok 31 - Notification failure retains one saved record and supports retry
+  ---
+  duration_ms: 2.050321
+  type: 'test'
+  ...
+# Subtest: Suppression, ownership, tenant and campaign hold cannot be lifted by inquiry
+ok 32 - Suppression, ownership, tenant and campaign hold cannot be lifted by inquiry
+  ---
+  duration_ms: 1.265143
+  type: 'test'
+  ...
+# Subtest: Database rate limit blocks burst and permits next window
+ok 33 - Database rate limit blocks burst and permits next window
+  ---
+  duration_ms: 1.419517
+  type: 'test'
+  ...
+# Subtest: HTTP server enforces origin, CSRF, JSON, limits; browser contract commits first
+ok 34 - HTTP server enforces origin, CSRF, JSON, limits; browser contract commits first
+  ---
+  duration_ms: 94.684789
+  type: 'test'
+  ...
+# Subtest: Disabled capture never emits a receipt
+ok 35 - Disabled capture never emits a receipt
+  ---
+  duration_ms: 6.735425
+  type: 'test'
+  ...
+# Subtest: All six static pages have unique source content, H1 and noindex
+ok 36 - All six static pages have unique source content, H1 and noindex
+  ---
+  duration_ms: 0.570994
+  type: 'test'
+  ...
+# Subtest: Public preview contains no guessed backend, fake success timer or unapproved inbox
+ok 37 - Public preview contains no guessed backend, fake success timer or unapproved inbox
+  ---
+  duration_ms: 0.402108
+  type: 'test'
+  ...
+1..37
+# tests 37
+# suites 0
+# pass 37
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 232.213824

@@ -1,0 +1,5 @@
+{
+  "html_pages": 14,
+  "missing_internal_targets": [],
+  "method": "Static root-relative href/src target check; no network assumptions"
+}
