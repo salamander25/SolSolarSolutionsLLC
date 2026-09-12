@@ -1,0 +1,28 @@
+{
+  "buildCommand": "node SOL_Golden_Hour/build.mjs",
+  "installCommand": "node --version",
+  "outputDirectory": "SOL_Golden_Hour/public",
+  "trailingSlash": true,
+  "headers": [{"source":"/(.*)","headers":[
+    {"key":"X-Robots-Tag","value":"noindex, nofollow, noarchive"},
+    {"key":"X-Content-Type-Options","value":"nosniff"},
+    {"key":"Referrer-Policy","value":"strict-origin-when-cross-origin"},
+    {"key":"Permissions-Policy","value":"camera=(), microphone=(), geolocation=()"},
+    {"key":"Content-Security-Policy","value":"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src https://cdn.pudutech.com; connect-src 'self'; frame-src 'self'; frame-ancestors 'self'; base-uri 'none'; object-src 'none'; form-action 'self'"}
+  ]}],
+  "redirects": [
+    {"source":"/residential.html","destination":"/residential-solar/","permanent":false},
+    {"source":"/commercial.html","destination":"/commercial-solar/","permanent":false},
+    {"source":"/bess.html","destination":"/battery-storage/","permanent":false},
+    {"source":"/robotics.html","destination":"/robotics/","permanent":false},
+    {"source":"/datacenters.html","destination":"/data-center-infrastructure/","permanent":false},
+    {"source":"/data-offerings.html","destination":"/data-center-infrastructure/","permanent":false},
+    {"source":"/lead.html","destination":"/fit/","permanent":false},
+    {"source":"/illinois-review.html","destination":"https://sol-solar-solutions-llc.vercel.app/illinois-review.html","permanent":false},
+    {"source":"/careers.html","destination":"https://sol-solar-solutions-llc.vercel.app/careers.html","permanent":false},
+    {"source":"/Apply.html","destination":"https://sol-solar-solutions-llc.vercel.app/Apply.html","permanent":false},
+    {"source":"/testimonials.html","destination":"https://sol-solar-solutions-llc.vercel.app/testimonials.html","permanent":false},
+    {"source":"/media.html","destination":"https://sol-solar-solutions-llc.vercel.app/media.html","permanent":false},
+    {"source":"/es/:path*","destination":"https://sol-solar-solutions-llc.vercel.app/es/:path*","permanent":false}
+  ]
+}

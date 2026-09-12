@@ -1,0 +1,12 @@
+{
+  "name": "sol-golden-hour",
+  "version": "1.0.0-preview",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node backend/server.mjs",
+    "test": "node --test tests/*.test.mjs"
+  }
+}
