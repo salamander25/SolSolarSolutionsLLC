@@ -1,0 +1,9 @@
+{
+  "build.mjs": "d533c68f107c0cc5c16fa6710c1eddd739b7acbccdfc31fa4a028a11ed410e7b",
+  "content.mjs": "6eaf0ad69be714135bc07d90851538a1959b0e7c54f2b82c4d9efd918d5762e0",
+  "public/assets/app.js": "1f65ac006fec1e1fd6105503ebf0e567ede706fc6bcc1e58974b7bc93ef9e413",
+  "public/assets/site.css": "5271a0ba820188351979a73ae2c8f6bf55bf8b252b47a2185de88734a68617c2",
+  "backend/capture.mjs": "eebc874197b6dc837386c4754b99ace299395b79bda60f7b4bd110c948243f9e",
+  "backend/server.mjs": "cb834ce0fcfcdf8c816ccc0dbbc883e4c0fb4d952131ea382006156a8efc0a4e",
+  "tests/capture.test.mjs": "704d13bf50d0afa943a799ff80c8df580fbfd394f43a79c3b1ead9ceb4bfdc45"
+}

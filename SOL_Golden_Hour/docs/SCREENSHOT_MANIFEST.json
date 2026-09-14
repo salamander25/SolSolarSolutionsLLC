@@ -1,0 +1,134 @@
+[
+  {
+    "file": "screenshots/SOL_Command_desktop.jpg",
+    "captured_date": "2026-09-12",
+    "dimensions": [
+      1348,
+      850
+    ],
+    "type": "Actual cloud Chrome screenshot",
+    "note": "Desktop or responsive iframe preview; not physical-device testing",
+    "sha256": "9e3b682db74b7ab8d02464c3632dfc3ea2d31a598210a477d828cb6f56b2566d"
+  },
+  {
+    "file": "screenshots/SOL_Command_mobile_320.jpg",
+    "captured_date": "2026-09-12",
+    "dimensions": [
+      320,
+      850
+    ],
+    "type": "Actual cloud Chrome screenshot",
+    "note": "Desktop or responsive iframe preview; not physical-device testing",
+    "sha256": "e8bb131ee7d9c1d6e76f66ef6ad01b342bf85629cf96da354f8a1d7787e67297"
+  },
+  {
+    "file": "screenshots/SOL_Command_mobile_390.jpg",
+    "captured_date": "2026-09-12",
+    "dimensions": [
+      390,
+      850
+    ],
+    "type": "Actual cloud Chrome screenshot",
+    "note": "Desktop or responsive iframe preview; not physical-device testing",
+    "sha256": "ad77a2cf38838a37f55200b3a333eee7d75addcec951ba52a7b439c19640e815"
+  },
+  {
+    "file": "screenshots/SOL_Daybreak_desktop.jpg",
+    "captured_date": "2026-09-12",
+    "dimensions": [
+      1348,
+      850
+    ],
+    "type": "Actual cloud Chrome screenshot",
+    "note": "Desktop or responsive iframe preview; not physical-device testing",
+    "sha256": "a30062d54c136e130d9dd2c444cc5b1a04622a5a19611b8b925c5caacff95cf4"
+  },
+  {
+    "file": "screenshots/SOL_Daybreak_mobile_320.jpg",
+    "captured_date": "2026-09-12",
+    "dimensions": [
+      320,
+      850
+    ],
+    "type": "Actual cloud Chrome screenshot",
+    "note": "Desktop or responsive iframe preview; not physical-device testing",
+    "sha256": "14b16a8a63654bfd0d7cf6bced11c88e6176cbc44c4e034fe2abe0995399e1eb"
+  },
+  {
+    "file": "screenshots/SOL_Daybreak_mobile_390.jpg",
+    "captured_date": "2026-09-12",
+    "dimensions": [
+      390,
+      850
+    ],
+    "type": "Actual cloud Chrome screenshot",
+    "note": "Desktop or responsive iframe preview; not physical-device testing",
+    "sha256": "2ec7fbd53fd9d786f63fffc98c06a60ec5d98f6bf1dca5b154e62aa5cd8403f6"
+  },
+  {
+    "file": "screenshots/SOL_Golden_Hour_availability.jpg",
+    "captured_date": "2026-09-12",
+    "dimensions": [
+      676,
+      930
+    ],
+    "type": "Actual cloud Chrome screenshot",
+    "note": "Synthetic form values only",
+    "sha256": "688d2165429a47355f10a381ce0c8f2c15aa0dc6c4309c8283bc7d39e7ed4166"
+  },
+  {
+    "file": "screenshots/SOL_Golden_Hour_desktop.jpg",
+    "captured_date": "2026-09-12",
+    "dimensions": [
+      1348,
+      850
+    ],
+    "type": "Actual cloud Chrome screenshot",
+    "note": "Desktop or responsive iframe preview; not physical-device testing",
+    "sha256": "8e60727dcf7076565d42993f42951260acfb5be9cf74f370a4dc5b00ac08ce21"
+  },
+  {
+    "file": "screenshots/SOL_Golden_Hour_image_failure.jpg",
+    "captured_date": "2026-09-12",
+    "dimensions": [
+      850,
+      430
+    ],
+    "type": "Actual cloud Chrome screenshot",
+    "note": "Desktop or responsive iframe preview; not physical-device testing",
+    "sha256": "c89fce0a99b48f9eb1e364e3755bdeb562ef3dcfda71f57d3f9440f94e0ffc21"
+  },
+  {
+    "file": "screenshots/SOL_Golden_Hour_local_confirmation.jpg",
+    "captured_date": "2026-09-12",
+    "dimensions": [
+      676,
+      540
+    ],
+    "type": "Actual cloud Chrome screenshot",
+    "note": "Synthetic form values only",
+    "sha256": "4fa9e4a86f4b417dc9abbf55f55f30324f0aeea4d9f1295bb37122a4dea4b6de"
+  },
+  {
+    "file": "screenshots/SOL_Golden_Hour_mobile_320.jpg",
+    "captured_date": "2026-09-12",
+    "dimensions": [
+      320,
+      850
+    ],
+    "type": "Actual cloud Chrome screenshot",
+    "note": "Desktop or responsive iframe preview; not physical-device testing",
+    "sha256": "c554ae355a74dd47af78f00501ad66789410785d8cc945a6923f9ac4b3bff8b9"
+  },
+  {
+    "file": "screenshots/SOL_Golden_Hour_mobile_390.jpg",
+    "captured_date": "2026-09-12",
+    "dimensions": [
+      390,
+      850
+    ],
+    "type": "Actual cloud Chrome screenshot",
+    "note": "Desktop or responsive iframe preview; not physical-device testing",
+    "sha256": "5cf0d54a00aa0f532f5fe7d1bab8adfb9d9af654024dca268da1b003aabf1849"
+  }
+]

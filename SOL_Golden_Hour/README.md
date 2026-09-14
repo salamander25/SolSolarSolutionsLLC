@@ -49,7 +49,7 @@ node build-offline.mjs
 | `tests/capture.test.mjs` | Reproducible security and durable-capture tests |
 | `preview.vercel.json` | Preview-only configuration; do not copy blindly to production |
 | `docs/` | Specification, audit, research, lead contract, growth plan, storyboard and release evidence |
-| `screenshots/` | Actual browser screenshots, not design renders |
+| `screenshots/` | Actual desktop/mobile, availability, confirmation and image-failure browser screenshots |
 
 ## Production is deliberately gated
 

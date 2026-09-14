@@ -1,5 +1,23 @@
 {
-  "html_pages": 14,
+  "html_pages": 15,
   "missing_internal_targets": [],
-  "method": "Static root-relative href/src target check; no network assumptions"
+  "method": "Static root-relative href/src target check; intentional dynamically selected missing image belongs only to QA fixture",
+  "assets": {
+    "index.html": {
+      "raw_bytes": 12384,
+      "gzip_bytes": 3966
+    },
+    "assets/site.css": {
+      "raw_bytes": 18537,
+      "gzip_bytes": 4895
+    },
+    "assets/app.js": {
+      "raw_bytes": 14234,
+      "gzip_bytes": 5476
+    },
+    "assets/solar-roof.webp": {
+      "raw_bytes": 137880,
+      "gzip_bytes": 137765
+    }
+  }
 }
