@@ -27,4 +27,6 @@ body.command{--bg:#101820;--surface:#15212c;--raised:#1c2c39;--ink:#eef3f3;--mut
 .project-shortcuts a{display:flex;align-items:center;min-height:48px;padding:10px 12px;border:1px solid var(--line);font-size:14px;color:var(--ink);text-decoration:none}
 .project-shortcuts a:hover{background:var(--raised)}
 .gallery-tile .btn{margin-top:16px}
+.hero-inner{padding-block:48px;min-height:0}
+.hero-copy h1{font-size:clamp(2.4rem,5.4vw,5rem);max-width:14ch;line-height:1.04}
 @media(max-width:960px){.hero-art{height:150px}.light-orbit{width:125px}.art-label{display:none}.hero-copy h1{max-width:100%}.gallery h1{font-size:clamp(2.3rem,10vw,4rem)}}
